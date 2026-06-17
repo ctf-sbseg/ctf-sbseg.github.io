@@ -456,6 +456,25 @@
   }
   .partner b{color:var(--ink);}
 
+  /* apoio destaque */
+  .apoio{
+    margin:34px auto 0;max-width:560px;
+    display:flex;flex-direction:column;align-items:center;gap:16px;
+    padding:30px 28px;border:1px solid var(--hairline-strong);border-radius:var(--r);
+    background:linear-gradient(180deg,#fff,var(--panel));
+  }
+  .apoio__label{
+    font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:10px;
+  }
+  .apoio__label::before,.apoio__label::after{content:"";height:1px;width:24px;background:var(--hairline-strong);}
+  .apoio__logo{display:inline-flex;text-decoration:none;}
+  .cert-logo{display:block;height:46px;width:auto;}
+  .apoio__desc{margin:0;text-align:center;color:var(--slate);font-size:0.96rem;max-width:440px;}
+  .apoio__desc b{color:var(--ink);}
+  .foot-cert{margin-top:14px;}
+  .foot-cert .cert-logo{height:30px;}
+
   /* footer */
   footer{border-top:1px solid var(--hairline);background:var(--panel);}
   .foot{
@@ -766,6 +785,13 @@
     </div>
     <a class="btn btn--primary reveal" href="https://sbseg.sbc.org.br" target="_blank" rel="noopener" data-i18n="inscricao.cta">Acompanhar o SBSeg 2026 →</a>
     <p class="note reveal" data-i18n="inscricao.note">Operação do CTF conduzida pelo CERT.br · backend e leaderboard ao vivo por conta da organização.</p>
+    <div class="apoio reveal">
+      <span class="apoio__label" data-i18n="apoio.label">Apoio oficial</span>
+      <a class="apoio__logo" href="https://cert.br" target="_blank" rel="noopener" aria-label="CERT.br">
+        <img class="cert-logo" src="imgs/logo_certbr.png" width="347" height="145" alt="CERT.br" />
+      </a>
+      <p class="apoio__desc" data-i18n-html="apoio.desc">O <b>CERT.br</b> apoia o CTF do SBSeg 2026 conduzindo toda a infraestrutura: backend, plataforma de submissão e leaderboard ao vivo ficam por conta da organização.</p>
+    </div>
     <div class="partners reveal" data-i18n-attr="aria-label:inscricao.partnersLabel" aria-label="Apoio e patrocínio">
       <span class="partner" data-i18n-html="partner.apoio"><b>Apoio:</b> CERT.br</span>
       <span class="partner" data-i18n-html="partner.realiza"><b>Realização:</b> SBSeg / SBC</span>
@@ -834,6 +860,9 @@
       <a href="https://ctf.first.org" target="_blank" rel="noopener">ctf.first.org</a>
       <a href="https://cert.br" target="_blank" rel="noopener">cert.br</a>
       <a href="https://sbseg.sbc.org.br" target="_blank" rel="noopener">SBSeg / SBC</a>
+      <a class="foot-cert" href="https://cert.br" target="_blank" rel="noopener" aria-label="CERT.br">
+        <img class="cert-logo" src="imgs/logo_certbr.png" width="347" height="145" alt="CERT.br" />
+      </a>
     </div>
     <div class="col">
       <h4 data-i18n="foot.patro">Patrocínio</h4>
@@ -907,6 +936,7 @@
         "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"As inscrições abrem em breve, com valor simbólico. Reúna seu time de 1 a 4 pessoas e fique de olho na divulgação oficial do SBSeg 2026 para a data de abertura. Os vencedores levam kits de hardware; a premiação está em confirmação com patrocinadores.",
         "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.note":"Operação do CTF conduzida pelo CERT.br · backend e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio e patrocínio",
         "partner.apoio":"<b>Apoio:</b> CERT.br","partner.realiza":"<b>Realização:</b> SBSeg / SBC","partner.patro":"Patrocínio: <b>sua marca aqui</b>",
+        "apoio.label":"Apoio oficial","apoio.desc":"O <b>CERT.br</b> apoia o CTF do SBSeg 2026 conduzindo toda a infraestrutura: backend, plataforma de submissão e leaderboard ao vivo ficam por conta da organização.",
         "form.eyebrow":"Contato","form.h2":"Fale com a organização","form.lead":"Dúvidas sobre o CTF, patrocínio ou inscrição da equipe? Envie uma mensagem e a organização responde.",
         "form.name":"Nome","form.email":"E-mail","form.team":"Equipe ou instituição","form.message":"Mensagem","form.submit":"Enviar mensagem","form.sending":"Enviando...",
         "form.success":"Mensagem enviada. Em breve a organização responde.","form.error":"Não foi possível enviar agora. Tente novamente ou escreva direto para a organização.","form.validation":"Preencha nome, e-mail e mensagem para enviar.",
@@ -965,6 +995,7 @@
         "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"Las inscripciones abren muy pronto, con valor simbólico. Reúne tu equipo de 1 a 4 personas y sigue la divulgación oficial del SBSeg 2026 para la fecha de apertura. Los ganadores se llevan kits de hardware; la premiación está por confirmar con patrocinadores.",
         "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.note":"Operación del CTF conducida por el CERT.br · backend y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo y patrocinio",
         "partner.apoio":"<b>Apoyo:</b> CERT.br","partner.realiza":"<b>Realización:</b> SBSeg / SBC","partner.patro":"Patrocinio: <b>tu marca aquí</b>",
+        "apoio.label":"Apoyo oficial","apoio.desc":"El <b>CERT.br</b> apoya el CTF del SBSeg 2026 conduciendo toda la infraestructura: backend, plataforma de envío y leaderboard en vivo corren por cuenta de la organización.",
         "form.eyebrow":"Contacto","form.h2":"Habla con la organización","form.lead":"¿Dudas sobre el CTF, patrocinio o inscripción del equipo? Envía un mensaje y la organización responde.",
         "form.name":"Nombre","form.email":"Correo","form.team":"Equipo o institución","form.message":"Mensaje","form.submit":"Enviar mensaje","form.sending":"Enviando...",
         "form.success":"Mensaje enviado. La organización responderá pronto.","form.error":"No se pudo enviar ahora. Inténtalo de nuevo o escribe directamente a la organización.","form.validation":"Completa nombre, correo y mensaje para enviar.",
@@ -1023,6 +1054,7 @@
         "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"Registration opens soon, with a symbolic fee. Gather your team of 1 to 4 people and keep an eye on the official SBSeg 2026 announcement for the opening date. Winners take home hardware kits; the prizes are being confirmed with sponsors.",
         "inscricao.cta":"Follow SBSeg 2026 →","inscricao.note":"CTF operation run by CERT.br · backend and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support and sponsorship",
         "partner.apoio":"<b>Support:</b> CERT.br","partner.realiza":"<b>Hosted by:</b> SBSeg / SBC","partner.patro":"Sponsorship: <b>your brand here</b>",
+        "apoio.label":"Official support","apoio.desc":"<b>CERT.br</b> supports the SBSeg 2026 CTF by running the entire infrastructure: backend, submission platform and live leaderboard are all handled by the organization.",
         "form.eyebrow":"Contact","form.h2":"Talk to the organization","form.lead":"Questions about the CTF, sponsorship or team registration? Send a message and the organization will reply.",
         "form.name":"Name","form.email":"Email","form.team":"Team or institution","form.message":"Message","form.submit":"Send message","form.sending":"Sending...",
         "form.success":"Message sent. The organization will reply soon.","form.error":"Could not send right now. Please try again or write directly to the organization.","form.validation":"Fill in name, email and message to send.",
