@@ -1,3 +1,15 @@
+# OS-generated files (macOS / Windows / Linux)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
 # Prerequisites
 *.d
 
