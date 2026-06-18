@@ -369,6 +369,28 @@
   .evi h3{font-size:1.18rem;}
   .evi p{color:var(--slate);font-size:0.96rem;}
 
+  /* coordination cards */
+  .coords{justify-items:center;}
+  .coord{
+    background:#fff;border:1px solid var(--hairline);border-radius:var(--r);
+    padding:30px 24px;width:100%;
+    display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .coord:hover{transform:translateY(-3px);box-shadow:0 24px 44px -36px rgba(10,17,36,.4);border-color:var(--hairline-strong);}
+  @media (prefers-reduced-motion: reduce){.coord:hover{transform:none;}}
+  .coord__photo{
+    width:108px;height:108px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--paper);box-shadow:0 0 0 1px var(--hairline-strong);margin-bottom:12px;
+  }
+  .coord__name{font-size:1.12rem;margin:0;}
+  .coord__org{margin:0;color:var(--slate);font-size:0.92rem;}
+  .coord__role{
+    margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:0.66rem;letter-spacing:0.07em;
+    text-transform:uppercase;color:var(--blue-text);background:var(--blue-wash);
+    padding:4px 11px;border-radius:999px;
+  }
+
   /* FIRST split */
   .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;}
   @media (max-width:880px){.split{grid-template-columns:1fr;}}
@@ -487,6 +509,9 @@
   .foot .col p, .foot .col a{display:block;color:#33405e;text-decoration:none;font-size:0.94rem;margin-bottom:6px;}
   .foot .col a:hover{color:var(--blue);}
   .foot__legal{border-top:1px solid var(--hairline);padding-block:20px;color:var(--slate);font-size:0.84rem;font-family:"IBM Plex Mono",monospace;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;}
+  .foot-credit{text-align:center;}
+  .foot-credit a{color:#33405e;text-decoration:none;border-bottom:1px solid var(--hairline-strong);transition:color .15s ease, border-color .15s ease;}
+  .foot-credit a:hover{color:var(--blue);border-color:var(--blue);}
 
   /* reveal (progressive enhancement; visible by default without JS) */
   .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
@@ -524,6 +549,7 @@
         <a href="#categorias" data-i18n="nav.categorias">Categorias</a>
         <a href="#first" data-i18n="nav.first">FIRST</a>
         <a href="#formato" data-i18n="nav.formato">Formato</a>
+        <a href="#coordenacao" data-i18n="nav.coord">Coordenação</a>
         <a href="#contato" data-i18n="nav.contato">Contato</a>
         <a class="btn btn--primary" href="#inscricao" data-i18n="nav.inscreva">Inscreva sua equipe</a>
       </nav>
@@ -802,6 +828,37 @@
   </div>
 </section>
 
+<!-- COORDENAÇÃO -->
+<section id="coordenacao" class="alt" aria-labelledby="coord-title">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="eyebrow" style="justify-content:center" data-i18n="coord.eyebrow">Coordenação</p>
+      <h2 id="coord-title" data-i18n="coord.h2">Quem coordena o CTF</h2>
+      <p data-i18n="coord.lead">A organização do CTF do SBSeg 2026 reúne a academia e o CERT.br, alinhada à coordenação oficial do evento.</p>
+    </div>
+    <div class="grid grid--3 coords">
+      <article class="coord reveal">
+        <img class="coord__photo" src="imgs/aldri.jpg" width="150" height="150" alt="Aldri Luiz dos Santos" loading="lazy" />
+        <h3 class="coord__name">Aldri Luiz dos Santos</h3>
+        <p class="coord__org">UFMG</p>
+        <span class="coord__role" data-i18n="coord.role">Coordenação</span>
+      </article>
+      <article class="coord reveal">
+        <img class="coord__photo" src="imgs/diego.jpeg" width="150" height="150" alt="Diego Kreutz" loading="lazy" />
+        <h3 class="coord__name">Diego Kreutz</h3>
+        <p class="coord__org">UNIPAMPA</p>
+        <span class="coord__role" data-i18n="coord.role">Coordenação</span>
+      </article>
+      <article class="coord reveal">
+        <img class="coord__photo" src="imgs/cristine.png" width="150" height="150" alt="Cristine Hoepers" loading="lazy" />
+        <h3 class="coord__name">Cristine Hoepers</h3>
+        <p class="coord__org">CERT.br</p>
+        <span class="coord__role" data-i18n="coord.role">Coordenação</span>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- CONTATO -->
 <section id="contato" aria-labelledby="contato-title">
   <div class="wrap">
@@ -848,6 +905,7 @@
       <a href="#categorias" data-i18n="nav.categorias">Categorias</a>
       <a href="#first" data-i18n="nav.first">FIRST</a>
       <a href="#formato" data-i18n="nav.formato">Formato</a>
+      <a href="#coordenacao" data-i18n="nav.coord">Coordenação</a>
       <a href="#contato" data-i18n="nav.contato">Contato</a>
       <a href="#inscricao" data-i18n="inscricao.eyebrow">Inscrição</a>
     </div>
@@ -855,6 +913,7 @@
       <h4 data-i18n="foot.coord">Coordenação</h4>
       <p>Aldri dos Santos<small style="display:block;color:var(--slate)">UFMG</small></p>
       <p>Diego Kreutz<small style="display:block;color:var(--slate)">UNIPAMPA</small></p>
+      <p>Cristine Hoepers<small style="display:block;color:var(--slate)">CERT.br</small></p>
     </div>
     <div class="col">
       <h4 data-i18n="foot.ref">Referências</h4>
@@ -873,6 +932,7 @@
   </div>
   <div class="wrap foot__legal">
     <span data-i18n="foot.copy">© 2026 CTF · SBSeg</span>
+    <span class="foot-credit" data-i18n-html="foot.credit">Site mantido pelo <a href="https://ai-horizon-labs.github.io" target="_blank" rel="noopener">AI Horizon Labs</a>, ajudando a comunidade.</span>
     <span data-i18n="foot.legalTag">defesa &gt; ataque</span>
   </div>
 </footer>
@@ -891,7 +951,7 @@
         "og.description":"Reabra o incidente. Analise a evidência. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis.",
         "skip":"Pular para o conteúdo",
         "brand.aria":"CTF SBSeg 2026: início",
-        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.formato":"Formato","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe",
+        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.formato":"Formato","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe",
         "nav.toggleOpen":"Abrir menu","nav.toggleClose":"Fechar menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edição FIRST",
         "hero.h1a":"Reabra o incidente.","hero.h1b":"Analise a evidência.","hero.h1c":"Capture a flag",
@@ -939,10 +999,11 @@
         "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.note":"Operação do CTF conduzida pelo CERT.br · backend e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio e patrocínio",
         "partner.apoio":"<b>Apoio:</b> CERT.br","partner.realiza":"<b>Realização:</b> SBSeg / SBC","partner.patro":"Patrocínio: <b>sua marca aqui</b>",
         "apoio.label":"Apoio oficial","apoio.desc":"O <b>CERT.br</b> apoia o CTF do SBSeg 2026 conduzindo toda a infraestrutura: backend, plataforma de submissão e leaderboard ao vivo ficam por conta da organização.",
+        "coord.eyebrow":"Coordenação","coord.h2":"Quem coordena o CTF","coord.lead":"A organização do CTF do SBSeg 2026 reúne a academia e o CERT.br, alinhada à coordenação oficial do evento.","coord.role":"Coordenação",
         "form.eyebrow":"Contato","form.h2":"Fale com a organização","form.lead":"Dúvidas sobre o CTF, patrocínio ou inscrição da equipe? Envie uma mensagem e a organização responde.",
         "form.name":"Nome","form.email":"E-mail","form.team":"Equipe ou instituição","form.message":"Mensagem","form.submit":"Enviar mensagem","form.sending":"Enviando...",
         "form.success":"Mensagem enviada. Em breve a organização responde.","form.error":"Não foi possível enviar agora. Tente novamente ou escreva direto para a organização.","form.validation":"Preencha nome, e-mail e mensagem para enviar.",
-        "foot.tagline":"Capture The Flag de defesa.<br>Edição baseada no FIRST.","foot.nav":"Navegação","foot.coord":"Coordenação","foot.ref":"Referências","foot.refFirst":"CTF do FIRST 2026","foot.patro":"Patrocínio","foot.patroP":"Quer apoiar o CTF?<br>Fale com a organização do SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.legalTag":"defesa > ataque"
+        "foot.tagline":"Capture The Flag de defesa.<br>Edição baseada no FIRST.","foot.nav":"Navegação","foot.coord":"Coordenação","foot.ref":"Referências","foot.refFirst":"CTF do FIRST 2026","foot.patro":"Patrocínio","foot.patroP":"Quer apoiar o CTF?<br>Fale com a organização do SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site mantido pelo <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ajudando a comunidade.","foot.legalTag":"defesa > ataque"
       },
       es: {
         "meta.title":"CTF · SBSeg 2026 · Capture The Flag de Defensa",
@@ -950,7 +1011,7 @@
         "og.description":"Reabre el incidente. Analiza la evidencia. Captura la flag. Un CTF de defensa basado en el FIRST, para todos los niveles.",
         "skip":"Saltar al contenido",
         "brand.aria":"CTF SBSeg 2026: inicio",
-        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.formato":"Formato","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo",
+        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.formato":"Formato","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo",
         "nav.toggleOpen":"Abrir menú","nav.toggleClose":"Cerrar menú",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edición FIRST",
         "hero.h1a":"Reabre el incidente.","hero.h1b":"Analiza la evidencia.","hero.h1c":"Captura la flag",
@@ -998,10 +1059,11 @@
         "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.note":"Operación del CTF conducida por el CERT.br · backend y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo y patrocinio",
         "partner.apoio":"<b>Apoyo:</b> CERT.br","partner.realiza":"<b>Realización:</b> SBSeg / SBC","partner.patro":"Patrocinio: <b>tu marca aquí</b>",
         "apoio.label":"Apoyo oficial","apoio.desc":"El <b>CERT.br</b> apoya el CTF del SBSeg 2026 conduciendo toda la infraestructura: backend, plataforma de envío y leaderboard en vivo corren por cuenta de la organización.",
+        "coord.eyebrow":"Coordinación","coord.h2":"Quién coordina el CTF","coord.lead":"La organización del CTF del SBSeg 2026 reúne a la academia y al CERT.br, alineada con la coordinación oficial del evento.","coord.role":"Coordinación",
         "form.eyebrow":"Contacto","form.h2":"Habla con la organización","form.lead":"¿Dudas sobre el CTF, patrocinio o inscripción del equipo? Envía un mensaje y la organización responde.",
         "form.name":"Nombre","form.email":"Correo","form.team":"Equipo o institución","form.message":"Mensaje","form.submit":"Enviar mensaje","form.sending":"Enviando...",
         "form.success":"Mensaje enviado. La organización responderá pronto.","form.error":"No se pudo enviar ahora. Inténtalo de nuevo o escribe directamente a la organización.","form.validation":"Completa nombre, correo y mensaje para enviar.",
-        "foot.tagline":"Capture The Flag de defensa.<br>Edición basada en el FIRST.","foot.nav":"Navegación","foot.coord":"Coordinación","foot.ref":"Referencias","foot.refFirst":"CTF del FIRST 2026","foot.patro":"Patrocinio","foot.patroP":"¿Quieres apoyar el CTF?<br>Habla con la organización del SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.legalTag":"defensa > ataque"
+        "foot.tagline":"Capture The Flag de defensa.<br>Edición basada en el FIRST.","foot.nav":"Navegación","foot.coord":"Coordinación","foot.ref":"Referencias","foot.refFirst":"CTF del FIRST 2026","foot.patro":"Patrocinio","foot.patroP":"¿Quieres apoyar el CTF?<br>Habla con la organización del SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Sitio mantenido por <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ayudando a la comunidad.","foot.legalTag":"defensa > ataque"
       },
       en: {
         "meta.title":"CTF · SBSeg 2026 · Defense Capture The Flag",
@@ -1009,7 +1071,7 @@
         "og.description":"Reopen the incident. Analyze the evidence. Capture the flag. A defense CTF based on FIRST, for all levels.",
         "skip":"Skip to content",
         "brand.aria":"CTF SBSeg 2026: home",
-        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.formato":"Format","nav.contato":"Contact","nav.inscreva":"Register your team",
+        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.formato":"Format","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team",
         "nav.toggleOpen":"Open menu","nav.toggleClose":"Close menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · FIRST Edition",
         "hero.h1a":"Reopen the incident.","hero.h1b":"Analyze the evidence.","hero.h1c":"Capture the flag",
@@ -1057,10 +1119,11 @@
         "inscricao.cta":"Follow SBSeg 2026 →","inscricao.note":"CTF operation run by CERT.br · backend and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support and sponsorship",
         "partner.apoio":"<b>Support:</b> CERT.br","partner.realiza":"<b>Hosted by:</b> SBSeg / SBC","partner.patro":"Sponsorship: <b>your brand here</b>",
         "apoio.label":"Official support","apoio.desc":"<b>CERT.br</b> supports the SBSeg 2026 CTF by running the entire infrastructure: backend, submission platform and live leaderboard are all handled by the organization.",
+        "coord.eyebrow":"Coordination","coord.h2":"Who runs the CTF","coord.lead":"The SBSeg 2026 CTF is organized by academia together with CERT.br, aligned with the event's official coordination.","coord.role":"Coordination",
         "form.eyebrow":"Contact","form.h2":"Talk to the organization","form.lead":"Questions about the CTF, sponsorship or team registration? Send a message and the organization will reply.",
         "form.name":"Name","form.email":"Email","form.team":"Team or institution","form.message":"Message","form.submit":"Send message","form.sending":"Sending...",
         "form.success":"Message sent. The organization will reply soon.","form.error":"Could not send right now. Please try again or write directly to the organization.","form.validation":"Fill in name, email and message to send.",
-        "foot.tagline":"Defense Capture The Flag.<br>Edition based on FIRST.","foot.nav":"Navigation","foot.coord":"Coordination","foot.ref":"References","foot.refFirst":"FIRST 2026 CTF","foot.patro":"Sponsorship","foot.patroP":"Want to support the CTF?<br>Talk to the SBSeg 2026 organization.","foot.copy":"© 2026 CTF · SBSeg","foot.legalTag":"defense > attack"
+        "foot.tagline":"Defense Capture The Flag.<br>Edition based on FIRST.","foot.nav":"Navigation","foot.coord":"Coordination","foot.ref":"References","foot.refFirst":"FIRST 2026 CTF","foot.patro":"Sponsorship","foot.patroP":"Want to support the CTF?<br>Talk to the SBSeg 2026 organization.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site maintained by <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, helping the community.","foot.legalTag":"defense > attack"
       }
     };
     var LANGS = {pt:"pt-BR", es:"es", en:"en"};
