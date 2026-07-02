@@ -132,6 +132,11 @@
     box-shadow:0 0 0 4px var(--green-wash);
     flex:none;
   }
+  .brand-group{display:flex;align-items:center;gap:16px;min-width:0;}
+  .brand-group .brand{flex:none;}
+  .brand-sbseg{display:inline-flex;align-items:center;flex:none;}
+  .brand-sbseg img{display:block;height:38px;width:auto;}
+  @media (max-width:420px){ .brand-sbseg img{height:30px;} }
   .nav{display:flex;align-items:center;gap:28px;}
   .nav a{
     color:var(--slate);text-decoration:none;font-size:0.93rem;font-weight:500;
@@ -595,10 +600,15 @@
 
 <header class="site-head">
   <div class="wrap site-head__inner">
-    <a class="brand" href="#topo" data-i18n-attr="aria-label:brand.aria">
-      <span class="tick" aria-hidden="true"></span>
-      CTF&nbsp;<b>//</b>&nbsp;SBSeg&nbsp;2026
-    </a>
+    <div class="brand-group">
+      <a class="brand" href="#topo" data-i18n-attr="aria-label:brand.aria">
+        <span class="tick" aria-hidden="true"></span>
+        CTF
+      </a>
+      <a class="brand-sbseg" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" aria-label="SBSeg 2026">
+        <img src="imgs/logo_sbseg2026_small.png" width="383" height="209" alt="XXVI SBSeg 2026" />
+      </a>
+    </div>
     <div class="head-right">
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt" aria-pressed="true">PT</button>
