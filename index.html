@@ -301,6 +301,7 @@
   .node[aria-current="true"] .node__dot{box-shadow:0 0 0 5px var(--blue-wash);}
   .node.cap[aria-current="true"] .node__dot{box-shadow:0 0 0 5px var(--green-wash);}
 
+  .node__meta{display:flex;flex-direction:column;gap:2px;}
   .node__t{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;color:var(--slate);letter-spacing:0.03em;}
   .node__k{font-size:0.86rem;font-weight:600;line-height:1.25;}
   .node.cap .node__k{color:var(--green-text);}
@@ -703,10 +704,10 @@
     </div>
 
     <!-- SIGNATURE: incident replay timeline -->
-    <div class="replay reveal" id="replay" data-i18n-attr="aria-label:replay.aria" aria-label="Linha do tempo de um incidente reaberto para análise">
+    <div class="replay reveal" id="replay" data-i18n-attr="aria-label:replay.aria" aria-label="Categorias de desafio do CTF, apresentadas como evidências de análise">
       <div class="replay__bar">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span data-i18n="replay.barCase">replay.incidente · caso #2025-014</span>
+        <span data-i18n="replay.barCase">replay do CTF do FIRST · desafios independentes</span>
         <span class="live"><i></i> <span data-i18n="replay.live">ANÁLISE</span></span>
       </div>
       <div class="replay__stage">
@@ -717,30 +718,30 @@
           <ul class="replay__nodes" id="replayNodes">
             <li><button class="node" type="button" data-node="rede">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">T+00:00</span><span class="node__k" data-i18n="node.rede.k">Tráfego anômalo</span></span>
+              <span class="node__meta"><span class="node__t">cat.01</span><span class="node__k" data-i18n="node.rede.k">Redes &amp; Tráfego</span></span>
             </button></li>
             <li><button class="node" type="button" data-node="malware">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">T+02:14</span><span class="node__k" data-i18n="node.malware.k">Binário isolado</span></span>
+              <span class="node__meta"><span class="node__t">cat.02</span><span class="node__k" data-i18n="node.malware.k">Análise de Malware</span></span>
             </button></li>
             <li><button class="node" type="button" data-node="cripto">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">T+05:47</span><span class="node__k" data-i18n="node.cripto.k">Payload cifrado</span></span>
+              <span class="node__meta"><span class="node__t">cat.03</span><span class="node__k" data-i18n="node.cripto.k">Criptografia</span></span>
             </button></li>
             <li><button class="node" type="button" data-node="codigo">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">T+09:31</span><span class="node__k" data-i18n="node.codigo.k">Falha no código</span></span>
+              <span class="node__meta"><span class="node__t">cat.04</span><span class="node__k" data-i18n="node.codigo.k">Programação Segura</span></span>
             </button></li>
             <li><button class="node cap" type="button" data-node="captura">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">T+13:08</span><span class="node__k" data-i18n="node.captura.k">Flag recuperada</span></span>
+              <span class="node__meta"><span class="node__t">flag</span><span class="node__k" data-i18n="node.captura.k">Capture a flag</span></span>
             </button></li>
           </ul>
         </div>
         <div class="replay__detail" id="replayDetail" aria-live="polite">
-          <p class="lead-line" data-i18n="replay.defaultLead">Passe por cada marcador: cada evidência é uma categoria de desafio.</p>
-          <span class="tag" data-i18n="replay.defaultTag">replay</span>
-          <p data-i18n="replay.defaultDesc">Selecione um ponto da linha do tempo para ver o tipo de análise envolvido.</p>
+          <p class="lead-line" data-i18n="replay.defaultLead">Cada marcador é uma categoria de desafio. Os desafios são independentes: o time escolhe por onde começar.</p>
+          <span class="tag" data-i18n="replay.defaultTag">categorias</span>
+          <p data-i18n="replay.defaultDesc">Selecione uma categoria para ver o tipo de análise envolvido.</p>
         </div>
       </div>
     </div>
@@ -764,8 +765,8 @@
       </article>
       <article class="card reveal">
         <span class="card__n" data-i18n="card.02.n">02 / REPLAY</span>
-        <h3 data-i18n="card.02.h3">Modelo de replay</h3>
-        <p data-i18n="card.02.p">Reabrimos incidentes e cenários. Você revisita o caso e encontra o que, num ataque real, poderia ter passado batido.</p>
+        <h3 data-i18n="card.02.h3">Replay do CTF do FIRST</h3>
+        <p data-i18n="card.02.p">Jogamos aqui o conjunto de desafios da Conferência Anual do FIRST: desafios independentes de análise, e o time escolhe por onde começar.</p>
       </article>
       <article class="card reveal">
         <span class="card__n" data-i18n="card.03.n">03 / EQUIPE</span>
@@ -786,9 +787,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="categorias.eyebrow">Categorias</p>
-      <h2 id="cat-title" data-i18n="categorias.h2">As evidências do caso</h2>
-      <p data-i18n="categorias.lead">Cada artefato recuperado abre uma frente de análise. Você não precisa dominar todas:
-        pode escolher uma, e o time define na hora quem cobre o quê.</p>
+      <h2 id="cat-title" data-i18n="categorias.h2">As evidências que você vai analisar</h2>
+      <p data-i18n="categorias.lead">Cada desafio entrega um artefato e abre uma frente de análise, de forma independente.
+        Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.</p>
     </div>
     <div class="grid grid--3">
       <article class="evi reveal">
@@ -861,7 +862,7 @@
         <span class="url">ctf.first.org</span>
       </div>
       <div class="first-card__body">
-        <div class="stat-row"><span class="num">5</span><span class="lbl" data-i18n="first.stat1">categorias de análise no replay deste caso</span></div>
+        <div class="stat-row"><span class="num">5</span><span class="lbl" data-i18n="first.stat1">categorias de análise no replay do CTF do FIRST</span></div>
         <div class="stat-row"><span class="num">1</span><span class="lbl" data-i18n="first.stat2">dia intenso de competição: 09h às 17h</span></div>
         <div class="stat-row"><span class="num mono" style="font-size:1.2rem">0</span><span class="lbl" data-i18n="first.stat3">atividades ofensivas: defesa do início ao fim</span></div>
         <div class="stat-row"><span class="num mono" style="font-size:1.2rem">∞</span><span class="lbl" data-i18n="first.stat4">conexões para fazer: o networking é parte do jogo</span></div>
@@ -940,7 +941,7 @@
         <h2 id="niveis-title" data-i18n="niveis.h2">Nunca jogou um CTF? Comece por aqui.</h2>
         <p data-i18n="niveis.p">Você não precisa ser especialista para participar: precisa ter vontade de investigar.
           Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim,
-          o melhor prêmio costuma ser quem você conhece tentando resolver o mesmo caso.</p>
+          o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.</p>
         <p data-i18n-html="niveis.p2" style="margin-top:14px">Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de
           quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a
           <b>flag</b>, um código no formato <code>CTF{...}</code> que prova a solução. Você aprende jogando,
@@ -998,7 +999,7 @@
       <article class="card reveal">
         <span class="card__n" data-i18n="why.06.n">06 / DIVERSÃO</span>
         <h3 data-i18n="why.06.h3">É um jogo, no fim das contas</h3>
-        <p data-i18n="why.06.p">Enigmas para resolver, códigos para quebrar e um caso para fechar junto com o seu time. Difícil não se divertir.</p>
+        <p data-i18n="why.06.p">Enigmas para resolver, códigos para quebrar e desafios para fechar junto com o seu time. Difícil não se divertir.</p>
       </article>
     </div>
   </div>
@@ -1238,20 +1239,20 @@
         "hero.ctaPrimary":"Inscreva sua equipe →","hero.ctaGhost":"Como funciona","hero.metaLabel":"Resumo do evento",
         "hero.note":"<strong>A divulgação começa agora.</strong> Monte sua equipe e, em caso de dúvidas e sugestões, <a href='#contato'>entre em contato com a organização</a>.",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipes de 2 a 4","chip.iniciantes":"Iniciantes bem-vindos","chip.premio":"Premiação para os melhores",
-        "replay.aria":"Linha do tempo de um incidente reaberto para análise","replay.barCase":"replay.incidente · caso #2025-014","replay.live":"ANÁLISE",
-        "node.rede.k":"Tráfego anômalo","node.malware.k":"Binário isolado","node.cripto.k":"Payload cifrado","node.codigo.k":"Falha no código","node.captura.k":"Flag recuperada",
-        "node.rede.tag":"Redes & Tráfego","node.rede.title":"Conexão suspeita no perímetro","node.rede.desc":"Capturas de pacotes mostram um acesso anômalo. Reconstrua a sessão e descubra o que entrou na rede.",
-        "node.malware.tag":"Análise de Malware","node.malware.title":"Binário caído em disco","node.malware.desc":"Um artefato foi deixado para trás. Isole a amostra e entenda o que ela faz, sem executá-la no escuro.",
-        "node.cripto.tag":"Criptografia","node.cripto.title":"Payload cifrado","node.cripto.desc":"A carga útil está ofuscada. Quebre o esquema e recupere a mensagem que o atacante quis esconder.",
-        "node.codigo.tag":"Programação Segura","node.codigo.title":"Endpoint vulnerável","node.codigo.desc":"A porta de entrada era uma falha no código. Encontre o defeito antes que ele se repita em produção.",
-        "node.captura.tag":"Captura","node.captura.title":"Flag recuperada","node.captura.desc":"Evidência reconstruída, hipótese confirmada, flag submetida. É assim que um time de defesa fecha o caso.",
-        "replay.defaultLead":"Passe por cada marcador: cada evidência é uma categoria de desafio.","replay.defaultTag":"replay","replay.defaultDesc":"Selecione um ponto da linha do tempo para ver o tipo de análise envolvido.",
+        "replay.aria":"Categorias de desafio do CTF, apresentadas como evidências de análise","replay.barCase":"replay do CTF do FIRST · desafios independentes","replay.live":"ANÁLISE",
+        "node.rede.k":"Redes & Tráfego","node.malware.k":"Análise de Malware","node.cripto.k":"Criptografia","node.codigo.k":"Programação Segura","node.captura.k":"Capture a flag",
+        "node.rede.tag":"Redes & Tráfego","node.rede.title":"Exemplo de desafio: conexão suspeita","node.rede.desc":"Você recebe uma captura de pacotes, reconstrói a sessão e descobre o que entrou na rede.",
+        "node.malware.tag":"Análise de Malware","node.malware.title":"Exemplo de desafio: binário suspeito","node.malware.desc":"Você isola a amostra, observa o comportamento e descreve o que ela realmente faz, sem executá-la no escuro.",
+        "node.cripto.tag":"Criptografia","node.cripto.title":"Exemplo de desafio: payload cifrado","node.cripto.desc":"Você quebra a ofuscação, identifica o esquema e recupera o segredo que tentaram esconder.",
+        "node.codigo.tag":"Programação Segura","node.codigo.title":"Exemplo de desafio: código vulnerável","node.codigo.desc":"Você lê o código como quem procura a brecha e encontra a falha antes que ela custe caro.",
+        "node.captura.tag":"Captura","node.captura.title":"Toda análise termina igual","node.captura.desc":"Evidência analisada, hipótese confirmada, flag submetida na plataforma. Cada desafio resolvido soma pontos para o time.",
+        "replay.defaultLead":"Cada marcador é uma categoria de desafio. Os desafios são independentes: o time escolhe por onde começar.","replay.defaultTag":"categorias","replay.defaultDesc":"Selecione uma categoria para ver o tipo de análise envolvido.",
         "desafio.eyebrow":"O desafio","desafio.h2":"Um CTF de defesa, não de ataque","desafio.lead":"Competições tradicionais premiam a invasão. Esta inverte a lógica: você está do lado de quem investiga, entende e prova o que aconteceu. O foco é exclusivamente técnico: análise de artefatos e evidências.",
         "card.01.n":"01 / DEFESA","card.01.h3":"Sem ataque, só análise","card.01.p":"Nada de exploração ofensiva. Você examina artefatos, reconstrói o que ocorreu e sustenta cada conclusão com evidência.",
-        "card.02.n":"02 / REPLAY","card.02.h3":"Modelo de replay","card.02.p":"Reabrimos incidentes e cenários. Você revisita o caso e encontra o que, num ataque real, poderia ter passado batido.",
+        "card.02.n":"02 / REPLAY","card.02.h3":"Replay do CTF do FIRST","card.02.p":"Jogamos aqui o conjunto de desafios da Conferência Anual do FIRST: desafios independentes de análise, e o time escolhe por onde começar.",
         "card.03.n":"03 / EQUIPE","card.03.h3":"Feito para times","card.03.p":"Os desafios pedem competências complementares. Junte gente de áreas diferentes, porque a colaboração é parte da estratégia.",
         "card.04.n":"04 / NÍVEIS","card.04.h3":"Todos os níveis","card.04.p":"Há desafios para cada ponto da curva. Nunca jogou um CTF? Tem espaço, e desafio, para você também.",
-        "categorias.eyebrow":"Categorias","categorias.h2":"As evidências do caso","categorias.lead":"Cada artefato recuperado abre uma frente de análise. Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.",
+        "categorias.eyebrow":"Categorias","categorias.h2":"As evidências que você vai analisar","categorias.lead":"Cada desafio entrega um artefato e abre uma frente de análise, de forma independente. Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.",
         "evi.pcap.type":"evidência · pcap","evi.pcap.h3":"Redes & Tráfego","evi.pcap.p":"Reconstrua conexões a partir de capturas de pacotes e siga o rastro do incidente. Alguns desafios usam IPv6.",
         "evi.sample.type":"evidência · sample","evi.sample.h3":"Análise de Malware","evi.sample.p":"Isole o binário, observe o comportamento e descreva o que a amostra realmente faz, com segurança.",
         "evi.cipher.type":"evidência · cipher","evi.cipher.h3":"Criptografia","evi.cipher.p":"Quebre a ofuscação, identifique o esquema e recupere o segredo que o atacante tentou esconder.",
@@ -1262,7 +1263,7 @@
         "first.p1":"O <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne os times de resposta a incidentes do mundo inteiro. No SBSeg 2026 rodamos um <strong>replay</strong> do CTF da Conferência Anual do FIRST, o mesmo conjunto de desafios de referência internacional, adaptado para um dia de competição.",
         "first.p2":"O <strong>CERT.br</strong> conduz toda a infraestrutura: o backend roda por conta da organização e as respostas são submetidas via <strong>CTFd</strong>. Você só precisa do seu equipamento e da sua equipe.",
         "first.cta":"Veja o CTF do FIRST 2026 →",
-        "first.stat1":"categorias de análise no replay deste caso","first.stat2":"dia intenso de competição: 09h às 17h","first.stat3":"atividades ofensivas: defesa do início ao fim","first.stat4":"conexões para fazer: o networking é parte do jogo",
+        "first.stat1":"categorias de análise no replay do CTF do FIRST","first.stat2":"dia intenso de competição: 09h às 17h","first.stat3":"atividades ofensivas: defesa do início ao fim","first.stat4":"conexões para fazer: o networking é parte do jogo",
         "demo.eyebrow":"Experimente","demo.h2":"Um gostinho do que vem por aí","demo.lead":"Para você ter noção do que vai encontrar no dia, resolva este mini-desafio no estilo dos desafios do FIRST. Decifre a evidência e submeta a flag.",
         "demo.bar":"desafio.demo · criptografia · 10 pts","demo.live":"ABERTO",
         "demo.brief":"Durante a análise de um incidente, o time interceptou esta mensagem deixada pelo atacante. Ela está codificada, não cifrada. Recupere o conteúdo original e submeta a flag no formato <code>CTF{...}</code>.",
@@ -1279,7 +1280,7 @@
         "dl.gear.dt":"Equipamento","dl.gear.dd":"Traga seu notebook<small>vários desafios usam servidores online, com internet no local</small>",
         "dl.reg.dt":"Inscrição","dl.reg.dd":"Valor simbólico<small>abertura em breve</small>",
         "dl.prizes.dt":"Prêmios","dl.prizes.dd":"Premiação para os melhores colocados<small>com apoio da Tempest; aguarde novidades</small>",
-        "niveis.eyebrow":"Para todos os níveis","niveis.h2":"Nunca jogou um CTF? Comece por aqui.","niveis.p":"Você não precisa ser especialista para participar: precisa ter vontade de investigar. Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim, o melhor prêmio costuma ser quem você conhece tentando resolver o mesmo caso.",
+        "niveis.eyebrow":"Para todos os níveis","niveis.h2":"Nunca jogou um CTF? Comece por aqui.","niveis.p":"Você não precisa ser especialista para participar: precisa ter vontade de investigar. Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim, o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.",
         "niveis.p2":"Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a <b>flag</b>, um código no formato <code>CTF{...}</code> que prova a solução. Você aprende jogando, e pode <a href='#demo'>experimentar um mini-desafio agora mesmo</a>.",
         "niveis.train":"Quer treinar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Por que participar","porque.h2":"O que você leva desse dia","porque.lead":"Além da competição, o CTF é uma porta de entrada para a área de segurança: na prática, com gente de verdade e no principal evento científico de segurança do Brasil.",
@@ -1288,7 +1289,7 @@
         "why.03.n":"03 / NETWORKING","why.03.h3":"Conheça a comunidade","why.03.p":"Estudantes de todo o país, professores, o pessoal do CERT.br e empresas da área, todos no mesmo lugar.",
         "why.04.n":"04 / PORTFÓLIO","why.04.h3":"Vitrine para estágios e vagas","why.04.p":"Uma boa colocação no placar é um diferencial concreto para currículo, estágio e primeiras vagas na área.",
         "why.05.n":"05 / PREMIAÇÃO","why.05.h3":"Prêmios para os melhores","why.05.p":"Premiação para os melhores colocados, com apoio confirmado da Tempest. Novidades em breve.",
-        "why.06.n":"06 / DIVERSÃO","why.06.h3":"É um jogo, no fim das contas","why.06.p":"Enigmas para resolver, códigos para quebrar e um caso para fechar junto com o seu time. Difícil não se divertir.",
+        "why.06.n":"06 / DIVERSÃO","why.06.h3":"É um jogo, no fim das contas","why.06.p":"Enigmas para resolver, códigos para quebrar e desafios para fechar junto com o seu time. Difícil não se divertir.",
         "faq.eyebrow":"FAQ","faq.h2":"Perguntas frequentes","faq.lead":"As dúvidas mais comuns de quem está pensando em participar. Não achou a sua? Pergunte pelo formulário de contato.",
         "faq.q1":"Preciso ter experiência com CTF ou com segurança?","faq.a1":"Não. Há desafios para todos os níveis, inclusive pensados para quem nunca jogou. Você aprende durante a competição, e o time se ajuda.",
         "faq.q2":"O que é uma \"flag\"?","faq.a2":"É um código no formato <code>CTF{...}</code> que prova que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma (CTFd) para pontuar.",
@@ -1324,20 +1325,20 @@
         "hero.ctaPrimary":"Inscribe tu equipo →","hero.ctaGhost":"Cómo funciona","hero.metaLabel":"Resumen del evento",
         "hero.note":"<strong>La divulgación empieza ahora.</strong> Arma tu equipo y, si tienes dudas o sugerencias, <a href='#contato'>contacta a la organización</a>.",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipos de 2 a 4","chip.iniciantes":"Principiantes bienvenidos","chip.premio":"Premios para los mejores",
-        "replay.aria":"Línea de tiempo de un incidente reabierto para análisis","replay.barCase":"replay.incidente · caso #2025-014","replay.live":"ANÁLISIS",
-        "node.rede.k":"Tráfico anómalo","node.malware.k":"Binario aislado","node.cripto.k":"Payload cifrado","node.codigo.k":"Fallo en el código","node.captura.k":"Flag recuperada",
-        "node.rede.tag":"Redes y Tráfico","node.rede.title":"Conexión sospechosa en el perímetro","node.rede.desc":"Las capturas de paquetes muestran un acceso anómalo. Reconstruye la sesión y descubre qué entró en la red.",
-        "node.malware.tag":"Análisis de Malware","node.malware.title":"Binario dejado en disco","node.malware.desc":"Quedó un artefacto atrás. Aísla la muestra y entiende qué hace, sin ejecutarla a ciegas.",
-        "node.cripto.tag":"Criptografía","node.cripto.title":"Payload cifrado","node.cripto.desc":"La carga útil está ofuscada. Rompe el esquema y recupera el mensaje que el atacante quiso esconder.",
-        "node.codigo.tag":"Programación Segura","node.codigo.title":"Endpoint vulnerable","node.codigo.desc":"La puerta de entrada era un fallo en el código. Encuentra el defecto antes de que se repita en producción.",
-        "node.captura.tag":"Captura","node.captura.title":"Flag recuperada","node.captura.desc":"Evidencia reconstruida, hipótesis confirmada, flag enviada. Así cierra el caso un equipo de defensa.",
-        "replay.defaultLead":"Pasa por cada marcador: cada evidencia es una categoría de desafío.","replay.defaultTag":"replay","replay.defaultDesc":"Selecciona un punto de la línea de tiempo para ver el tipo de análisis involucrado.",
+        "replay.aria":"Categorías de desafío del CTF, presentadas como evidencias de análisis","replay.barCase":"replay del CTF del FIRST · desafíos independientes","replay.live":"ANÁLISIS",
+        "node.rede.k":"Redes y Tráfico","node.malware.k":"Análisis de Malware","node.cripto.k":"Criptografía","node.codigo.k":"Programación Segura","node.captura.k":"Captura la flag",
+        "node.rede.tag":"Redes y Tráfico","node.rede.title":"Ejemplo de desafío: conexión sospechosa","node.rede.desc":"Recibes una captura de paquetes, reconstruyes la sesión y descubres qué entró en la red.",
+        "node.malware.tag":"Análisis de Malware","node.malware.title":"Ejemplo de desafío: binario sospechoso","node.malware.desc":"Aíslas la muestra, observas el comportamiento y describes qué hace realmente, sin ejecutarla a ciegas.",
+        "node.cripto.tag":"Criptografía","node.cripto.title":"Ejemplo de desafío: payload cifrado","node.cripto.desc":"Rompes la ofuscación, identificas el esquema y recuperas el secreto que intentaron esconder.",
+        "node.codigo.tag":"Programación Segura","node.codigo.title":"Ejemplo de desafío: código vulnerable","node.codigo.desc":"Lees el código como quien busca la brecha y encuentras el fallo antes de que cueste caro.",
+        "node.captura.tag":"Captura","node.captura.title":"Todo análisis termina igual","node.captura.desc":"Evidencia analizada, hipótesis confirmada, flag enviada en la plataforma. Cada desafío resuelto suma puntos para el equipo.",
+        "replay.defaultLead":"Cada marcador es una categoría de desafío. Los desafíos son independientes: el equipo elige por dónde empezar.","replay.defaultTag":"categorías","replay.defaultDesc":"Selecciona una categoría para ver el tipo de análisis involucrado.",
         "desafio.eyebrow":"El desafío","desafio.h2":"Un CTF de defensa, no de ataque","desafio.lead":"Las competiciones tradicionales premian la intrusión. Esta invierte la lógica: estás del lado de quien investiga, entiende y prueba lo que pasó. El foco es exclusivamente técnico: análisis de artefactos y evidencias.",
         "card.01.n":"01 / DEFENSA","card.01.h3":"Sin ataque, solo análisis","card.01.p":"Nada de explotación ofensiva. Examinas artefactos, reconstruyes lo que ocurrió y sostienes cada conclusión con evidencia.",
-        "card.02.n":"02 / REPLAY","card.02.h3":"Modelo de replay","card.02.p":"Reabrimos incidentes y escenarios. Revisitas el caso y encuentras lo que, en un ataque real, podría haber pasado inadvertido.",
+        "card.02.n":"02 / REPLAY","card.02.h3":"Replay del CTF del FIRST","card.02.p":"Jugamos aquí el conjunto de desafíos de la Conferencia Anual del FIRST: desafíos independientes de análisis, y el equipo elige por dónde empezar.",
         "card.03.n":"03 / EQUIPO","card.03.h3":"Hecho para equipos","card.03.p":"Los desafíos piden competencias complementarias. Reúne gente de áreas distintas, porque la colaboración es parte de la estrategia.",
         "card.04.n":"04 / NIVELES","card.04.h3":"Todos los niveles","card.04.p":"Hay desafíos para cada punto de la curva. ¿Nunca jugaste un CTF? También hay espacio, y desafío, para ti.",
-        "categorias.eyebrow":"Categorías","categorias.h2":"Las evidencias del caso","categorias.lead":"Cada artefacto recuperado abre un frente de análisis. No necesitas dominar todos: puedes elegir uno, y el equipo define en el momento quién cubre qué.",
+        "categorias.eyebrow":"Categorías","categorias.h2":"Las evidencias que vas a analizar","categorias.lead":"Cada desafío entrega un artefacto y abre un frente de análisis, de forma independiente. No necesitas dominar todos: puedes elegir uno, y el equipo define en el momento quién cubre qué.",
         "evi.pcap.type":"evidencia · pcap","evi.pcap.h3":"Redes y Tráfico","evi.pcap.p":"Reconstruye conexiones a partir de capturas de paquetes y sigue el rastro del incidente. Algunos desafíos usan IPv6.",
         "evi.sample.type":"evidencia · sample","evi.sample.h3":"Análisis de Malware","evi.sample.p":"Aísla el binario, observa el comportamiento y describe qué hace realmente la muestra, con seguridad.",
         "evi.cipher.type":"evidencia · cipher","evi.cipher.h3":"Criptografía","evi.cipher.p":"Rompe la ofuscación, identifica el esquema y recupera el secreto que el atacante intentó esconder.",
@@ -1348,7 +1349,7 @@
         "first.p1":"El <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne a los equipos de respuesta a incidentes de todo el mundo. En el SBSeg 2026 corremos un <strong>replay</strong> del CTF de la Conferencia Anual del FIRST, el mismo conjunto de desafíos de referencia internacional, adaptado para una jornada de competición.",
         "first.p2":"El <strong>CERT.br</strong> conduce toda la infraestructura: el backend corre por cuenta de la organización y las respuestas se envían vía <strong>CTFd</strong>. Solo necesitas tu portátil y a tu equipo.",
         "first.cta":"Mira el CTF del FIRST 2026 →",
-        "first.stat1":"categorías de análisis en el replay de este caso","first.stat2":"jornada intensa de competición: 09h a 17h","first.stat3":"actividades ofensivas: defensa de principio a fin","first.stat4":"conexiones por hacer: el networking es parte del juego",
+        "first.stat1":"categorías de análisis en el replay del CTF del FIRST","first.stat2":"jornada intensa de competición: 09h a 17h","first.stat3":"actividades ofensivas: defensa de principio a fin","first.stat4":"conexiones por hacer: el networking es parte del juego",
         "demo.eyebrow":"Pruébalo","demo.h2":"Una probadita de lo que viene","demo.lead":"Para que tengas una idea de lo que encontrarás ese día, resuelve este minidesafío al estilo de los desafíos del FIRST. Descifra la evidencia y envía la flag.",
         "demo.bar":"desafio.demo · criptografía · 10 pts","demo.live":"ABIERTO",
         "demo.brief":"Durante el análisis de un incidente, el equipo interceptó este mensaje dejado por el atacante. Está codificado, no cifrado. Recupera el contenido original y envía la flag en el formato <code>CTF{...}</code>.",
@@ -1365,7 +1366,7 @@
         "dl.gear.dt":"Equipamiento","dl.gear.dd":"Trae tu portátil<small>varios desafíos usan servidores en línea, con internet en el lugar</small>",
         "dl.reg.dt":"Inscripción","dl.reg.dd":"Valor simbólico<small>apertura muy pronto</small>",
         "dl.prizes.dt":"Premios","dl.prizes.dd":"Premios para los mejores clasificados<small>con apoyo de Tempest; espera novedades</small>",
-        "niveis.eyebrow":"Para todos los niveles","niveis.h2":"¿Nunca jugaste un CTF? Empieza por aquí.","niveis.p":"No necesitas ser experto para participar: necesitas ganas de investigar. Hay desafíos pensados para quien empieza y para quien ya compite hace años. Y, al final, el mejor premio suele ser la gente que conoces intentando resolver el mismo caso.",
+        "niveis.eyebrow":"Para todos los niveles","niveis.h2":"¿Nunca jugaste un CTF? Empieza por aquí.","niveis.p":"No necesitas ser experto para participar: necesitas ganas de investigar. Hay desafíos pensados para quien empieza y para quien ya compite hace años. Y, al final, el mejor premio suele ser la gente que conoces intentando resolver los mismos desafíos.",
         "niveis.p2":"¿Nunca escuchaste hablar de esto? Un CTF (Capture The Flag) es un juego de acertijos computacionales: analizas un artefacto, descubres qué pasó y encuentras la <b>flag</b>, un código en el formato <code>CTF{...}</code> que prueba la solución. Aprendes jugando, y puedes <a href='#demo'>probar un minidesafío ahora mismo</a>.",
         "niveis.train":"¿Quieres entrenar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Por qué participar","porque.h2":"Lo que te llevas de ese día","porque.lead":"Más allá de la competición, el CTF es una puerta de entrada al área de seguridad: en la práctica, con gente de verdad y en el principal evento científico de seguridad de Brasil.",
@@ -1374,7 +1375,7 @@
         "why.03.n":"03 / NETWORKING","why.03.h3":"Conoce a la comunidad","why.03.p":"Estudiantes de todo el país, profesores, la gente del CERT.br y empresas del área, todos en el mismo lugar.",
         "why.04.n":"04 / PORTAFOLIO","why.04.h3":"Vitrina para pasantías y empleos","why.04.p":"Una buena posición en el marcador es un diferencial concreto para el currículum, pasantías y primeros empleos en el área.",
         "why.05.n":"05 / PREMIOS","why.05.h3":"Premios para los mejores","why.05.p":"Premios para los mejores clasificados, con apoyo confirmado de Tempest. Novedades muy pronto.",
-        "why.06.n":"06 / DIVERSIÓN","why.06.h3":"Al final, es un juego","why.06.p":"Acertijos por resolver, códigos por romper y un caso por cerrar junto a tu equipo. Difícil no divertirse.",
+        "why.06.n":"06 / DIVERSIÓN","why.06.h3":"Al final, es un juego","why.06.p":"Acertijos por resolver, códigos por romper y desafíos por cerrar junto a tu equipo. Difícil no divertirse.",
         "faq.eyebrow":"FAQ","faq.h2":"Preguntas frecuentes","faq.lead":"Las dudas más comunes de quien está pensando en participar. ¿No encontraste la tuya? Pregunta por el formulario de contacto.",
         "faq.q1":"¿Necesito experiencia con CTF o con seguridad?","faq.a1":"No. Hay desafíos para todos los niveles, incluso pensados para quien nunca jugó. Aprendes durante la competición, y el equipo se ayuda.",
         "faq.q2":"¿Qué es una \"flag\"?","faq.a2":"Es un código en el formato <code>CTF{...}</code> que prueba que resolviste el desafío. La encuentras analizando las evidencias y la envías en la plataforma (CTFd) para puntuar.",
@@ -1410,20 +1411,20 @@
         "hero.ctaPrimary":"Register your team →","hero.ctaGhost":"How it works","hero.metaLabel":"Event summary",
         "hero.note":"<strong>The announcement starts now.</strong> Build your team and, for questions and suggestions, <a href='#contato'>get in touch with the organization</a>.",
         "chip.date":"Sat · Aug 29 · 9am–5pm","chip.presencial":"In person","chip.equipes":"Teams of 2 to 4","chip.iniciantes":"Beginners welcome","chip.premio":"Prizes for the top teams",
-        "replay.aria":"Timeline of an incident reopened for analysis","replay.barCase":"replay.incident · case #2025-014","replay.live":"ANALYSIS",
-        "node.rede.k":"Anomalous traffic","node.malware.k":"Binary isolated","node.cripto.k":"Encrypted payload","node.codigo.k":"Code flaw","node.captura.k":"Flag recovered",
-        "node.rede.tag":"Networks & Traffic","node.rede.title":"Suspicious connection at the perimeter","node.rede.desc":"Packet captures show an anomalous access. Rebuild the session and find out what got into the network.",
-        "node.malware.tag":"Malware Analysis","node.malware.title":"Binary dropped on disk","node.malware.desc":"An artifact was left behind. Isolate the sample and understand what it does, without running it blind.",
-        "node.cripto.tag":"Cryptography","node.cripto.title":"Encrypted payload","node.cripto.desc":"The payload is obfuscated. Break the scheme and recover the message the attacker tried to hide.",
-        "node.codigo.tag":"Secure Programming","node.codigo.title":"Vulnerable endpoint","node.codigo.desc":"The way in was a flaw in the code. Find the defect before it shows up again in production.",
-        "node.captura.tag":"Capture","node.captura.title":"Flag recovered","node.captura.desc":"Evidence rebuilt, hypothesis confirmed, flag submitted. That is how a defense team closes the case.",
-        "replay.defaultLead":"Move across each marker: every piece of evidence is a challenge category.","replay.defaultTag":"replay","replay.defaultDesc":"Select a point on the timeline to see the type of analysis involved.",
+        "replay.aria":"CTF challenge categories, presented as pieces of evidence to analyze","replay.barCase":"FIRST CTF replay · standalone challenges","replay.live":"ANALYSIS",
+        "node.rede.k":"Networks & Traffic","node.malware.k":"Malware Analysis","node.cripto.k":"Cryptography","node.codigo.k":"Secure Programming","node.captura.k":"Capture the flag",
+        "node.rede.tag":"Networks & Traffic","node.rede.title":"Sample challenge: suspicious connection","node.rede.desc":"You get a packet capture, rebuild the session and find out what got into the network.",
+        "node.malware.tag":"Malware Analysis","node.malware.title":"Sample challenge: suspicious binary","node.malware.desc":"You isolate the sample, observe its behavior and describe what it really does, without running it blind.",
+        "node.cripto.tag":"Cryptography","node.cripto.title":"Sample challenge: encrypted payload","node.cripto.desc":"You break the obfuscation, identify the scheme and recover the secret someone tried to hide.",
+        "node.codigo.tag":"Secure Programming","node.codigo.title":"Sample challenge: vulnerable code","node.codigo.desc":"You read the code like someone hunting for the gap and find the flaw before it gets expensive.",
+        "node.captura.tag":"Capture","node.captura.title":"Every analysis ends the same way","node.captura.desc":"Evidence analyzed, hypothesis confirmed, flag submitted on the platform. Every solved challenge scores points for the team.",
+        "replay.defaultLead":"Each marker is a challenge category. Challenges are standalone: the team picks where to start.","replay.defaultTag":"categories","replay.defaultDesc":"Select a category to see the type of analysis involved.",
         "desafio.eyebrow":"The challenge","desafio.h2":"A defense CTF, not an attack one","desafio.lead":"Traditional competitions reward breaking in. This one flips the logic: you are on the side of those who investigate, understand and prove what happened. The focus is strictly technical: analysis of artifacts and evidence.",
         "card.01.n":"01 / DEFENSE","card.01.h3":"No attack, analysis only","card.01.p":"No offensive exploitation. You examine artifacts, reconstruct what happened and back every conclusion with evidence.",
-        "card.02.n":"02 / REPLAY","card.02.h3":"Replay model","card.02.p":"We reopen incidents and scenarios. You revisit the case and find what, in a real attack, could have slipped by.",
+        "card.02.n":"02 / REPLAY","card.02.h3":"FIRST CTF replay","card.02.p":"We play the challenge set from the FIRST Annual Conference: standalone analysis challenges, and the team picks where to start.",
         "card.03.n":"03 / TEAM","card.03.h3":"Built for teams","card.03.p":"The challenges call for complementary skills. Bring together people from different areas, because collaboration is part of the strategy.",
         "card.04.n":"04 / LEVELS","card.04.h3":"Every level","card.04.p":"There are challenges for every point on the curve. Never played a CTF? There is room, and a challenge, for you too.",
-        "categorias.eyebrow":"Categories","categorias.h2":"The evidence in the case","categorias.lead":"Each recovered artifact opens a line of analysis. You do not need to master them all: you can pick one, and the team decides on the spot who covers what.",
+        "categorias.eyebrow":"Categories","categorias.h2":"The evidence you will analyze","categorias.lead":"Each challenge hands you an artifact and opens its own line of analysis, independently. You do not need to master them all: you can pick one, and the team decides on the spot who covers what.",
         "evi.pcap.type":"evidence · pcap","evi.pcap.h3":"Networks & Traffic","evi.pcap.p":"Rebuild connections from packet captures and follow the trail of the incident. Some challenges use IPv6.",
         "evi.sample.type":"evidence · sample","evi.sample.h3":"Malware Analysis","evi.sample.p":"Isolate the binary, observe its behavior and describe what the sample really does, safely.",
         "evi.cipher.type":"evidence · cipher","evi.cipher.h3":"Cryptography","evi.cipher.p":"Break the obfuscation, identify the scheme and recover the secret the attacker tried to hide.",
@@ -1434,7 +1435,7 @@
         "first.p1":"<strong>FIRST</strong> (Forum of Incident Response and Security Teams) brings together incident response teams from all over the world. At SBSeg 2026 we run a <strong>replay</strong> of the FIRST Annual Conference CTF, the same set of internationally recognized challenges, adapted for a single day of competition.",
         "first.p2":"<strong>CERT.br</strong> runs the entire infrastructure: the backend is handled by the organization and answers are submitted through <strong>CTFd</strong>. You only need your gear and your team.",
         "first.cta":"See the FIRST 2026 CTF →",
-        "first.stat1":"analysis categories in the replay of this case","first.stat2":"intense day of competition: 9am to 5pm","first.stat3":"offensive activities: defense from start to finish","first.stat4":"connections to make: networking is part of the game",
+        "first.stat1":"analysis categories in the FIRST CTF replay","first.stat2":"intense day of competition: 9am to 5pm","first.stat3":"offensive activities: defense from start to finish","first.stat4":"connections to make: networking is part of the game",
         "demo.eyebrow":"Try it","demo.h2":"A taste of what is coming","demo.lead":"To get a feel for what you will find on the day, solve this FIRST-style mini challenge. Decode the evidence and submit the flag.",
         "demo.bar":"challenge.demo · cryptography · 10 pts","demo.live":"OPEN",
         "demo.brief":"While analyzing an incident, the team intercepted this message left behind by the attacker. It is encoded, not encrypted. Recover the original content and submit the flag in the <code>CTF{...}</code> format.",
@@ -1451,7 +1452,7 @@
         "dl.gear.dt":"Gear","dl.gear.dd":"Bring your laptop<small>several challenges use online servers, with internet on site</small>",
         "dl.reg.dt":"Registration","dl.reg.dd":"Symbolic fee<small>opening soon</small>",
         "dl.prizes.dt":"Prizes","dl.prizes.dd":"Prizes for the top teams<small>supported by Tempest; stay tuned for news</small>",
-        "niveis.eyebrow":"For every level","niveis.h2":"Never played a CTF? Start here.","niveis.p":"You do not need to be an expert to take part: you need the will to investigate. There are challenges designed for those just starting and for those who have competed for years. And in the end, the best prize is usually the people you meet while solving the same case.",
+        "niveis.eyebrow":"For every level","niveis.h2":"Never played a CTF? Start here.","niveis.p":"You do not need to be an expert to take part: you need the will to investigate. There are challenges designed for those just starting and for those who have competed for years. And in the end, the best prize is usually the people you meet while solving the same challenges.",
         "niveis.p2":"Never heard of it? A CTF (Capture The Flag) is a game of computational puzzles: you analyze an artifact, figure out what happened and find the <b>flag</b>, a code in the <code>CTF{...}</code> format that proves the solution. You learn by playing, and you can <a href='#demo'>try a mini challenge right now</a>.",
         "niveis.train":"Want to practice first? Free platforms: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Why take part","porque.h2":"What you take away from the day","porque.lead":"Beyond the competition, the CTF is a gateway into the security field: hands-on, with real people, at Brazil's leading scientific security event.",
@@ -1460,7 +1461,7 @@
         "why.03.n":"03 / NETWORKING","why.03.h3":"Meet the community","why.03.p":"Students from all over the country, professors, the CERT.br crew and companies in the field, all in one place.",
         "why.04.n":"04 / PORTFOLIO","why.04.h3":"A showcase for internships and jobs","why.04.p":"A good spot on the scoreboard is a concrete differentiator for your résumé, internships and first jobs in the field.",
         "why.05.n":"05 / PRIZES","why.05.h3":"Prizes for the top teams","why.05.p":"Prizes for the top teams, with support confirmed by Tempest. News coming soon.",
-        "why.06.n":"06 / FUN","why.06.h3":"It is a game, after all","why.06.p":"Puzzles to solve, codes to break and a case to close together with your team. Hard not to have fun.",
+        "why.06.n":"06 / FUN","why.06.h3":"It is a game, after all","why.06.p":"Puzzles to solve, codes to break and challenges to close together with your team. Hard not to have fun.",
         "faq.eyebrow":"FAQ","faq.h2":"Frequently asked questions","faq.lead":"The most common questions from those thinking about taking part. Did not find yours? Ask through the contact form.",
         "faq.q1":"Do I need experience with CTFs or security?","faq.a1":"No. There are challenges for every level, including some designed for first-timers. You learn during the competition, and the team helps each other.",
         "faq.q2":"What is a \"flag\"?","faq.a2":"It is a code in the <code>CTF{...}</code> format that proves you solved the challenge. You find it by analyzing the evidence and submit it on the platform (CTFd) to score.",
