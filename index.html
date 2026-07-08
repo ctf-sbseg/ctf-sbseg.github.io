@@ -9,7 +9,7 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="CTF · SBSeg 2026 · Capture The Flag de Defesa" />
-<meta property="og:description" content="Reabra o incidente. Analise a evidência. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis." />
+<meta property="og:description" content="Incidente reportado. Analise as evidências. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -261,23 +261,9 @@
 
   .replay__stage{padding:clamp(26px,4vw,42px) clamp(18px,4vw,40px) clamp(16px,3vw,26px);}
   .replay__track{position:relative;}
-  .replay__rail{
-    position:absolute;left:0;right:0;top:9px;height:2px;background:var(--hairline-strong);border-radius:2px;
-  }
-  .replay__fill{
-    position:absolute;left:0;top:9px;height:2px;width:0;background:var(--blue);border-radius:2px;
-    transition:width 1.6s cubic-bezier(.4,0,.2,1);
-  }
-  .replay__head{
-    position:absolute;top:5px;left:0;width:10px;height:10px;border-radius:50%;
-    background:var(--blue);box-shadow:0 0 0 5px var(--blue-wash);
-    transform:translateX(-50%);opacity:0;
-    transition:left 1.6s cubic-bezier(.4,0,.2,1), opacity .3s ease;
-  }
-  .replay.playing .replay__head{opacity:1;}
 
   .replay__nodes{
-    position:relative;display:flex;justify-content:space-between;gap:8px;
+    position:relative;display:flex;justify-content:space-between;gap:14px;
     list-style:none;margin:0;padding:0;
   }
   .replay__nodes li{flex:1 1 0;min-width:0;}
@@ -301,10 +287,17 @@
   .node[aria-current="true"] .node__dot{box-shadow:0 0 0 5px var(--blue-wash);}
   .node.cap[aria-current="true"] .node__dot{box-shadow:0 0 0 5px var(--green-wash);}
 
-  .node__meta{display:flex;flex-direction:column;gap:2px;}
+  .node__meta{display:flex;flex-direction:column;gap:3px;}
   .node__t{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;color:var(--slate);letter-spacing:0.03em;}
-  .node__k{font-size:0.86rem;font-weight:600;line-height:1.25;}
+  .node__k{font-size:0.9rem;font-weight:600;line-height:1.25;}
   .node.cap .node__k{color:var(--green-text);}
+  .node__flag{
+    display:inline-flex;align-items:center;gap:5px;margin-top:3px;
+    font-family:"IBM Plex Mono",monospace;font-size:0.7rem;letter-spacing:0.02em;
+    color:var(--green-text);
+  }
+  .node__flag svg{flex:none;opacity:.85;}
+  .node.lit .node__flag svg{opacity:1;}
 
   .replay__detail{
     margin-top:22px;padding-top:18px;border-top:1px dashed var(--hairline-strong);
@@ -327,11 +320,6 @@
     .node{flex-direction:row;align-items:center;gap:14px;padding:9px 0;}
     .node__dot{flex:none;}
     .node__meta{display:flex;flex-direction:column;}
-    .replay__rail,.replay__fill{
-      left:9px;right:auto;top:0;bottom:0;width:2px;height:auto;
-    }
-    .replay__fill{height:0;width:2px;transition:height 1.6s cubic-bezier(.4,0,.2,1);}
-    .replay__head{display:none;}
   }
 
   /* ---------- Generic section ---------- */
@@ -673,8 +661,8 @@
   <div class="wrap">
     <p class="eyebrow" data-i18n="hero.eyebrow">Capture The Flag · SBSeg 2026 · Edição FIRST</p>
     <h1 id="hero-title">
-      <span class="ln" data-i18n="hero.h1a">Reabra o incidente.</span>
-      <span class="ln" data-i18n="hero.h1b">Analise a evidência.</span>
+      <span class="ln" data-i18n="hero.h1a">Incidente reportado.</span>
+      <span class="ln" data-i18n="hero.h1b">Analise as evidências.</span>
       <span class="ln cap" data-i18n="hero.h1c">Capture a flag</span>
     </h1>
     <p class="hero__lead" data-i18n-html="hero.lead">
@@ -705,7 +693,7 @@
     </div>
 
     <!-- SIGNATURE: incident replay timeline -->
-    <div class="replay reveal" id="replay" data-i18n-attr="aria-label:replay.aria" aria-label="Categorias de desafio do CTF, apresentadas como evidências de análise">
+    <div class="replay reveal" id="replay" data-i18n-attr="aria-label:replay.aria" aria-label="Desafios do CTF, cada um com nome, descrição e flag própria">
       <div class="replay__bar">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <span data-i18n="replay.barCase">replay do CTF do FIRST · desafios independentes</span>
@@ -713,36 +701,45 @@
       </div>
       <div class="replay__stage">
         <div class="replay__track">
-          <div class="replay__rail" aria-hidden="true"></div>
-          <div class="replay__fill" id="replayFill" aria-hidden="true"></div>
-          <div class="replay__head" id="replayHead" aria-hidden="true"></div>
           <ul class="replay__nodes" id="replayNodes">
             <li><button class="node" type="button" data-node="rede">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">cat.01</span><span class="node__k" data-i18n="node.rede.k">Redes &amp; Tráfego</span></span>
+              <span class="node__meta">
+                <span class="node__t" data-i18n="node.rede.k">Redes &amp; Tráfego</span>
+                <span class="node__k">&ldquo;A suspicious server&rdquo;</span>
+                <span class="node__flag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22V4M5 4h12l-2 3.5L17 11H5"/></svg> <span data-i18n="node.flag">capture a flag</span></span>
+              </span>
             </button></li>
             <li><button class="node" type="button" data-node="malware">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">cat.02</span><span class="node__k" data-i18n="node.malware.k">Análise de Malware</span></span>
+              <span class="node__meta">
+                <span class="node__t" data-i18n="node.malware.k">Análise de Malware</span>
+                <span class="node__k">&ldquo;m.exe&rdquo;</span>
+                <span class="node__flag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22V4M5 4h12l-2 3.5L17 11H5"/></svg> <span data-i18n="node.flag">capture a flag</span></span>
+              </span>
             </button></li>
             <li><button class="node" type="button" data-node="cripto">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">cat.03</span><span class="node__k" data-i18n="node.cripto.k">Criptografia</span></span>
+              <span class="node__meta">
+                <span class="node__t" data-i18n="node.cripto.k">Criptografia</span>
+                <span class="node__k">&ldquo;The Unhashable&rdquo;</span>
+                <span class="node__flag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22V4M5 4h12l-2 3.5L17 11H5"/></svg> <span data-i18n="node.flag">capture a flag</span></span>
+              </span>
             </button></li>
             <li><button class="node" type="button" data-node="codigo">
               <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">cat.04</span><span class="node__k" data-i18n="node.codigo.k">Programação Segura</span></span>
-            </button></li>
-            <li><button class="node cap" type="button" data-node="captura">
-              <span class="node__dot" aria-hidden="true"></span>
-              <span class="node__meta"><span class="node__t">flag</span><span class="node__k" data-i18n="node.captura.k">Capture a flag</span></span>
+              <span class="node__meta">
+                <span class="node__t" data-i18n="node.codigo.k">Programação Segura</span>
+                <span class="node__k">&ldquo;Misterious code&rdquo;</span>
+                <span class="node__flag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22V4M5 4h12l-2 3.5L17 11H5"/></svg> <span data-i18n="node.flag">capture a flag</span></span>
+              </span>
             </button></li>
           </ul>
         </div>
         <div class="replay__detail" id="replayDetail" aria-live="polite">
-          <p class="lead-line" data-i18n="replay.defaultLead">Cada marcador é uma categoria de desafio. Os desafios são independentes: o time escolhe por onde começar.</p>
-          <span class="tag" data-i18n="replay.defaultTag">categorias</span>
-          <p data-i18n="replay.defaultDesc">Selecione uma categoria para ver o tipo de análise envolvido.</p>
+          <p class="lead-line" data-i18n="replay.defaultLead">Cada desafio tem um nome, uma descrição do que fazer e uma flag própria para submeter. São independentes: o time escolhe por onde começar.</p>
+          <span class="tag" data-i18n="replay.defaultTag">desafios</span>
+          <p data-i18n="replay.defaultDesc">Passe o mouse sobre um desafio para ver o tipo de análise envolvido.</p>
         </div>
       </div>
     </div>
@@ -756,7 +753,7 @@
       <p class="eyebrow" data-i18n="desafio.eyebrow">O desafio</p>
       <h2 id="desafio-title" data-i18n="desafio.h2">Um CTF de defesa, não de ataque</h2>
       <p data-i18n="desafio.lead">Competições tradicionais premiam a invasão. Esta inverte a lógica: você está do lado de quem
-        investiga, entende e prova o que aconteceu. O foco é exclusivamente técnico: análise de artefatos e evidências.</p>
+        investiga, entende e prova o que aconteceu. O foco é exclusivamente técnico: análise de logs, artefatos e outras evidências.</p>
     </div>
     <div class="grid grid--4">
       <article class="card reveal">
@@ -788,9 +785,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="categorias.eyebrow">Categorias</p>
-      <h2 id="cat-title" data-i18n="categorias.h2">As evidências que você vai analisar</h2>
-      <p data-i18n="categorias.lead">Cada desafio entrega um artefato e abre uma frente de análise, de forma independente.
-        Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.</p>
+      <h2 id="cat-title" data-i18n="categorias.h2">O que você vai analisar</h2>
+      <p data-i18n="categorias.lead">Cada desafio entrega uma tarefa relacionada a um incidente ou parte dele, e abre uma frente de análise,
+        de forma independente. Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.</p>
     </div>
     <div class="grid grid--3">
       <article class="evi reveal">
@@ -848,12 +845,13 @@
       <p style="margin-top:18px;color:var(--slate);font-size:var(--step-lead)" data-i18n-html="first.p1">
         O <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne os times de
         resposta a incidentes do mundo inteiro. No SBSeg 2026 rodamos um <strong>replay</strong> do
-        CTF da Conferência Anual do FIRST, o mesmo conjunto de desafios de referência internacional,
+        CTF da Conferência Anual do FIRST, um subconjunto dos desafios de referência internacional,
         adaptado para um dia de competição.
       </p>
       <p style="margin-top:16px;color:var(--slate);font-size:var(--step-lead)" data-i18n-html="first.p2">
-        O <strong>CERT.br</strong> conduz toda a infraestrutura: o backend roda por conta da organização
-        e as respostas são submetidas via <strong>CTFd</strong>. Você só precisa do seu equipamento e da sua equipe.
+        O <strong>CERT.br</strong>, que há mais de 15 anos é um dos responsáveis pela execução do CTF do FIRST,
+        organiza e apoia esta edição do CTF na SBSeg 2026, provendo a infraestrutura, o conteúdo e a organização
+        necessários. Você só precisa do seu equipamento e da sua equipe.
       </p>
       <p style="margin-top:24px"><a class="btn btn--ghost" href="https://www.first.org/conference/2026/ctf" target="_blank" rel="noopener" data-i18n="first.cta">Veja o CTF do FIRST 2026 →</a></p>
     </div>
@@ -924,7 +922,7 @@
         <div><dt data-i18n="dl.where.dt">Onde</dt><dd data-i18n-html="dl.where.dd">Presencial<small>Local a confirmar</small></dd></div>
         <div><dt data-i18n="dl.teams.dt">Equipes</dt><dd data-i18n-html="dl.teams.dd">De 2 a 4 participantes, ideal 4<small>monte com competências variadas</small></dd></div>
         <div><dt data-i18n="dl.level.dt">Nível</dt><dd data-i18n-html="dl.level.dd">Todos<small>do primeiro CTF ao veterano</small></dd></div>
-        <div><dt data-i18n="dl.platform.dt">Plataforma</dt><dd data-i18n-html="dl.platform.dd">Submissão via CTFd<small>o CERT.br roda todo o backend</small></dd></div>
+        <div><dt data-i18n="dl.platform.dt">Idioma</dt><dd data-i18n-html="dl.platform.dd">Inglês<small>todos os desafios apresentados estão em inglês</small></dd></div>
         <div><dt data-i18n="dl.gear.dt">Equipamento</dt><dd data-i18n-html="dl.gear.dd">Traga seu notebook<small>vários desafios usam servidores online, com internet no local</small></dd></div>
         <div><dt data-i18n="dl.reg.dt">Inscrição</dt><dd data-i18n-html="dl.reg.dd">Valor simbólico<small>abertura em breve</small></dd></div>
         <div><dt data-i18n="dl.prizes.dt">Prêmios</dt><dd data-i18n-html="dl.prizes.dd">Premiação para os melhores colocados<small>com apoio da Tempest; aguarde novidades</small></dd></div>
@@ -945,7 +943,7 @@
           o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.</p>
         <p data-i18n-html="niveis.p2" style="margin-top:14px">Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de
           quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a
-          <b>flag</b>, um código no formato <code>CTF{...}</code> que prova a solução. Você aprende jogando,
+          <b>flag</b>, um código que prova a solução. Você aprende jogando,
           e pode <a href="#demo">experimentar um mini-desafio agora mesmo</a>.</p>
         <p class="levels__links" data-i18n-html="niveis.train">Quer treinar antes? Plataformas gratuitas:
           <a href="https://picoctf.org" target="_blank" rel="noopener">picoCTF</a> ·
@@ -1021,7 +1019,7 @@
       <a class="btn btn--primary" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" data-i18n="inscricao.cta">Acompanhar o SBSeg 2026 →</a>
       <a class="btn btn--ghost" href="#contato" data-i18n="inscricao.ctaContato">Dúvidas e sugestões? Entre em contato</a>
     </div>
-    <p class="note reveal" data-i18n="inscricao.note">Operação do CTF conduzida pelo CERT.br · backend e leaderboard ao vivo por conta da organização.</p>
+    <p class="note reveal" data-i18n="inscricao.note">Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.</p>
     <div class="apoio reveal">
       <span class="apoio__label" data-i18n="apoio.label">Apoio oficial</span>
       <div class="apoio__logos">
@@ -1035,7 +1033,7 @@
           <img class="cert-logo cert-logo--tempest" src="imgs/logo_tempest.png" width="215" height="56" alt="Tempest" />
         </a>
       </div>
-      <p class="apoio__desc" data-i18n-html="apoio.desc">O <b>CERT.br</b> conduz toda a infraestrutura: backend, plataforma de submissão e leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.</p>
+      <p class="apoio__desc" data-i18n-html="apoio.desc">O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.</p>
       <span class="apoio__label" data-i18n="apoio.realizaLabel">Realização</span>
       <a class="apoio__logo" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" aria-label="SBSeg 2026">
         <img class="cert-logo cert-logo--sbseg" src="imgs/logo_sbseg2026.png" width="545" height="218" alt="XXVI SBSeg 2026" />
@@ -1117,7 +1115,7 @@
       </details>
       <details>
         <summary data-i18n="faq.q2">O que é uma "flag"?</summary>
-        <p data-i18n-html="faq.a2">É um código no formato <code>CTF{...}</code> que prova que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma (CTFd) para pontuar.</p>
+        <p data-i18n-html="faq.a2">É um código que pode ser um hash, uma string, um endereço IP, um timestamp ou qualquer coisa que a descrição do desafio peça. A flag é a prova de que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma para pontuar.</p>
       </details>
       <details>
         <summary data-i18n="faq.q3">Posso participar sozinho?</summary>
@@ -1133,7 +1131,7 @@
       </details>
       <details>
         <summary data-i18n="faq.q6">O que preciso levar?</summary>
-        <p data-i18n="faq.a6">Seu notebook e vontade de investigar. Haverá internet no local e vários desafios usam servidores online.</p>
+        <p data-i18n="faq.a6">Seu notebook e vontade de investigar. O ideal é que ele rode um sistema Linux: com ele você tem todas as ferramentas necessárias para resolver os desafios. O Linux também pode rodar em uma máquina virtual, desde que tenha espaço em disco e memória RAM suficientes. Haverá internet no local e alguns desafios podem usar servidores online.</p>
       </details>
       <details>
         <summary data-i18n="faq.q7">Vou precisar atacar ou invadir algo?</summary>
@@ -1243,31 +1241,30 @@
       pt: {
         "meta.title":"CTF · SBSeg 2026 · Capture The Flag de Defesa",
         "meta.description":"Capture The Flag do SBSeg 2026: um CTF de defesa baseado nos desafios do FIRST (Forum of Incident Response and Security Teams). Sem ataque, só análise. Para todos os níveis, em equipes de 2 a 4 pessoas.",
-        "og.description":"Reabra o incidente. Analise a evidência. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis.",
+        "og.description":"Incidente reportado. Analise as evidências. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis.",
         "skip":"Pular para o conteúdo",
         "brand.aria":"CTF SBSeg 2026: início",
         "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.demo":"Experimente","nav.formato":"Formato","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe",
         "nav.toggleOpen":"Abrir menu","nav.toggleClose":"Fechar menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edição FIRST",
-        "hero.h1a":"Reabra o incidente.","hero.h1b":"Analise a evidência.","hero.h1c":"Capture a flag",
+        "hero.h1a":"Incidente reportado.","hero.h1b":"Analise as evidências.","hero.h1c":"Capture a flag",
         "hero.lead":"Um CTF de <strong>defesa</strong>, baseado nos desafios do <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), o fórum que reúne os times de resposta a incidentes do mundo inteiro. Aqui não tem ataque, só análise de artefatos, evidências e incidentes que, num cenário real, poderiam ter passado despercebidos. Para todos os níveis: <strong>não precisa de experiência prévia</strong>.",
         "hero.ctaPrimary":"Inscreva sua equipe →","hero.ctaGhost":"Como funciona","hero.metaLabel":"Resumo do evento",
         "hero.note":"<strong>A divulgação começa agora.</strong> Monte sua equipe e, em caso de dúvidas e sugestões, <a href='#contato'>entre em contato com a organização</a>.",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipes de 2 a 4","chip.iniciantes":"Iniciantes bem-vindos","chip.premio":"Premiação para os melhores",
-        "replay.aria":"Categorias de desafio do CTF, apresentadas como evidências de análise","replay.barCase":"replay do CTF do FIRST · desafios independentes","replay.live":"ANÁLISE",
-        "node.rede.k":"Redes & Tráfego","node.malware.k":"Análise de Malware","node.cripto.k":"Criptografia","node.codigo.k":"Programação Segura","node.captura.k":"Capture a flag",
+        "replay.aria":"Desafios do CTF, cada um com nome, descrição e flag própria","replay.barCase":"replay do CTF do FIRST · desafios independentes","replay.live":"ANÁLISE",
+        "node.rede.k":"Redes & Tráfego","node.malware.k":"Análise de Malware","node.cripto.k":"Criptografia","node.codigo.k":"Programação Segura","node.flag":"capture a flag",
         "node.rede.tag":"Redes & Tráfego","node.rede.title":"Exemplo de desafio: conexão suspeita","node.rede.desc":"Você recebe uma captura de pacotes, reconstrói a sessão e descobre o que entrou na rede.",
         "node.malware.tag":"Análise de Malware","node.malware.title":"Exemplo de desafio: binário suspeito","node.malware.desc":"Você isola a amostra, observa o comportamento e descreve o que ela realmente faz, sem executá-la no escuro.",
         "node.cripto.tag":"Criptografia","node.cripto.title":"Exemplo de desafio: payload cifrado","node.cripto.desc":"Você quebra a ofuscação, identifica o esquema e recupera o segredo que tentaram esconder.",
         "node.codigo.tag":"Programação Segura","node.codigo.title":"Exemplo de desafio: código vulnerável","node.codigo.desc":"Você lê o código como quem procura a brecha e encontra a falha antes que ela custe caro.",
-        "node.captura.tag":"Captura","node.captura.title":"Toda análise termina igual","node.captura.desc":"Evidência analisada, hipótese confirmada, flag submetida na plataforma. Cada desafio resolvido soma pontos para o time.",
-        "replay.defaultLead":"Cada marcador é uma categoria de desafio. Os desafios são independentes: o time escolhe por onde começar.","replay.defaultTag":"categorias","replay.defaultDesc":"Selecione uma categoria para ver o tipo de análise envolvido.",
-        "desafio.eyebrow":"O desafio","desafio.h2":"Um CTF de defesa, não de ataque","desafio.lead":"Competições tradicionais premiam a invasão. Esta inverte a lógica: você está do lado de quem investiga, entende e prova o que aconteceu. O foco é exclusivamente técnico: análise de artefatos e evidências.",
+        "replay.defaultLead":"Cada desafio tem um nome, uma descrição do que fazer e uma flag própria para submeter. São independentes: o time escolhe por onde começar.","replay.defaultTag":"desafios","replay.defaultDesc":"Passe o mouse sobre um desafio para ver o tipo de análise envolvido.",
+        "desafio.eyebrow":"O desafio","desafio.h2":"Um CTF de defesa, não de ataque","desafio.lead":"Competições tradicionais premiam a invasão. Esta inverte a lógica: você está do lado de quem investiga, entende e prova o que aconteceu. O foco é exclusivamente técnico: análise de logs, artefatos e outras evidências.",
         "card.01.n":"01 / DEFESA","card.01.h3":"Sem ataque, só análise","card.01.p":"Nada de exploração ofensiva. Você examina artefatos, reconstrói o que ocorreu e sustenta cada conclusão com evidência.",
         "card.02.n":"02 / REPLAY","card.02.h3":"Replay do CTF do FIRST","card.02.p":"Jogamos aqui o conjunto de desafios da Conferência Anual do FIRST: desafios independentes de análise, e o time escolhe por onde começar.",
         "card.03.n":"03 / EQUIPE","card.03.h3":"Feito para times","card.03.p":"Os desafios pedem competências complementares. Junte gente de áreas diferentes, porque a colaboração é parte da estratégia.",
         "card.04.n":"04 / NÍVEIS","card.04.h3":"Todos os níveis","card.04.p":"Há desafios para cada ponto da curva. Nunca jogou um CTF? Tem espaço, e desafio, para você também.",
-        "categorias.eyebrow":"Categorias","categorias.h2":"As evidências que você vai analisar","categorias.lead":"Cada desafio entrega um artefato e abre uma frente de análise, de forma independente. Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.",
+        "categorias.eyebrow":"Categorias","categorias.h2":"O que você vai analisar","categorias.lead":"Cada desafio entrega uma tarefa relacionada a um incidente ou parte dele, e abre uma frente de análise, de forma independente. Você não precisa dominar todas: pode escolher uma, e o time define na hora quem cobre o quê.",
         "evi.pcap.type":"evidência · pcap","evi.pcap.h3":"Redes & Tráfego","evi.pcap.p":"Reconstrua conexões a partir de capturas de pacotes e siga o rastro do incidente. Alguns desafios usam IPv6.",
         "evi.sample.type":"evidência · sample","evi.sample.h3":"Análise de Malware","evi.sample.p":"Isole o binário, observe o comportamento e descreva o que a amostra realmente faz, com segurança.",
         "evi.cipher.type":"evidência · cipher","evi.cipher.h3":"Criptografia","evi.cipher.p":"Quebre a ofuscação, identifique o esquema e recupere o segredo que o atacante tentou esconder.",
@@ -1275,8 +1272,8 @@
         "evi.logs.type":"evidência · logs","evi.logs.h3":"Forense & Logs","evi.logs.p":"Cruze registros, monte a linha do tempo e separe o ruído do que de fato importa para o caso.",
         "evi.mais.type":"evidência · +","evi.mais.h3":"E mais","evi.mais.p":"Outras frentes de análise técnica entram em cena ao longo do dia, equilibrando dificuldade e variedade.",
         "first.eyebrow":"A base internacional","first.h2":"Baseado no CTF do FIRST",
-        "first.p1":"O <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne os times de resposta a incidentes do mundo inteiro. No SBSeg 2026 rodamos um <strong>replay</strong> do CTF da Conferência Anual do FIRST, o mesmo conjunto de desafios de referência internacional, adaptado para um dia de competição.",
-        "first.p2":"O <strong>CERT.br</strong> conduz toda a infraestrutura: o backend roda por conta da organização e as respostas são submetidas via <strong>CTFd</strong>. Você só precisa do seu equipamento e da sua equipe.",
+        "first.p1":"O <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne os times de resposta a incidentes do mundo inteiro. No SBSeg 2026 rodamos um <strong>replay</strong> do CTF da Conferência Anual do FIRST, um subconjunto dos desafios de referência internacional, adaptado para um dia de competição.",
+        "first.p2":"O <strong>CERT.br</strong>, que há mais de 15 anos é um dos responsáveis pela execução do CTF do FIRST, organiza e apoia esta edição do CTF na SBSeg 2026, provendo a infraestrutura, o conteúdo e a organização necessários. Você só precisa do seu equipamento e da sua equipe.",
         "first.cta":"Veja o CTF do FIRST 2026 →",
         "first.stat1":"categorias de análise no replay do CTF do FIRST","first.stat2":"dia intenso de competição: 09h às 17h","first.stat3":"atividades ofensivas: defesa do início ao fim","first.stat4":"conexões para fazer: o networking é parte do jogo",
         "demo.eyebrow":"Experimente","demo.h2":"Um gostinho do que vem por aí","demo.lead":"Para você ter noção do que vai encontrar no dia, resolva este mini-desafio no estilo dos desafios do FIRST. Decifre a evidência e submeta a flag.",
@@ -1291,12 +1288,12 @@
         "dl.where.dt":"Onde","dl.where.dd":"Presencial<small>Local a confirmar</small>",
         "dl.teams.dt":"Equipes","dl.teams.dd":"De 2 a 4 participantes, ideal 4<small>monte com competências variadas</small>",
         "dl.level.dt":"Nível","dl.level.dd":"Todos<small>do primeiro CTF ao veterano</small>",
-        "dl.platform.dt":"Plataforma","dl.platform.dd":"Submissão via CTFd<small>o CERT.br roda todo o backend</small>",
+        "dl.platform.dt":"Idioma","dl.platform.dd":"Inglês<small>todos os desafios apresentados estão em inglês</small>",
         "dl.gear.dt":"Equipamento","dl.gear.dd":"Traga seu notebook<small>vários desafios usam servidores online, com internet no local</small>",
         "dl.reg.dt":"Inscrição","dl.reg.dd":"Valor simbólico<small>abertura em breve</small>",
         "dl.prizes.dt":"Prêmios","dl.prizes.dd":"Premiação para os melhores colocados<small>com apoio da Tempest; aguarde novidades</small>",
         "niveis.eyebrow":"Para todos os níveis","niveis.h2":"Nunca jogou um CTF? Comece por aqui.","niveis.p":"Você não precisa ser especialista para participar: precisa ter vontade de investigar. Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim, o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.",
-        "niveis.p2":"Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a <b>flag</b>, um código no formato <code>CTF{...}</code> que prova a solução. Você aprende jogando, e pode <a href='#demo'>experimentar um mini-desafio agora mesmo</a>.",
+        "niveis.p2":"Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a <b>flag</b>, um código que prova a solução. Você aprende jogando, e pode <a href='#demo'>experimentar um mini-desafio agora mesmo</a>.",
         "niveis.train":"Quer treinar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Por que participar","porque.h2":"O que você leva desse dia","porque.lead":"Além da competição, o CTF é uma porta de entrada para a área de segurança: na prática, com gente de verdade e no principal evento científico de segurança do Brasil.",
         "why.01.n":"01 / PRÁTICA","why.01.h3":"Aprenda fazendo","why.01.p":"Técnicas reais de análise e resposta a incidentes, no ritmo de um caso de verdade. Ninguém aprende defesa só na teoria.",
@@ -1307,18 +1304,18 @@
         "why.06.n":"06 / DIVERSÃO","why.06.h3":"É um jogo, no fim das contas","why.06.p":"Enigmas para resolver, códigos para quebrar e desafios para fechar junto com o seu time. Difícil não se divertir.",
         "faq.eyebrow":"FAQ","faq.h2":"Perguntas frequentes","faq.lead":"As dúvidas mais comuns de quem está pensando em participar. Não achou a sua? Pergunte pelo formulário de contato.",
         "faq.q1":"Preciso ter experiência com CTF ou com segurança?","faq.a1":"Não. Há desafios para todos os níveis, inclusive pensados para quem nunca jogou. Você aprende durante a competição, e o time se ajuda.",
-        "faq.q2":"O que é uma \"flag\"?","faq.a2":"É um código no formato <code>CTF{...}</code> que prova que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma (CTFd) para pontuar.",
+        "faq.q2":"O que é uma \"flag\"?","faq.a2":"É um código que pode ser um hash, uma string, um endereço IP, um timestamp ou qualquer coisa que a descrição do desafio peça. A flag é a prova de que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma para pontuar.",
         "faq.q3":"Posso participar sozinho?","faq.a3":"As equipes vão de 2 a 4 pessoas (o ideal é 4). Está sem time? Entre em contato com a organização, que ajudamos a conectar interessados.",
         "faq.q4":"Preciso estar presente no local?","faq.a4":"Sim. A participação é presencial: toda a equipe deve estar no local do evento.",
         "faq.q5":"Quanto custa?","faq.a5":"A inscrição terá valor simbólico e abre em breve. Acompanhe a divulgação oficial do SBSeg 2026.",
-        "faq.q6":"O que preciso levar?","faq.a6":"Seu notebook e vontade de investigar. Haverá internet no local e vários desafios usam servidores online.",
+        "faq.q6":"O que preciso levar?","faq.a6":"Seu notebook e vontade de investigar. O ideal é que ele rode um sistema Linux: com ele você tem todas as ferramentas necessárias para resolver os desafios. O Linux também pode rodar em uma máquina virtual, desde que tenha espaço em disco e memória RAM suficientes. Haverá internet no local e alguns desafios podem usar servidores online.",
         "faq.q7":"Vou precisar atacar ou invadir algo?","faq.a7":"Não. Este CTF é 100% defesa: você analisa artefatos, evidências e incidentes. Nada de exploração ofensiva.",
         "faq.q8":"Como posso me preparar?","faq.a8":"Comece pelo <a href='#demo'>mini-desafio aqui do site</a> e treine em plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> e <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "meter.beginner":"Iniciante","meter.intermediate":"Intermediário","meter.advanced":"Avançado","meter.collab":"Colaboração",
         "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"A divulgação começa agora e as inscrições abrem em breve, com valor simbólico. Monte sua equipe: o tamanho ideal é 4, mas times de 2 ou 3 também podem competir. Vai ter premiação para os melhores colocados, com apoio confirmado da Tempest: aguarde novidades!",
-        "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.ctaContato":"Dúvidas e sugestões? Entre em contato","inscricao.note":"Operação do CTF conduzida pelo CERT.br · backend e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio e patrocínio",
+        "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.ctaContato":"Dúvidas e sugestões? Entre em contato","inscricao.note":"Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio e patrocínio",
         "partner.apoio":"<b>Apoio:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Realização:</b> SBSeg 2026 / SBC","partner.patro":"Patrocínio: <b>sua marca aqui</b>",
-        "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura: backend, plataforma de submissão e leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.",
+        "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.",
         "coord.eyebrow":"Coordenação","coord.h2":"Quem coordena o CTF","coord.lead":"A organização do CTF do SBSeg 2026 reúne a academia e o CERT.br, alinhada à coordenação oficial do evento.","coord.role":"Coordenação",
         "coord.mgmtLabel":"Gerentes da plataforma de replay do FIRST",
         "coord.analystsLabel":"Analistas que vão rodar o CTF",
@@ -1331,31 +1328,30 @@
       es: {
         "meta.title":"CTF · SBSeg 2026 · Capture The Flag de Defensa",
         "meta.description":"Capture The Flag del SBSeg 2026: un CTF de defensa basado en los desafíos del FIRST (Forum of Incident Response and Security Teams). Sin ataque, solo análisis. Para todos los niveles, en equipos de 2 a 4 personas.",
-        "og.description":"Reabre el incidente. Analiza la evidencia. Captura la flag. Un CTF de defensa basado en el FIRST, para todos los niveles.",
+        "og.description":"Incidente reportado. Analiza las evidencias. Captura la flag. Un CTF de defensa basado en el FIRST, para todos los niveles.",
         "skip":"Saltar al contenido",
         "brand.aria":"CTF SBSeg 2026: inicio",
         "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.demo":"Pruébalo","nav.formato":"Formato","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo",
         "nav.toggleOpen":"Abrir menú","nav.toggleClose":"Cerrar menú",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edición FIRST",
-        "hero.h1a":"Reabre el incidente.","hero.h1b":"Analiza la evidencia.","hero.h1c":"Captura la flag",
+        "hero.h1a":"Incidente reportado.","hero.h1b":"Analiza las evidencias.","hero.h1c":"Captura la flag",
         "hero.lead":"Un CTF de <strong>defensa</strong>, basado en los desafíos del <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), el foro que reúne a los equipos de respuesta a incidentes de todo el mundo. Aquí no hay ataque, solo análisis de artefactos, evidencias e incidentes que, en un escenario real, podrían haber pasado desapercibidos. Para todos los niveles: <strong>no necesitas experiencia previa</strong>.",
         "hero.ctaPrimary":"Inscribe tu equipo →","hero.ctaGhost":"Cómo funciona","hero.metaLabel":"Resumen del evento",
         "hero.note":"<strong>La divulgación empieza ahora.</strong> Arma tu equipo y, si tienes dudas o sugerencias, <a href='#contato'>contacta a la organización</a>.",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipos de 2 a 4","chip.iniciantes":"Principiantes bienvenidos","chip.premio":"Premios para los mejores",
-        "replay.aria":"Categorías de desafío del CTF, presentadas como evidencias de análisis","replay.barCase":"replay del CTF del FIRST · desafíos independientes","replay.live":"ANÁLISIS",
-        "node.rede.k":"Redes y Tráfico","node.malware.k":"Análisis de Malware","node.cripto.k":"Criptografía","node.codigo.k":"Programación Segura","node.captura.k":"Captura la flag",
+        "replay.aria":"Desafíos del CTF, cada uno con nombre, descripción y flag propia","replay.barCase":"replay del CTF del FIRST · desafíos independientes","replay.live":"ANÁLISIS",
+        "node.rede.k":"Redes y Tráfico","node.malware.k":"Análisis de Malware","node.cripto.k":"Criptografía","node.codigo.k":"Programación Segura","node.flag":"capture a flag",
         "node.rede.tag":"Redes y Tráfico","node.rede.title":"Ejemplo de desafío: conexión sospechosa","node.rede.desc":"Recibes una captura de paquetes, reconstruyes la sesión y descubres qué entró en la red.",
         "node.malware.tag":"Análisis de Malware","node.malware.title":"Ejemplo de desafío: binario sospechoso","node.malware.desc":"Aíslas la muestra, observas el comportamiento y describes qué hace realmente, sin ejecutarla a ciegas.",
         "node.cripto.tag":"Criptografía","node.cripto.title":"Ejemplo de desafío: payload cifrado","node.cripto.desc":"Rompes la ofuscación, identificas el esquema y recuperas el secreto que intentaron esconder.",
         "node.codigo.tag":"Programación Segura","node.codigo.title":"Ejemplo de desafío: código vulnerable","node.codigo.desc":"Lees el código como quien busca la brecha y encuentras el fallo antes de que cueste caro.",
-        "node.captura.tag":"Captura","node.captura.title":"Todo análisis termina igual","node.captura.desc":"Evidencia analizada, hipótesis confirmada, flag enviada en la plataforma. Cada desafío resuelto suma puntos para el equipo.",
-        "replay.defaultLead":"Cada marcador es una categoría de desafío. Los desafíos son independientes: el equipo elige por dónde empezar.","replay.defaultTag":"categorías","replay.defaultDesc":"Selecciona una categoría para ver el tipo de análisis involucrado.",
-        "desafio.eyebrow":"El desafío","desafio.h2":"Un CTF de defensa, no de ataque","desafio.lead":"Las competiciones tradicionales premian la intrusión. Esta invierte la lógica: estás del lado de quien investiga, entiende y prueba lo que pasó. El foco es exclusivamente técnico: análisis de artefactos y evidencias.",
+        "replay.defaultLead":"Cada desafío tiene un nombre, una descripción de qué hacer y una flag propia para enviar. Son independientes: el equipo elige por dónde empezar.","replay.defaultTag":"desafíos","replay.defaultDesc":"Pasa el ratón sobre un desafío para ver el tipo de análisis involucrado.",
+        "desafio.eyebrow":"El desafío","desafio.h2":"Un CTF de defensa, no de ataque","desafio.lead":"Las competiciones tradicionales premian la intrusión. Esta invierte la lógica: estás del lado de quien investiga, entiende y prueba lo que pasó. El foco es exclusivamente técnico: análisis de logs, artefactos y otras evidencias.",
         "card.01.n":"01 / DEFENSA","card.01.h3":"Sin ataque, solo análisis","card.01.p":"Nada de explotación ofensiva. Examinas artefactos, reconstruyes lo que ocurrió y sostienes cada conclusión con evidencia.",
         "card.02.n":"02 / REPLAY","card.02.h3":"Replay del CTF del FIRST","card.02.p":"Jugamos aquí el conjunto de desafíos de la Conferencia Anual del FIRST: desafíos independientes de análisis, y el equipo elige por dónde empezar.",
         "card.03.n":"03 / EQUIPO","card.03.h3":"Hecho para equipos","card.03.p":"Los desafíos piden competencias complementarias. Reúne gente de áreas distintas, porque la colaboración es parte de la estrategia.",
         "card.04.n":"04 / NIVELES","card.04.h3":"Todos los niveles","card.04.p":"Hay desafíos para cada punto de la curva. ¿Nunca jugaste un CTF? También hay espacio, y desafío, para ti.",
-        "categorias.eyebrow":"Categorías","categorias.h2":"Las evidencias que vas a analizar","categorias.lead":"Cada desafío entrega un artefacto y abre un frente de análisis, de forma independiente. No necesitas dominar todos: puedes elegir uno, y el equipo define en el momento quién cubre qué.",
+        "categorias.eyebrow":"Categorías","categorias.h2":"Lo que vas a analizar","categorias.lead":"Cada desafío entrega una tarea relacionada con un incidente o parte de él, y abre un frente de análisis, de forma independiente. No necesitas dominar todos: puedes elegir uno, y el equipo define en el momento quién cubre qué.",
         "evi.pcap.type":"evidencia · pcap","evi.pcap.h3":"Redes y Tráfico","evi.pcap.p":"Reconstruye conexiones a partir de capturas de paquetes y sigue el rastro del incidente. Algunos desafíos usan IPv6.",
         "evi.sample.type":"evidencia · sample","evi.sample.h3":"Análisis de Malware","evi.sample.p":"Aísla el binario, observa el comportamiento y describe qué hace realmente la muestra, con seguridad.",
         "evi.cipher.type":"evidencia · cipher","evi.cipher.h3":"Criptografía","evi.cipher.p":"Rompe la ofuscación, identifica el esquema y recupera el secreto que el atacante intentó esconder.",
@@ -1363,8 +1359,8 @@
         "evi.logs.type":"evidencia · logs","evi.logs.h3":"Forense y Logs","evi.logs.p":"Cruza registros, arma la línea de tiempo y separa el ruido de lo que de verdad importa para el caso.",
         "evi.mais.type":"evidencia · +","evi.mais.h3":"Y más","evi.mais.p":"Otros frentes de análisis técnico entran en escena a lo largo del día, equilibrando dificultad y variedad.",
         "first.eyebrow":"La base internacional","first.h2":"Basado en el CTF del FIRST",
-        "first.p1":"El <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne a los equipos de respuesta a incidentes de todo el mundo. En el SBSeg 2026 corremos un <strong>replay</strong> del CTF de la Conferencia Anual del FIRST, el mismo conjunto de desafíos de referencia internacional, adaptado para una jornada de competición.",
-        "first.p2":"El <strong>CERT.br</strong> conduce toda la infraestructura: el backend corre por cuenta de la organización y las respuestas se envían vía <strong>CTFd</strong>. Solo necesitas tu portátil y a tu equipo.",
+        "first.p1":"El <strong>FIRST</strong> (Forum of Incident Response and Security Teams) reúne a los equipos de respuesta a incidentes de todo el mundo. En el SBSeg 2026 corremos un <strong>replay</strong> del CTF de la Conferencia Anual del FIRST, un subconjunto de los desafíos de referencia internacional, adaptado para una jornada de competición.",
+        "first.p2":"El <strong>CERT.br</strong>, que desde hace más de 15 años es uno de los responsables de la ejecución del CTF del FIRST, organiza y apoya esta edición del CTF en el SBSeg 2026, proveyendo la infraestructura, el contenido y la organización necesarios. Solo necesitas tu portátil y a tu equipo.",
         "first.cta":"Mira el CTF del FIRST 2026 →",
         "first.stat1":"categorías de análisis en el replay del CTF del FIRST","first.stat2":"jornada intensa de competición: 09h a 17h","first.stat3":"actividades ofensivas: defensa de principio a fin","first.stat4":"conexiones por hacer: el networking es parte del juego",
         "demo.eyebrow":"Pruébalo","demo.h2":"Una probadita de lo que viene","demo.lead":"Para que tengas una idea de lo que encontrarás ese día, resuelve este minidesafío al estilo de los desafíos del FIRST. Descifra la evidencia y envía la flag.",
@@ -1379,12 +1375,12 @@
         "dl.where.dt":"Dónde","dl.where.dd":"Presencial<small>Lugar por confirmar</small>",
         "dl.teams.dt":"Equipos","dl.teams.dd":"De 2 a 4 participantes, ideal 4<small>ármalo con competencias variadas</small>",
         "dl.level.dt":"Nivel","dl.level.dd":"Todos<small>del primer CTF al veterano</small>",
-        "dl.platform.dt":"Plataforma","dl.platform.dd":"Envío vía CTFd<small>el CERT.br corre todo el backend</small>",
+        "dl.platform.dt":"Idioma","dl.platform.dd":"Inglés<small>todos los desafíos presentados están en inglés</small>",
         "dl.gear.dt":"Equipamiento","dl.gear.dd":"Trae tu portátil<small>varios desafíos usan servidores en línea, con internet en el lugar</small>",
         "dl.reg.dt":"Inscripción","dl.reg.dd":"Valor simbólico<small>apertura muy pronto</small>",
         "dl.prizes.dt":"Premios","dl.prizes.dd":"Premios para los mejores clasificados<small>con apoyo de Tempest; espera novedades</small>",
         "niveis.eyebrow":"Para todos los niveles","niveis.h2":"¿Nunca jugaste un CTF? Empieza por aquí.","niveis.p":"No necesitas ser experto para participar: necesitas ganas de investigar. Hay desafíos pensados para quien empieza y para quien ya compite hace años. Y, al final, el mejor premio suele ser la gente que conoces intentando resolver los mismos desafíos.",
-        "niveis.p2":"¿Nunca escuchaste hablar de esto? Un CTF (Capture The Flag) es un juego de acertijos computacionales: analizas un artefacto, descubres qué pasó y encuentras la <b>flag</b>, un código en el formato <code>CTF{...}</code> que prueba la solución. Aprendes jugando, y puedes <a href='#demo'>probar un minidesafío ahora mismo</a>.",
+        "niveis.p2":"¿Nunca escuchaste hablar de esto? Un CTF (Capture The Flag) es un juego de acertijos computacionales: analizas un artefacto, descubres qué pasó y encuentras la <b>flag</b>, un código que prueba la solución. Aprendes jugando, y puedes <a href='#demo'>probar un minidesafío ahora mismo</a>.",
         "niveis.train":"¿Quieres entrenar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Por qué participar","porque.h2":"Lo que te llevas de ese día","porque.lead":"Más allá de la competición, el CTF es una puerta de entrada al área de seguridad: en la práctica, con gente de verdad y en el principal evento científico de seguridad de Brasil.",
         "why.01.n":"01 / PRÁCTICA","why.01.h3":"Aprende haciendo","why.01.p":"Técnicas reales de análisis y respuesta a incidentes, al ritmo de un caso de verdad. Nadie aprende defensa solo con teoría.",
@@ -1395,18 +1391,18 @@
         "why.06.n":"06 / DIVERSIÓN","why.06.h3":"Al final, es un juego","why.06.p":"Acertijos por resolver, códigos por romper y desafíos por cerrar junto a tu equipo. Difícil no divertirse.",
         "faq.eyebrow":"FAQ","faq.h2":"Preguntas frecuentes","faq.lead":"Las dudas más comunes de quien está pensando en participar. ¿No encontraste la tuya? Pregunta por el formulario de contacto.",
         "faq.q1":"¿Necesito experiencia con CTF o con seguridad?","faq.a1":"No. Hay desafíos para todos los niveles, incluso pensados para quien nunca jugó. Aprendes durante la competición, y el equipo se ayuda.",
-        "faq.q2":"¿Qué es una \"flag\"?","faq.a2":"Es un código en el formato <code>CTF{...}</code> que prueba que resolviste el desafío. La encuentras analizando las evidencias y la envías en la plataforma (CTFd) para puntuar.",
+        "faq.q2":"¿Qué es una \"flag\"?","faq.a2":"Es un código que puede ser un hash, una cadena, una dirección IP, una marca de tiempo o cualquier cosa que la descripción del desafío pida. La flag es la prueba de que resolviste el desafío. La encuentras analizando las evidencias y la envías en la plataforma para puntuar.",
         "faq.q3":"¿Puedo participar solo?","faq.a3":"Los equipos van de 2 a 4 personas (lo ideal es 4). ¿No tienes equipo? Contacta a la organización, que ayudamos a conectar interesados.",
         "faq.q4":"¿Necesito estar presente en el lugar?","faq.a4":"Sí. La participación es presencial: todo el equipo debe estar en el lugar del evento.",
         "faq.q5":"¿Cuánto cuesta?","faq.a5":"La inscripción tendrá un valor simbólico y abre muy pronto. Sigue la divulgación oficial del SBSeg 2026.",
-        "faq.q6":"¿Qué necesito llevar?","faq.a6":"Tu portátil y ganas de investigar. Habrá internet en el lugar y varios desafíos usan servidores en línea.",
+        "faq.q6":"¿Qué necesito llevar?","faq.a6":"Tu portátil y ganas de investigar. Lo ideal es que ejecute un sistema Linux: con él tienes todas las herramientas necesarias para resolver los desafíos. Linux también puede ejecutarse en una máquina virtual, siempre que tenga suficiente espacio en disco y memoria RAM. Habrá internet en el lugar y algunos desafíos pueden usar servidores en línea.",
         "faq.q7":"¿Voy a tener que atacar o invadir algo?","faq.a7":"No. Este CTF es 100% defensa: analizas artefactos, evidencias e incidentes. Nada de explotación ofensiva.",
         "faq.q8":"¿Cómo puedo prepararme?","faq.a8":"Empieza por el <a href='#demo'>minidesafío de este sitio</a> y entrena en plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> y <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "meter.beginner":"Principiante","meter.intermediate":"Intermedio","meter.advanced":"Avanzado","meter.collab":"Colaboración",
         "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"La divulgación empieza ahora y las inscripciones abren muy pronto, con valor simbólico. Arma tu equipo: el tamaño ideal es 4, pero equipos de 2 o 3 también pueden competir. ¡Habrá premios para los mejores clasificados, con apoyo confirmado de Tempest: espera novedades!",
-        "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.ctaContato":"¿Dudas y sugerencias? Contáctanos","inscricao.note":"Operación del CTF conducida por el CERT.br · backend y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo y patrocinio",
+        "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.ctaContato":"¿Dudas y sugerencias? Contáctanos","inscricao.note":"Operación del CTF conducida por el CERT.br · infraestructura y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo y patrocinio",
         "partner.apoio":"<b>Apoyo:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Realización:</b> SBSeg 2026 / SBC","partner.patro":"Patrocinio: <b>tu marca aquí</b>",
-        "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura: backend, plataforma de envío y leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> confirmó su apoyo en la premiación del CTF.",
+        "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura, la plataforma de envío y el leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> confirmó su apoyo en la premiación del CTF.",
         "coord.eyebrow":"Coordinación","coord.h2":"Quién coordina el CTF","coord.lead":"La organización del CTF del SBSeg 2026 reúne a la academia y al CERT.br, alineada con la coordinación oficial del evento.","coord.role":"Coordinación",
         "coord.mgmtLabel":"Gerentes de la plataforma de replay del FIRST",
         "coord.analystsLabel":"Analistas que van a operar el CTF",
@@ -1419,31 +1415,30 @@
       en: {
         "meta.title":"CTF · SBSeg 2026 · Defense Capture The Flag",
         "meta.description":"SBSeg 2026 Capture The Flag: a defense CTF based on the challenges of FIRST (Forum of Incident Response and Security Teams). No attacking, analysis only. For all levels, in teams of 2 to 4 people.",
-        "og.description":"Reopen the incident. Analyze the evidence. Capture the flag. A defense CTF based on FIRST, for all levels.",
+        "og.description":"Incident reported. Analyze the evidence. Capture the flag. A defense CTF based on FIRST, for all levels.",
         "skip":"Skip to content",
         "brand.aria":"CTF SBSeg 2026: home",
         "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.demo":"Try it","nav.formato":"Format","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team",
         "nav.toggleOpen":"Open menu","nav.toggleClose":"Close menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · FIRST Edition",
-        "hero.h1a":"Reopen the incident.","hero.h1b":"Analyze the evidence.","hero.h1c":"Capture the flag",
+        "hero.h1a":"Incident reported.","hero.h1b":"Analyze the evidence.","hero.h1c":"Capture the flag",
         "hero.lead":"A <strong>defense</strong> CTF, based on the challenges of <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), the forum that brings together incident response teams from all over the world. There is no attacking here, only analysis of artifacts, evidence and incidents that, in a real scenario, could have gone unnoticed. For all levels: <strong>no previous experience required</strong>.",
         "hero.ctaPrimary":"Register your team →","hero.ctaGhost":"How it works","hero.metaLabel":"Event summary",
         "hero.note":"<strong>The announcement starts now.</strong> Build your team and, for questions and suggestions, <a href='#contato'>get in touch with the organization</a>.",
         "chip.date":"Sat · Aug 29 · 9am–5pm","chip.presencial":"In person","chip.equipes":"Teams of 2 to 4","chip.iniciantes":"Beginners welcome","chip.premio":"Prizes for the top teams",
-        "replay.aria":"CTF challenge categories, presented as pieces of evidence to analyze","replay.barCase":"FIRST CTF replay · standalone challenges","replay.live":"ANALYSIS",
-        "node.rede.k":"Networks & Traffic","node.malware.k":"Malware Analysis","node.cripto.k":"Cryptography","node.codigo.k":"Secure Programming","node.captura.k":"Capture the flag",
+        "replay.aria":"CTF challenges, each with its own name, description and flag","replay.barCase":"FIRST CTF replay · standalone challenges","replay.live":"ANALYSIS",
+        "node.rede.k":"Networks & Traffic","node.malware.k":"Malware Analysis","node.cripto.k":"Cryptography","node.codigo.k":"Secure Programming","node.flag":"capture a flag",
         "node.rede.tag":"Networks & Traffic","node.rede.title":"Sample challenge: suspicious connection","node.rede.desc":"You get a packet capture, rebuild the session and find out what got into the network.",
         "node.malware.tag":"Malware Analysis","node.malware.title":"Sample challenge: suspicious binary","node.malware.desc":"You isolate the sample, observe its behavior and describe what it really does, without running it blind.",
         "node.cripto.tag":"Cryptography","node.cripto.title":"Sample challenge: encrypted payload","node.cripto.desc":"You break the obfuscation, identify the scheme and recover the secret someone tried to hide.",
         "node.codigo.tag":"Secure Programming","node.codigo.title":"Sample challenge: vulnerable code","node.codigo.desc":"You read the code like someone hunting for the gap and find the flaw before it gets expensive.",
-        "node.captura.tag":"Capture","node.captura.title":"Every analysis ends the same way","node.captura.desc":"Evidence analyzed, hypothesis confirmed, flag submitted on the platform. Every solved challenge scores points for the team.",
-        "replay.defaultLead":"Each marker is a challenge category. Challenges are standalone: the team picks where to start.","replay.defaultTag":"categories","replay.defaultDesc":"Select a category to see the type of analysis involved.",
-        "desafio.eyebrow":"The challenge","desafio.h2":"A defense CTF, not an attack one","desafio.lead":"Traditional competitions reward breaking in. This one flips the logic: you are on the side of those who investigate, understand and prove what happened. The focus is strictly technical: analysis of artifacts and evidence.",
+        "replay.defaultLead":"Each challenge has a name, a description of what to do and its own flag to submit. They are standalone: the team picks where to start.","replay.defaultTag":"challenges","replay.defaultDesc":"Hover over a challenge to see the type of analysis involved.",
+        "desafio.eyebrow":"The challenge","desafio.h2":"A defense CTF, not an attack one","desafio.lead":"Traditional competitions reward breaking in. This one flips the logic: you are on the side of those who investigate, understand and prove what happened. The focus is strictly technical: analysis of logs, artifacts and other evidence.",
         "card.01.n":"01 / DEFENSE","card.01.h3":"No attack, analysis only","card.01.p":"No offensive exploitation. You examine artifacts, reconstruct what happened and back every conclusion with evidence.",
         "card.02.n":"02 / REPLAY","card.02.h3":"FIRST CTF replay","card.02.p":"We play the challenge set from the FIRST Annual Conference: standalone analysis challenges, and the team picks where to start.",
         "card.03.n":"03 / TEAM","card.03.h3":"Built for teams","card.03.p":"The challenges call for complementary skills. Bring together people from different areas, because collaboration is part of the strategy.",
         "card.04.n":"04 / LEVELS","card.04.h3":"Every level","card.04.p":"There are challenges for every point on the curve. Never played a CTF? There is room, and a challenge, for you too.",
-        "categorias.eyebrow":"Categories","categorias.h2":"The evidence you will analyze","categorias.lead":"Each challenge hands you an artifact and opens its own line of analysis, independently. You do not need to master them all: you can pick one, and the team decides on the spot who covers what.",
+        "categorias.eyebrow":"Categories","categorias.h2":"What you will analyze","categorias.lead":"Each challenge hands you a task related to an incident or part of it, and opens its own line of analysis, independently. You do not need to master them all: you can pick one, and the team decides on the spot who covers what.",
         "evi.pcap.type":"evidence · pcap","evi.pcap.h3":"Networks & Traffic","evi.pcap.p":"Rebuild connections from packet captures and follow the trail of the incident. Some challenges use IPv6.",
         "evi.sample.type":"evidence · sample","evi.sample.h3":"Malware Analysis","evi.sample.p":"Isolate the binary, observe its behavior and describe what the sample really does, safely.",
         "evi.cipher.type":"evidence · cipher","evi.cipher.h3":"Cryptography","evi.cipher.p":"Break the obfuscation, identify the scheme and recover the secret the attacker tried to hide.",
@@ -1451,8 +1446,8 @@
         "evi.logs.type":"evidence · logs","evi.logs.h3":"Forensics & Logs","evi.logs.p":"Cross-reference records, build the timeline and separate the noise from what really matters to the case.",
         "evi.mais.type":"evidence · +","evi.mais.h3":"And more","evi.mais.p":"Other technical lines of analysis come into play throughout the day, balancing difficulty and variety.",
         "first.eyebrow":"The international base","first.h2":"Based on the FIRST CTF",
-        "first.p1":"<strong>FIRST</strong> (Forum of Incident Response and Security Teams) brings together incident response teams from all over the world. At SBSeg 2026 we run a <strong>replay</strong> of the FIRST Annual Conference CTF, the same set of internationally recognized challenges, adapted for a single day of competition.",
-        "first.p2":"<strong>CERT.br</strong> runs the entire infrastructure: the backend is handled by the organization and answers are submitted through <strong>CTFd</strong>. You only need your gear and your team.",
+        "first.p1":"<strong>FIRST</strong> (Forum of Incident Response and Security Teams) brings together incident response teams from all over the world. At SBSeg 2026 we run a <strong>replay</strong> of the FIRST Annual Conference CTF, a subset of the internationally recognized challenges, adapted for a single day of competition.",
+        "first.p2":"<strong>CERT.br</strong>, which for over 15 years has been one of those responsible for running the FIRST CTF, organizes and supports this edition of the CTF at SBSeg 2026, providing the necessary infrastructure, content and organization. You only need your gear and your team.",
         "first.cta":"See the FIRST 2026 CTF →",
         "first.stat1":"analysis categories in the FIRST CTF replay","first.stat2":"intense day of competition: 9am to 5pm","first.stat3":"offensive activities: defense from start to finish","first.stat4":"connections to make: networking is part of the game",
         "demo.eyebrow":"Try it","demo.h2":"A taste of what is coming","demo.lead":"To get a feel for what you will find on the day, solve this FIRST-style mini challenge. Decode the evidence and submit the flag.",
@@ -1467,12 +1462,12 @@
         "dl.where.dt":"Where","dl.where.dd":"In person<small>Venue to be confirmed</small>",
         "dl.teams.dt":"Teams","dl.teams.dd":"From 2 to 4 participants, ideally 4<small>build it with varied skills</small>",
         "dl.level.dt":"Level","dl.level.dd":"All<small>from your first CTF to veteran</small>",
-        "dl.platform.dt":"Platform","dl.platform.dd":"Submission via CTFd<small>CERT.br runs the whole backend</small>",
+        "dl.platform.dt":"Language","dl.platform.dd":"English<small>all challenges are presented in English</small>",
         "dl.gear.dt":"Gear","dl.gear.dd":"Bring your laptop<small>several challenges use online servers, with internet on site</small>",
         "dl.reg.dt":"Registration","dl.reg.dd":"Symbolic fee<small>opening soon</small>",
         "dl.prizes.dt":"Prizes","dl.prizes.dd":"Prizes for the top teams<small>supported by Tempest; stay tuned for news</small>",
         "niveis.eyebrow":"For every level","niveis.h2":"Never played a CTF? Start here.","niveis.p":"You do not need to be an expert to take part: you need the will to investigate. There are challenges designed for those just starting and for those who have competed for years. And in the end, the best prize is usually the people you meet while solving the same challenges.",
-        "niveis.p2":"Never heard of it? A CTF (Capture The Flag) is a game of computational puzzles: you analyze an artifact, figure out what happened and find the <b>flag</b>, a code in the <code>CTF{...}</code> format that proves the solution. You learn by playing, and you can <a href='#demo'>try a mini challenge right now</a>.",
+        "niveis.p2":"Never heard of it? A CTF (Capture The Flag) is a game of computational puzzles: you analyze an artifact, figure out what happened and find the <b>flag</b>, a code that proves the solution. You learn by playing, and you can <a href='#demo'>try a mini challenge right now</a>.",
         "niveis.train":"Want to practice first? Free platforms: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
         "porque.eyebrow":"Why take part","porque.h2":"What you take away from the day","porque.lead":"Beyond the competition, the CTF is a gateway into the security field: hands-on, with real people, at Brazil's leading scientific security event.",
         "why.01.n":"01 / PRACTICE","why.01.h3":"Learn by doing","why.01.p":"Real analysis and incident response techniques, at the pace of a real case. Nobody learns defense from theory alone.",
@@ -1483,18 +1478,18 @@
         "why.06.n":"06 / FUN","why.06.h3":"It is a game, after all","why.06.p":"Puzzles to solve, codes to break and challenges to close together with your team. Hard not to have fun.",
         "faq.eyebrow":"FAQ","faq.h2":"Frequently asked questions","faq.lead":"The most common questions from those thinking about taking part. Did not find yours? Ask through the contact form.",
         "faq.q1":"Do I need experience with CTFs or security?","faq.a1":"No. There are challenges for every level, including some designed for first-timers. You learn during the competition, and the team helps each other.",
-        "faq.q2":"What is a \"flag\"?","faq.a2":"It is a code in the <code>CTF{...}</code> format that proves you solved the challenge. You find it by analyzing the evidence and submit it on the platform (CTFd) to score.",
+        "faq.q2":"What is a \"flag\"?","faq.a2":"It is a code that can be a hash, a string, an IP address, a timestamp or anything the challenge description asks you to find. The flag is the proof that you solved the challenge. You find it by analyzing the evidence and submit it on the platform to score.",
         "faq.q3":"Can I take part alone?","faq.a3":"Teams range from 2 to 4 people (4 is ideal). No team yet? Contact the organization and we will help connect interested players.",
         "faq.q4":"Do I need to be there in person?","faq.a4":"Yes. Participation is in person: the whole team must be at the event venue.",
         "faq.q5":"How much does it cost?","faq.a5":"Registration will have a symbolic fee and opens soon. Follow the official SBSeg 2026 announcements.",
-        "faq.q6":"What do I need to bring?","faq.a6":"Your laptop and the will to investigate. There will be internet on site and several challenges use online servers.",
+        "faq.q6":"What do I need to bring?","faq.a6":"Your laptop and the will to investigate. Ideally it should run a Linux system: with it you have all the tools needed to solve the challenges. Linux can also run in a virtual machine, as long as it has enough disk space and RAM. There will be internet on site and some challenges may use online servers.",
         "faq.q7":"Will I need to attack or break into anything?","faq.a7":"No. This CTF is 100% defense: you analyze artifacts, evidence and incidents. No offensive exploitation.",
         "faq.q8":"How can I prepare?","faq.a8":"Start with the <a href='#demo'>mini challenge on this site</a> and practice on free platforms like <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> and <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "meter.beginner":"Beginner","meter.intermediate":"Intermediate","meter.advanced":"Advanced","meter.collab":"Collaboration",
         "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"The announcement starts now and registration opens soon, with a symbolic fee. Build your team: the ideal size is 4, but teams of 2 or 3 can also compete. There will be prizes for the top teams, with support confirmed by Tempest: stay tuned for news!",
-        "inscricao.cta":"Follow SBSeg 2026 →","inscricao.ctaContato":"Questions or suggestions? Get in touch","inscricao.note":"CTF operation run by CERT.br · backend and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support and sponsorship",
+        "inscricao.cta":"Follow SBSeg 2026 →","inscricao.ctaContato":"Questions or suggestions? Get in touch","inscricao.note":"CTF operation run by CERT.br · infrastructure and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support and sponsorship",
         "partner.apoio":"<b>Support:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Hosted by:</b> SBSeg 2026 / SBC","partner.patro":"Sponsorship: <b>your brand here</b>",
-        "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure: backend, submission platform and live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> has confirmed its support for the CTF prizes.",
+        "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure, the submission platform and the live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> has confirmed its support for the CTF prizes.",
         "coord.eyebrow":"Coordination","coord.h2":"Who runs the CTF","coord.lead":"The SBSeg 2026 CTF is organized by academia together with CERT.br, aligned with the event's official coordination.","coord.role":"Coordination",
         "coord.mgmtLabel":"FIRST replay platform managers",
         "coord.analystsLabel":"Analysts running the CTF",
@@ -1604,8 +1599,6 @@
     /* replay timeline */
     var replay = document.getElementById('replay');
     var nodes = Array.prototype.slice.call(document.querySelectorAll('#replayNodes .node'));
-    var fill = document.getElementById('replayFill');
-    var head = document.getElementById('replayHead');
     var detail = document.getElementById('replayDetail');
     var currentNodeKey = null;
 
@@ -1643,17 +1636,11 @@
     function lightAll(){ nodes.forEach(function(n){ n.classList.add('lit'); }); }
 
     function play(){
-      if(reduce){ lightAll(); if(fill){fill.style.width='100%';} return; }
+      if(reduce){ lightAll(); return; }
       replay.classList.add('playing');
-      if(fill){ fill.style.width = '100%'; }
-      if(head){ head.style.left = '100%'; }
       nodes.forEach(function(n, i){
-        setTimeout(function(){ n.classList.add('lit'); }, 180 + i * 330);
+        setTimeout(function(){ n.classList.add('lit'); }, 160 + i * 140);
       });
-      setTimeout(function(){
-        var last = nodes[nodes.length - 1];
-        if(last){ showDetail(last); }
-      }, 180 + nodes.length * 330 + 120);
     }
 
     if('IntersectionObserver' in window && !reduce){
