@@ -481,6 +481,33 @@
   .demo-card__row input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-wash);}
   .demo-card.solved .demo-card__row input{border-color:var(--green);}
 
+  /* vídeo de divulgação */
+  .videoblk{
+    max-width:900px;margin-inline:auto;
+    border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden;background:#fff;
+    box-shadow:0 1px 0 rgba(10,17,36,.02), 0 30px 60px -48px rgba(10,17,36,.30);
+  }
+  .videoblk__bar{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:14px 18px;border-bottom:1px solid var(--hairline);
+    background:var(--panel);
+    font-family:"IBM Plex Mono", monospace;font-size:0.78rem;color:var(--slate);
+    letter-spacing:0.04em;
+  }
+  .videoblk__bar .dots{display:flex;gap:6px;}
+  .videoblk__bar .dots i{width:9px;height:9px;border-radius:50%;background:var(--hairline-strong);display:block;}
+  .videoblk__bar .live{display:inline-flex;align-items:center;gap:8px;color:var(--green-text);}
+  .videoblk__bar .live i{width:8px;height:8px;border-radius:50%;background:var(--green);display:block;}
+  .videoblk__frame{position:relative;aspect-ratio:16/9;background:var(--ink);}
+  .videoblk__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+  .videoblk__foot{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+    padding:16px 18px;border-top:1px solid var(--hairline);text-align:left;
+  }
+  .videoblk__foot p{color:var(--slate);font-size:0.93rem;margin:0;}
+  .videoblk__foot .btn{flex:none;}
+  @media (max-width:560px){ .videoblk__foot{justify-content:center;text-align:center;} }
+
   /* levels callout */
   .levels{
     background:linear-gradient(120deg,#0A1124, #16224a);
@@ -680,8 +707,9 @@
     </div>
 
     <p class="hero__note" data-i18n-html="hero.note">
-      <strong>A divulgação começa agora.</strong> Monte sua equipe e, em caso de dúvidas e sugestões,
-      <a href="#contato">entre em contato com a organização</a>.
+      <strong>As inscrições estão abertas.</strong> Monte sua equipe,
+      <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener">preencha o formulário oficial de inscrição</a>
+      e, em caso de dúvidas e sugestões, <a href="#contato">entre em contato com a organização</a>.
     </p>
 
     <div class="hero__meta" data-i18n-attr="aria-label:hero.metaLabel" aria-label="Resumo do evento">
@@ -743,6 +771,34 @@
           <span class="tag" data-i18n="replay.defaultTag">desafios</span>
           <p data-i18n="replay.defaultDesc">Passe o mouse sobre um desafio para ver o tipo de análise envolvido.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEO DE DIVULGAÇÃO -->
+<section id="video" class="alt" aria-labelledby="video-title">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="eyebrow" style="justify-content:center" data-i18n="video.eyebrow">Divulgação</p>
+      <h2 id="video-title" data-i18n="video.h2">Assista ao vídeo do CTF</h2>
+      <p data-i18n="video.lead">Um resumo rápido do que é o CTF do SBSeg 2026 e de como sua equipe participa. Assista e compartilhe com quem você quer no seu time.</p>
+    </div>
+    <div class="videoblk reveal">
+      <div class="videoblk__bar">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span data-i18n="video.bar">divulgacao.mp4 · CTF SBSeg 2026</span>
+        <span class="live"><i></i> <span data-i18n="video.live">PLAY</span></span>
+      </div>
+      <div class="videoblk__frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/zBg2l6HsW2s" title="Vídeo de divulgação do CTF do SBSeg 2026"
+                data-i18n-attr="title:video.iframeTitle" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="videoblk__foot">
+        <p data-i18n="video.share">Divulgue nas suas redes e nos grupos do seu curso: quanto mais times, melhor a competição.</p>
+        <a class="btn btn--ghost" href="https://youtu.be/zBg2l6HsW2s" target="_blank" rel="noopener" data-i18n="video.cta">Assistir no YouTube →</a>
       </div>
     </div>
   </div>
@@ -926,7 +982,7 @@
         <div><dt data-i18n="dl.level.dt">Nível</dt><dd data-i18n-html="dl.level.dd">Todos<small>do primeiro CTF ao veterano</small></dd></div>
         <div><dt data-i18n="dl.platform.dt">Idioma</dt><dd data-i18n-html="dl.platform.dd">Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small></dd></div>
         <div><dt data-i18n="dl.gear.dt">Equipamento</dt><dd data-i18n-html="dl.gear.dd">Notebook, de preferência com Linux e shell<small>host ou VM com Linux ajuda bastante na resolução; haverá internet no local</small></dd></div>
-        <div><dt data-i18n="dl.reg.dt">Inscrição</dt><dd data-i18n-html="dl.reg.dd">Valor simbólico<small>abertura em breve</small></dd></div>
+        <div><dt data-i18n="dl.reg.dt">Inscrição</dt><dd data-i18n-html="dl.reg.dd">Valor simbólico<small>inscrições abertas pelo <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener">formulário oficial</a></small></dd></div>
         <div><dt data-i18n="dl.prizes.dt">Prêmios</dt><dd data-i18n-html="dl.prizes.dd">Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest</small></dd></div>
       </dl>
     </div>
@@ -1012,15 +1068,17 @@
     <div class="section-head reveal">
       <p class="eyebrow" style="justify-content:center" data-i18n="inscricao.eyebrow">Inscrição</p>
       <h2 id="insc-title" data-i18n="inscricao.h2">Garanta a vaga da sua equipe</h2>
-      <p data-i18n="inscricao.lead">A divulgação começa agora e as inscrições abrem em breve, com valor simbólico.
+      <p data-i18n="inscricao.lead">As inscrições estão abertas: preencha o formulário oficial e garanta a vaga da sua equipe, com valor simbólico.
         Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir.
         Vai ter premiação para os melhores colocados,
         com apoio confirmado da Tempest: aguarde novidades!</p>
     </div>
     <div class="hero__cta reveal" style="justify-content:center">
-      <a class="btn btn--primary" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" data-i18n="inscricao.cta">Acompanhar o SBSeg 2026 →</a>
+      <a class="btn btn--primary" href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener" data-i18n="inscricao.ctaForm">Preencher o formulário de inscrição →</a>
+      <a class="btn btn--ghost" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" data-i18n="inscricao.cta">Acompanhar o SBSeg 2026 →</a>
       <a class="btn btn--ghost" href="#contato" data-i18n="inscricao.ctaContato">Dúvidas e sugestões? Entre em contato</a>
     </div>
+    <p class="note reveal" data-i18n="inscricao.formNote">Formulário oficial de inscrição do CTF do SBSeg 2026. Uma equipe já inscrita pode ajustar os dados falando com a organização.</p>
     <p class="note reveal" data-i18n="inscricao.note">Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.</p>
     <div class="apoio reveal">
       <span class="apoio__label" data-i18n="apoio.label">Apoio oficial</span>
@@ -1065,15 +1123,15 @@
         <span class="coord__role" data-i18n="coord.role">Coordenação</span>
       </article>
       <article class="coord reveal">
-        <img class="coord__photo" src="imgs/diego.jpeg" width="150" height="150" alt="Diego Kreutz" loading="lazy" />
-        <h3 class="coord__name">Diego Kreutz</h3>
-        <p class="coord__org">UNIPAMPA</p>
-        <span class="coord__role" data-i18n="coord.role">Coordenação</span>
-      </article>
-      <article class="coord reveal">
         <img class="coord__photo" src="imgs/cristine.png" width="150" height="150" alt="Cristine Hoepers" loading="lazy" />
         <h3 class="coord__name">Cristine Hoepers</h3>
         <p class="coord__org">CERT.br</p>
+        <span class="coord__role" data-i18n="coord.role">Coordenação</span>
+      </article>
+      <article class="coord reveal">
+        <img class="coord__photo" src="imgs/diego.jpeg" width="150" height="150" alt="Diego Kreutz" loading="lazy" />
+        <h3 class="coord__name">Diego Kreutz</h3>
+        <p class="coord__org">UNIPAMPA</p>
         <span class="coord__role" data-i18n="coord.role">Coordenação</span>
       </article>
     </div>
@@ -1129,8 +1187,12 @@
         <p data-i18n="faq.a4">Sim. A participação é presencial: toda a equipe deve estar no local do evento.</p>
       </details>
       <details>
+        <summary data-i18n="faq.q10">Como faço a inscrição da minha equipe?</summary>
+        <p data-i18n-html="faq.a10">Pelo <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener">formulário oficial de inscrição</a>. Preencha os dados da equipe e a organização acompanha dali em diante. Ficou com dúvida? <a href="#contato">Fale com a organização</a>.</p>
+      </details>
+      <details>
         <summary data-i18n="faq.q5">Quanto custa?</summary>
-        <p data-i18n="faq.a5">A inscrição terá valor simbólico e abre em breve. Acompanhe a divulgação oficial do SBSeg 2026.</p>
+        <p data-i18n-html="faq.a5">A inscrição tem valor simbólico e é feita pelo <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener">formulário oficial</a>. Os detalhes de pagamento seguem a divulgação oficial do SBSeg 2026.</p>
       </details>
       <details>
         <summary data-i18n="faq.q6">O que preciso levar?</summary>
@@ -1195,6 +1257,7 @@
     <div class="col">
       <h4 data-i18n="foot.nav">Navegação</h4>
       <a href="#desafio" data-i18n="nav.desafio">O desafio</a>
+      <a href="#video" data-i18n="nav.video">Vídeo</a>
       <a href="#categorias" data-i18n="nav.categorias">Categorias</a>
       <a href="#first" data-i18n="nav.first">FIRST</a>
       <a href="#formato" data-i18n="nav.formato">Formato</a>
@@ -1203,12 +1266,13 @@
       <a href="#coordenacao" data-i18n="nav.coord">Coordenação</a>
       <a href="#contato" data-i18n="nav.contato">Contato</a>
       <a href="#inscricao" data-i18n="inscricao.eyebrow">Inscrição</a>
+      <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener" data-i18n="foot.form">Formulário de inscrição</a>
     </div>
     <div class="col">
       <h4 data-i18n="foot.coord">Coordenação</h4>
       <p>Aldri dos Santos<small style="display:block;color:var(--slate)">UFMG</small></p>
-      <p>Diego Kreutz<small style="display:block;color:var(--slate)">UNIPAMPA</small></p>
       <p>Cristine Hoepers<small style="display:block;color:var(--slate)">CERT.br</small></p>
+      <p>Diego Kreutz<small style="display:block;color:var(--slate)">UNIPAMPA</small></p>
     </div>
     <div class="col">
       <h4 data-i18n="foot.ref">Referências</h4>
@@ -1251,13 +1315,16 @@
         "og.description":"Incidente reportado. Analise as evidências. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis.",
         "skip":"Pular para o conteúdo",
         "brand.aria":"CTF SBSeg 2026: início",
-        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.demo":"Experimente","nav.formato":"Formato","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe",
+        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.demo":"Experimente","nav.formato":"Formato","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe","nav.video":"Vídeo",
         "nav.toggleOpen":"Abrir menu","nav.toggleClose":"Fechar menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edição FIRST",
         "hero.h1a":"Incidente reportado.","hero.h1b":"Analise as evidências.","hero.h1c":"Capture a flag",
         "hero.lead":"Um CTF de <strong>defesa</strong>, baseado nos desafios do <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), o fórum que reúne os times de resposta a incidentes do mundo inteiro. Aqui não tem ataque, só análise de artefatos, evidências e incidentes que, num cenário real, poderiam ter passado despercebidos. Para todos os níveis: <strong>não precisa de experiência prévia</strong>.",
         "hero.ctaPrimary":"Inscreva sua equipe →","hero.ctaGhost":"Como funciona","hero.metaLabel":"Resumo do evento",
-        "hero.note":"<strong>A divulgação começa agora.</strong> Monte sua equipe e, em caso de dúvidas e sugestões, <a href='#contato'>entre em contato com a organização</a>.",
+        "hero.note":"<strong>As inscrições estão abertas.</strong> Monte sua equipe, <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>preencha o formulário oficial de inscrição</a> e, em caso de dúvidas e sugestões, <a href='#contato'>entre em contato com a organização</a>.",
+        "video.eyebrow":"Divulgação","video.h2":"Assista ao vídeo do CTF","video.lead":"Um resumo rápido do que é o CTF do SBSeg 2026 e de como sua equipe participa. Assista e compartilhe com quem você quer no seu time.",
+        "video.bar":"divulgacao.mp4 · CTF SBSeg 2026","video.live":"PLAY","video.iframeTitle":"Vídeo de divulgação do CTF do SBSeg 2026",
+        "video.share":"Divulgue nas suas redes e nos grupos do seu curso: quanto mais times, melhor a competição.","video.cta":"Assistir no YouTube →",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipes de 1 a 4","chip.iniciantes":"Iniciantes bem-vindos","chip.premio":"Premiação para os melhores","chip.idioma":"Desafios em inglês técnico","chip.linux":"Linux + shell recomendado",
         "replay.aria":"Desafios do CTF, cada um com nome, descrição e flag própria","replay.barCase":"replay do CTF do FIRST · desafios independentes","replay.live":"ANÁLISE",
         "node.rede.k":"Redes & Tráfego","node.malware.k":"Análise de Malware","node.cripto.k":"Criptografia","node.codigo.k":"Programação Segura","node.flag":"capture a flag",
@@ -1297,7 +1364,7 @@
         "dl.level.dt":"Nível","dl.level.dd":"Todos<small>do primeiro CTF ao veterano</small>",
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small>",
         "dl.gear.dt":"Equipamento","dl.gear.dd":"Notebook, de preferência com Linux e shell<small>host ou VM com Linux ajuda bastante na resolução; haverá internet no local</small>",
-        "dl.reg.dt":"Inscrição","dl.reg.dd":"Valor simbólico<small>abertura em breve</small>",
+        "dl.reg.dt":"Inscrição","dl.reg.dd":"Valor simbólico<small>inscrições abertas pelo <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulário oficial</a></small>",
         "dl.prizes.dt":"Prêmios","dl.prizes.dd":"Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest</small>",
         "niveis.eyebrow":"Para todos os níveis","niveis.h2":"Nunca jogou um CTF? Comece por aqui.","niveis.p":"Você não precisa ser especialista para participar: precisa ter vontade de investigar. Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim, o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.",
         "niveis.p2":"Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a <b>flag</b>, um código que prova a solução. Você aprende jogando, e pode <a href='#demo'>experimentar um mini-desafio agora mesmo</a>.",
@@ -1314,13 +1381,15 @@
         "faq.q2":"O que é uma \"flag\"?","faq.a2":"É um código que pode ser um hash, uma string, um endereço IP, um timestamp ou qualquer coisa que a descrição do desafio peça. A flag é a prova de que você resolveu o desafio. Você a encontra analisando as evidências e a submete na plataforma para pontuar.",
         "faq.q3":"Posso participar sozinho?","faq.a3":"Pode. As equipes vão de 1 a 4 pessoas, então dá para competir sozinho, embora o ideal seja um time de 4. Está sem equipe e quer uma? Entre em contato com a organização, que ajudamos a conectar interessados.",
         "faq.q4":"Preciso estar presente no local?","faq.a4":"Sim. A participação é presencial: toda a equipe deve estar no local do evento.",
-        "faq.q5":"Quanto custa?","faq.a5":"A inscrição terá valor simbólico e abre em breve. Acompanhe a divulgação oficial do SBSeg 2026.",
+        "faq.q5":"Quanto custa?","faq.a5":"A inscrição tem valor simbólico e é feita pelo <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulário oficial</a>. Os detalhes de pagamento seguem a divulgação oficial do SBSeg 2026.",
+        "faq.q10":"Como faço a inscrição da minha equipe?","faq.a10":"Pelo <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulário oficial de inscrição</a>. Preencha os dados da equipe e a organização acompanha dali em diante. Ficou com dúvida? <a href='#contato'>Fale com a organização</a>.",
         "faq.q6":"O que preciso levar?","faq.a6":"Seu notebook e vontade de investigar. O ideal é que ele rode um sistema Linux: com ele você tem todas as ferramentas necessárias para resolver os desafios. O Linux também pode rodar em uma máquina virtual, desde que tenha espaço em disco e memória RAM suficientes. Haverá internet no local e alguns desafios podem usar servidores online.",
         "faq.q7":"Vou precisar atacar ou invadir algo?","faq.a7":"Não. Este CTF é 100% defesa: você analisa artefatos, evidências e incidentes. Nada de exploração ofensiva.",
         "faq.q8":"Como posso me preparar?","faq.a8":"Comece pelo <a href='#demo'>mini-desafio aqui do site</a> e treine em plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> e <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"Em que idioma estão os desafios?","faq.a9":"Todos os desafios da plataforma estão em inglês técnico: enunciados, descrições e materiais. Não é preciso fluência, mas ajuda estar à vontade com a terminologia técnica de segurança em inglês.",
         "meter.beginner":"Iniciante","meter.intermediate":"Intermediário","meter.advanced":"Avançado","meter.collab":"Colaboração",
-        "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"A divulgação começa agora e as inscrições abrem em breve, com valor simbólico. Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir. Vai ter premiação para os melhores colocados, com apoio confirmado da Tempest: aguarde novidades!",
+        "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"As inscrições estão abertas: preencha o formulário oficial e garanta a vaga da sua equipe, com valor simbólico. Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir. Vai ter premiação para os melhores colocados, com apoio confirmado da Tempest: aguarde novidades!",
+        "inscricao.ctaForm":"Preencher o formulário de inscrição →","inscricao.formNote":"Formulário oficial de inscrição do CTF do SBSeg 2026. Uma equipe já inscrita pode ajustar os dados falando com a organização.",
         "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.ctaContato":"Dúvidas e sugestões? Entre em contato","inscricao.note":"Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio e patrocínio",
         "partner.apoio":"<b>Apoio:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Realização:</b> SBSeg 2026 / SBC","partner.patro":"Patrocínio: <b>sua marca aqui</b>",
         "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.",
@@ -1331,7 +1400,7 @@
         "form.eyebrow":"Contato","form.h2":"Fale com a organização","form.lead":"Dúvidas, sugestões, patrocínio ou inscrição da equipe? Envie uma mensagem e a organização responde.",
         "form.name":"Nome","form.email":"E-mail","form.team":"Equipe ou instituição","form.message":"Mensagem","form.submit":"Enviar mensagem","form.sending":"Enviando...",
         "form.success":"Mensagem enviada. Em breve a organização responde.","form.error":"Não foi possível enviar agora. Tente novamente ou escreva direto para a organização.","form.validation":"Preencha nome, e-mail e mensagem para enviar.",
-        "foot.tagline":"Capture The Flag de defesa.<br>Edição baseada no FIRST.","foot.nav":"Navegação","foot.coord":"Coordenação","foot.ref":"Referências","foot.refFirst":"CTF do FIRST 2026","foot.patro":"Patrocínio","foot.patroP":"Quer apoiar o CTF?<br>Fale com a organização do SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site mantido pelo <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ajudando a comunidade.","foot.legalTag":"defesa > ataque"
+        "foot.tagline":"Capture The Flag de defesa.<br>Edição baseada no FIRST.","foot.nav":"Navegação","foot.form":"Formulário de inscrição","foot.coord":"Coordenação","foot.ref":"Referências","foot.refFirst":"CTF do FIRST 2026","foot.patro":"Patrocínio","foot.patroP":"Quer apoiar o CTF?<br>Fale com a organização do SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site mantido pelo <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ajudando a comunidade.","foot.legalTag":"defesa > ataque"
       },
       es: {
         "meta.title":"CTF · SBSeg 2026 · Capture The Flag de Defensa",
@@ -1339,13 +1408,16 @@
         "og.description":"Incidente reportado. Analiza las evidencias. Captura la flag. Un CTF de defensa basado en el FIRST, para todos los niveles.",
         "skip":"Saltar al contenido",
         "brand.aria":"CTF SBSeg 2026: inicio",
-        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.demo":"Pruébalo","nav.formato":"Formato","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo",
+        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.demo":"Pruébalo","nav.formato":"Formato","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo","nav.video":"Video",
         "nav.toggleOpen":"Abrir menú","nav.toggleClose":"Cerrar menú",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edición FIRST",
         "hero.h1a":"Incidente reportado.","hero.h1b":"Analiza las evidencias.","hero.h1c":"Captura la flag",
         "hero.lead":"Un CTF de <strong>defensa</strong>, basado en los desafíos del <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), el foro que reúne a los equipos de respuesta a incidentes de todo el mundo. Aquí no hay ataque, solo análisis de artefactos, evidencias e incidentes que, en un escenario real, podrían haber pasado desapercibidos. Para todos los niveles: <strong>no necesitas experiencia previa</strong>.",
         "hero.ctaPrimary":"Inscribe tu equipo →","hero.ctaGhost":"Cómo funciona","hero.metaLabel":"Resumen del evento",
-        "hero.note":"<strong>La divulgación empieza ahora.</strong> Arma tu equipo y, si tienes dudas o sugerencias, <a href='#contato'>contacta a la organización</a>.",
+        "hero.note":"<strong>Las inscripciones están abiertas.</strong> Arma tu equipo, <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>completa el formulario oficial de inscripción</a> y, si tienes dudas o sugerencias, <a href='#contato'>contacta a la organización</a>.",
+        "video.eyebrow":"Divulgación","video.h2":"Mira el video del CTF","video.lead":"Un resumen rápido de qué es el CTF del SBSeg 2026 y de cómo participa tu equipo. Míralo y compártelo con quienes quieres en tu equipo.",
+        "video.bar":"divulgacion.mp4 · CTF SBSeg 2026","video.live":"PLAY","video.iframeTitle":"Video de divulgación del CTF del SBSeg 2026",
+        "video.share":"Compártelo en tus redes y en los grupos de tu carrera: cuantos más equipos, mejor la competencia.","video.cta":"Ver en YouTube →",
         "chip.date":"Sáb · 29 ago · 09h–17h","chip.presencial":"Presencial","chip.equipes":"Equipos de 1 a 4","chip.iniciantes":"Principiantes bienvenidos","chip.premio":"Premios para los mejores","chip.idioma":"Desafíos en inglés técnico","chip.linux":"Linux + shell recomendado",
         "replay.aria":"Desafíos del CTF, cada uno con nombre, descripción y flag propia","replay.barCase":"replay del CTF del FIRST · desafíos independientes","replay.live":"ANÁLISIS",
         "node.rede.k":"Redes y Tráfico","node.malware.k":"Análisis de Malware","node.cripto.k":"Criptografía","node.codigo.k":"Programación Segura","node.flag":"capture a flag",
@@ -1385,7 +1457,7 @@
         "dl.level.dt":"Nivel","dl.level.dd":"Todos<small>del primer CTF al veterano</small>",
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglés técnico<small>todos los desafíos de la plataforma están en inglés técnico</small>",
         "dl.gear.dt":"Equipamiento","dl.gear.dd":"Portátil, de preferencia con Linux y shell<small>un host o VM con Linux ayuda bastante en la resolución; habrá internet en el lugar</small>",
-        "dl.reg.dt":"Inscripción","dl.reg.dd":"Valor simbólico<small>apertura muy pronto</small>",
+        "dl.reg.dt":"Inscripción","dl.reg.dd":"Valor simbólico<small>inscripciones abiertas por el <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulario oficial</a></small>",
         "dl.prizes.dt":"Premios","dl.prizes.dd":"Reconocimiento y premios para los mejores<small>obsequio del CERT.br para quien alcance la puntuación mínima; premios con apoyo de Tempest</small>",
         "niveis.eyebrow":"Para todos los niveles","niveis.h2":"¿Nunca jugaste un CTF? Empieza por aquí.","niveis.p":"No necesitas ser experto para participar: necesitas ganas de investigar. Hay desafíos pensados para quien empieza y para quien ya compite hace años. Y, al final, el mejor premio suele ser la gente que conoces intentando resolver los mismos desafíos.",
         "niveis.p2":"¿Nunca escuchaste hablar de esto? Un CTF (Capture The Flag) es un juego de acertijos computacionales: analizas un artefacto, descubres qué pasó y encuentras la <b>flag</b>, un código que prueba la solución. Aprendes jugando, y puedes <a href='#demo'>probar un minidesafío ahora mismo</a>.",
@@ -1402,13 +1474,15 @@
         "faq.q2":"¿Qué es una \"flag\"?","faq.a2":"Es un código que puede ser un hash, una cadena, una dirección IP, una marca de tiempo o cualquier cosa que la descripción del desafío pida. La flag es la prueba de que resolviste el desafío. La encuentras analizando las evidencias y la envías en la plataforma para puntuar.",
         "faq.q3":"¿Puedo participar solo?","faq.a3":"Puedes. Los equipos van de 1 a 4 personas, así que puedes competir solo, aunque lo ideal es un equipo de 4. ¿No tienes equipo y quieres uno? Contacta a la organización, que ayudamos a conectar interesados.",
         "faq.q4":"¿Necesito estar presente en el lugar?","faq.a4":"Sí. La participación es presencial: todo el equipo debe estar en el lugar del evento.",
-        "faq.q5":"¿Cuánto cuesta?","faq.a5":"La inscripción tendrá un valor simbólico y abre muy pronto. Sigue la divulgación oficial del SBSeg 2026.",
+        "faq.q5":"¿Cuánto cuesta?","faq.a5":"La inscripción tiene un valor simbólico y se hace por el <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulario oficial</a>. Los detalles de pago siguen la divulgación oficial del SBSeg 2026.",
+        "faq.q10":"¿Cómo inscribo a mi equipo?","faq.a10":"Por el <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulario oficial de inscripción</a>. Completa los datos del equipo y la organización continúa desde ahí. ¿Tienes dudas? <a href='#contato'>Habla con la organización</a>.",
         "faq.q6":"¿Qué necesito llevar?","faq.a6":"Tu portátil y ganas de investigar. Lo ideal es que ejecute un sistema Linux: con él tienes todas las herramientas necesarias para resolver los desafíos. Linux también puede ejecutarse en una máquina virtual, siempre que tenga suficiente espacio en disco y memoria RAM. Habrá internet en el lugar y algunos desafíos pueden usar servidores en línea.",
         "faq.q7":"¿Voy a tener que atacar o invadir algo?","faq.a7":"No. Este CTF es 100% defensa: analizas artefactos, evidencias e incidentes. Nada de explotación ofensiva.",
         "faq.q8":"¿Cómo puedo prepararme?","faq.a8":"Empieza por el <a href='#demo'>minidesafío de este sitio</a> y entrena en plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> y <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"¿En qué idioma están los desafíos?","faq.a9":"Todos los desafíos de la plataforma están en inglés técnico: enunciados, descripciones y materiales. No hace falta fluidez, pero ayuda sentirse cómodo con la terminología técnica de seguridad en inglés.",
         "meter.beginner":"Principiante","meter.intermediate":"Intermedio","meter.advanced":"Avanzado","meter.collab":"Colaboración",
-        "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"La divulgación empieza ahora y las inscripciones abren muy pronto, con valor simbólico. Arma tu equipo: el tamaño ideal es 4, pero equipos más pequeños, de 1 a 3, también pueden competir. ¡Habrá premios para los mejores clasificados, con apoyo confirmado de Tempest: espera novedades!",
+        "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"Las inscripciones están abiertas: completa el formulario oficial y asegura el lugar de tu equipo, con valor simbólico. Arma tu equipo: el tamaño ideal es 4, pero equipos más pequeños, de 1 a 3, también pueden competir. ¡Habrá premios para los mejores clasificados, con apoyo confirmado de Tempest: espera novedades!",
+        "inscricao.ctaForm":"Completar el formulario de inscripción →","inscricao.formNote":"Formulario oficial de inscripción del CTF del SBSeg 2026. Un equipo ya inscrito puede ajustar sus datos hablando con la organización.",
         "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.ctaContato":"¿Dudas y sugerencias? Contáctanos","inscricao.note":"Operación del CTF conducida por el CERT.br · infraestructura y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo y patrocinio",
         "partner.apoio":"<b>Apoyo:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Realización:</b> SBSeg 2026 / SBC","partner.patro":"Patrocinio: <b>tu marca aquí</b>",
         "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura, la plataforma de envío y el leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> confirmó su apoyo en la premiación del CTF.",
@@ -1419,7 +1493,7 @@
         "form.eyebrow":"Contacto","form.h2":"Habla con la organización","form.lead":"¿Dudas, sugerencias, patrocinio o inscripción del equipo? Envía un mensaje y la organización responde.",
         "form.name":"Nombre","form.email":"Correo","form.team":"Equipo o institución","form.message":"Mensaje","form.submit":"Enviar mensaje","form.sending":"Enviando...",
         "form.success":"Mensaje enviado. La organización responderá pronto.","form.error":"No se pudo enviar ahora. Inténtalo de nuevo o escribe directamente a la organización.","form.validation":"Completa nombre, correo y mensaje para enviar.",
-        "foot.tagline":"Capture The Flag de defensa.<br>Edición basada en el FIRST.","foot.nav":"Navegación","foot.coord":"Coordinación","foot.ref":"Referencias","foot.refFirst":"CTF del FIRST 2026","foot.patro":"Patrocinio","foot.patroP":"¿Quieres apoyar el CTF?<br>Habla con la organización del SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Sitio mantenido por <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ayudando a la comunidad.","foot.legalTag":"defensa > ataque"
+        "foot.tagline":"Capture The Flag de defensa.<br>Edición basada en el FIRST.","foot.nav":"Navegación","foot.form":"Formulario de inscripción","foot.coord":"Coordinación","foot.ref":"Referencias","foot.refFirst":"CTF del FIRST 2026","foot.patro":"Patrocinio","foot.patroP":"¿Quieres apoyar el CTF?<br>Habla con la organización del SBSeg 2026.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Sitio mantenido por <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, ayudando a la comunidad.","foot.legalTag":"defensa > ataque"
       },
       en: {
         "meta.title":"CTF · SBSeg 2026 · Defense Capture The Flag",
@@ -1427,13 +1501,16 @@
         "og.description":"Incident reported. Analyze the evidence. Capture the flag. A defense CTF based on FIRST, for all levels.",
         "skip":"Skip to content",
         "brand.aria":"CTF SBSeg 2026: home",
-        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.demo":"Try it","nav.formato":"Format","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team",
+        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.demo":"Try it","nav.formato":"Format","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team","nav.video":"Video",
         "nav.toggleOpen":"Open menu","nav.toggleClose":"Close menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · FIRST Edition",
         "hero.h1a":"Incident reported.","hero.h1b":"Analyze the evidence.","hero.h1c":"Capture the flag",
         "hero.lead":"A <strong>defense</strong> CTF, based on the challenges of <a href='https://ctf.first.org' target='_blank' rel='noopener'>FIRST</a> (Forum of Incident Response and Security Teams), the forum that brings together incident response teams from all over the world. There is no attacking here, only analysis of artifacts, evidence and incidents that, in a real scenario, could have gone unnoticed. For all levels: <strong>no previous experience required</strong>.",
         "hero.ctaPrimary":"Register your team →","hero.ctaGhost":"How it works","hero.metaLabel":"Event summary",
-        "hero.note":"<strong>The announcement starts now.</strong> Build your team and, for questions and suggestions, <a href='#contato'>get in touch with the organization</a>.",
+        "hero.note":"<strong>Registration is open.</strong> Build your team, <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>fill in the official registration form</a> and, for questions and suggestions, <a href='#contato'>get in touch with the organization</a>.",
+        "video.eyebrow":"Announcement","video.h2":"Watch the CTF video","video.lead":"A quick overview of what the SBSeg 2026 CTF is and how your team takes part. Watch it and share it with the people you want on your team.",
+        "video.bar":"announcement.mp4 · CTF SBSeg 2026","video.live":"PLAY","video.iframeTitle":"SBSeg 2026 CTF announcement video",
+        "video.share":"Share it on your networks and with your classmates: the more teams, the better the competition.","video.cta":"Watch on YouTube →",
         "chip.date":"Sat · Aug 29 · 9am–5pm","chip.presencial":"In person","chip.equipes":"Teams of 1 to 4","chip.iniciantes":"Beginners welcome","chip.premio":"Prizes for the top teams","chip.idioma":"Challenges in technical English","chip.linux":"Linux + shell recommended",
         "replay.aria":"CTF challenges, each with its own name, description and flag","replay.barCase":"FIRST CTF replay · standalone challenges","replay.live":"ANALYSIS",
         "node.rede.k":"Networks & Traffic","node.malware.k":"Malware Analysis","node.cripto.k":"Cryptography","node.codigo.k":"Secure Programming","node.flag":"capture a flag",
@@ -1473,7 +1550,7 @@
         "dl.level.dt":"Level","dl.level.dd":"All<small>from your first CTF to veteran</small>",
         "dl.platform.dt":"Language","dl.platform.dd":"Technical English<small>all platform challenges are in technical English</small>",
         "dl.gear.dt":"Gear","dl.gear.dd":"A laptop, preferably running Linux with a shell<small>a Linux host or VM helps a lot when solving; there will be internet on site</small>",
-        "dl.reg.dt":"Registration","dl.reg.dd":"Symbolic fee<small>opening soon</small>",
+        "dl.reg.dt":"Registration","dl.reg.dd":"Symbolic fee<small>registration open through the <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>official form</a></small>",
         "dl.prizes.dt":"Prizes","dl.prizes.dd":"Recognition and prizes for the top teams<small>a CERT.br gift for anyone who reaches the minimum score; prizes supported by Tempest</small>",
         "niveis.eyebrow":"For every level","niveis.h2":"Never played a CTF? Start here.","niveis.p":"You do not need to be an expert to take part: you need the will to investigate. There are challenges designed for those just starting and for those who have competed for years. And in the end, the best prize is usually the people you meet while solving the same challenges.",
         "niveis.p2":"Never heard of it? A CTF (Capture The Flag) is a game of computational puzzles: you analyze an artifact, figure out what happened and find the <b>flag</b>, a code that proves the solution. You learn by playing, and you can <a href='#demo'>try a mini challenge right now</a>.",
@@ -1490,13 +1567,15 @@
         "faq.q2":"What is a \"flag\"?","faq.a2":"It is a code that can be a hash, a string, an IP address, a timestamp or anything the challenge description asks you to find. The flag is the proof that you solved the challenge. You find it by analyzing the evidence and submit it on the platform to score.",
         "faq.q3":"Can I take part alone?","faq.a3":"You can. Teams range from 1 to 4 people, so you can compete solo, though 4 is ideal. No team and want one? Contact the organization and we will help connect interested players.",
         "faq.q4":"Do I need to be there in person?","faq.a4":"Yes. Participation is in person: the whole team must be at the event venue.",
-        "faq.q5":"How much does it cost?","faq.a5":"Registration will have a symbolic fee and opens soon. Follow the official SBSeg 2026 announcements.",
+        "faq.q5":"How much does it cost?","faq.a5":"Registration has a symbolic fee and is done through the <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>official form</a>. Payment details follow the official SBSeg 2026 announcements.",
+        "faq.q10":"How do I register my team?","faq.a10":"Through the <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>official registration form</a>. Fill in your team details and the organization takes it from there. Still in doubt? <a href='#contato'>Talk to the organization</a>.",
         "faq.q6":"What do I need to bring?","faq.a6":"Your laptop and the will to investigate. Ideally it should run a Linux system: with it you have all the tools needed to solve the challenges. Linux can also run in a virtual machine, as long as it has enough disk space and RAM. There will be internet on site and some challenges may use online servers.",
         "faq.q7":"Will I need to attack or break into anything?","faq.a7":"No. This CTF is 100% defense: you analyze artifacts, evidence and incidents. No offensive exploitation.",
         "faq.q8":"How can I prepare?","faq.a8":"Start with the <a href='#demo'>mini challenge on this site</a> and practice on free platforms like <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> and <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"What language are the challenges in?","faq.a9":"All platform challenges are in technical English: prompts, descriptions and materials. You do not need fluency, but being comfortable with security's technical terminology in English helps.",
         "meter.beginner":"Beginner","meter.intermediate":"Intermediate","meter.advanced":"Advanced","meter.collab":"Collaboration",
-        "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"The announcement starts now and registration opens soon, with a symbolic fee. Build your team: the ideal size is 4, but smaller teams, from 1 to 3, can also compete. There will be prizes for the top teams, with support confirmed by Tempest: stay tuned for news!",
+        "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"Registration is open: fill in the official form and secure your team's spot, with a symbolic fee. Build your team: the ideal size is 4, but smaller teams, from 1 to 3, can also compete. There will be prizes for the top teams, with support confirmed by Tempest: stay tuned for news!",
+        "inscricao.ctaForm":"Fill in the registration form →","inscricao.formNote":"Official registration form for the SBSeg 2026 CTF. A team already registered can adjust its details by talking to the organization.",
         "inscricao.cta":"Follow SBSeg 2026 →","inscricao.ctaContato":"Questions or suggestions? Get in touch","inscricao.note":"CTF operation run by CERT.br · infrastructure and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support and sponsorship",
         "partner.apoio":"<b>Support:</b> CERT.br · CAIS/RNP · Tempest","partner.realiza":"<b>Hosted by:</b> SBSeg 2026 / SBC","partner.patro":"Sponsorship: <b>your brand here</b>",
         "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure, the submission platform and the live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> has confirmed its support for the CTF prizes.",
@@ -1507,7 +1586,7 @@
         "form.eyebrow":"Contact","form.h2":"Talk to the organization","form.lead":"Questions, suggestions, sponsorship or team registration? Send a message and the organization will reply.",
         "form.name":"Name","form.email":"Email","form.team":"Team or institution","form.message":"Message","form.submit":"Send message","form.sending":"Sending...",
         "form.success":"Message sent. The organization will reply soon.","form.error":"Could not send right now. Please try again or write directly to the organization.","form.validation":"Fill in name, email and message to send.",
-        "foot.tagline":"Defense Capture The Flag.<br>Edition based on FIRST.","foot.nav":"Navigation","foot.coord":"Coordination","foot.ref":"References","foot.refFirst":"FIRST 2026 CTF","foot.patro":"Sponsorship","foot.patroP":"Want to support the CTF?<br>Talk to the SBSeg 2026 organization.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site maintained by <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, helping the community.","foot.legalTag":"defense > attack"
+        "foot.tagline":"Defense Capture The Flag.<br>Edition based on FIRST.","foot.nav":"Navigation","foot.form":"Registration form","foot.coord":"Coordination","foot.ref":"References","foot.refFirst":"FIRST 2026 CTF","foot.patro":"Sponsorship","foot.patroP":"Want to support the CTF?<br>Talk to the SBSeg 2026 organization.","foot.copy":"© 2026 CTF · SBSeg","foot.credit":"Site maintained by <a href=\"https://ai-horizon-labs.github.io\" target=\"_blank\" rel=\"noopener\">AI Horizon Labs</a>, helping the community.","foot.legalTag":"defense > attack"
       }
     };
     var LANGS = {pt:"pt-BR", es:"es", en:"en"};
@@ -1730,7 +1809,7 @@
     /* easter egg para quem inspeciona (a curiosidade merece recompensa) */
     try{
       console.log('%cCTF{curiosidade_eh_a_primeira_flag}', 'color:#00A862;font-family:monospace;font-size:16px;font-weight:bold;');
-      console.log('Parabéns por inspecionar o console: você já pensa como analista. Guarde essa flag de aquecimento e inscreva sua equipe: https://ctf-sbseg.github.io/#inscricao');
+      console.log('Parabéns por inspecionar o console: você já pensa como analista. Guarde essa flag de aquecimento e inscreva sua equipe: https://forms.gle/9jP4oXH9XWXaCv437');
     }catch(e){}
 
     /* boot */
