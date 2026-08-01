@@ -434,6 +434,70 @@
   .dl dd{margin:0;font-weight:600;font-size:1.05rem;}
   .dl dd small{display:block;font-weight:400;color:var(--slate);font-size:0.86rem;margin-top:3px;}
 
+  /* hospedagem */
+  .stay{
+    background:#fff;border:1px solid var(--hairline);border-radius:var(--r);
+    padding:24px;display:flex;flex-direction:column;gap:9px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .stay:hover{transform:translateY(-3px);box-shadow:0 24px 44px -36px rgba(10,17,36,.4);border-color:var(--hairline-strong);}
+  @media (prefers-reduced-motion: reduce){.stay:hover{transform:none;}}
+  .stay h3{font-size:var(--step-h3);}
+  .stay__tag{
+    font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--slate);
+  }
+  .stay__addr{color:var(--slate);font-size:0.92rem;}
+  .stay__links{
+    display:flex;flex-wrap:wrap;gap:6px 18px;font-size:0.92rem;
+    margin-top:auto;padding-top:8px;
+  }
+
+  .stay--main{
+    padding:0;gap:0;overflow:hidden;
+    border-color:var(--hairline-strong);box-shadow:0 30px 60px -50px rgba(10,17,36,.5);
+    margin-bottom:clamp(30px,4vw,44px);
+  }
+  .stay--main:hover{transform:none;box-shadow:0 30px 60px -50px rgba(10,17,36,.5);}
+  .stay__bar{
+    background:var(--ink);color:#cfe;font-family:"IBM Plex Mono",monospace;font-size:0.78rem;
+    letter-spacing:0.06em;padding:13px 20px;display:flex;align-items:center;gap:10px;
+  }
+  .stay__bar .tick{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;flex:none;}
+  .stay__body{padding:26px 24px;display:flex;flex-direction:column;gap:12px;}
+  .stay__body p{color:var(--slate);font-size:0.97rem;}
+  .stay__body p.stay__addr{font-size:0.92rem;}
+
+  .rates{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0;}
+  .rate{
+    border:1px solid var(--hairline);border-radius:var(--r-sm);
+    background:var(--panel);padding:11px 15px;min-width:150px;
+  }
+  .rate span{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:0.7rem;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);margin-bottom:4px;
+  }
+  .rate b{font-size:1.02rem;letter-spacing:-0.01em;}
+
+  .stay__sub{
+    font-size:var(--step-h3);margin:clamp(34px,5vw,52px) 0 18px;
+  }
+  .stay__sub + .grid{margin-top:0;}
+
+  /* mapa do campus */
+  .mapfig{
+    margin:0 0 clamp(26px,4vw,38px);background:#fff;
+    border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden;
+    box-shadow:0 30px 60px -50px rgba(10,17,36,.5);
+  }
+  .mapfig a{display:block;line-height:0;}
+  .mapfig img{display:block;width:100%;height:auto;}
+  .mapfig figcaption{
+    padding:15px 20px;border-top:1px solid var(--hairline);background:var(--panel);
+    color:var(--slate);font-size:0.9rem;line-height:1.5;
+  }
+  .mapfig figcaption b{color:var(--ink);}
+
   /* demo challenge */
   .demo-card{
     max-width:760px;margin:0 auto;
@@ -672,6 +736,8 @@
         <a href="#first" data-i18n="nav.first">FIRST</a>
         <a href="#demo" data-i18n="nav.demo">Experimente</a>
         <a href="#formato" data-i18n="nav.formato">Formato</a>
+        <a href="#local" data-i18n="nav.local">Local</a>
+        <a href="#hospedagem" data-i18n="nav.hospedagem">Hospedagem</a>
         <a href="#coordenacao" data-i18n="nav.coord">Coordenação</a>
         <a href="#contato" data-i18n="nav.contato">Contato</a>
         <a class="btn btn--primary" href="#inscricao" data-i18n="nav.inscreva">Inscreva sua equipe</a>
@@ -977,7 +1043,7 @@
       <div class="briefing__bar"><span class="tick" aria-hidden="true"></span> <span data-i18n="briefing.bar">briefing.txt · leitura obrigatória antes do dia 0</span></div>
       <dl class="dl">
         <div><dt data-i18n="dl.when.dt">Quando</dt><dd data-i18n-html="dl.when.dd">Sábado, 29 de agosto de 2026<small>abertura e briefing às 09h · desafios ao longo do dia · encerramento e premiação às 17h</small></dd></div>
-        <div><dt data-i18n="dl.where.dt">Onde</dt><dd data-i18n-html="dl.where.dd">Presencial<small>Local a confirmar</small></dd></div>
+        <div><dt data-i18n="dl.where.dt">Onde</dt><dd data-i18n-html="dl.where.dd">Presencial · UFF, Niterói (RJ)<small>Instituto de Computação, bloco dos prédios 13, no campus da Praia Vermelha · veja o <a href="#local">mapa do campus</a></small></dd></div>
         <div><dt data-i18n="dl.teams.dt">Equipes</dt><dd data-i18n-html="dl.teams.dd">De 1 a 4 participantes, ideal 4<small>monte com competências variadas</small></dd></div>
         <div><dt data-i18n="dl.level.dt">Nível</dt><dd data-i18n-html="dl.level.dd">Todos<small>do primeiro CTF ao veterano</small></dd></div>
         <div><dt data-i18n="dl.platform.dt">Idioma</dt><dd data-i18n-html="dl.platform.dd">Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small></dd></div>
@@ -1103,6 +1169,151 @@
       <span class="partner" data-i18n-html="partner.apoio"><b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg</span>
       <span class="partner" data-i18n-html="partner.realiza"><b>Realização:</b> SBSeg 2026 / SBC</span>
     </div>
+  </div>
+</section>
+
+<!-- LOCAL DO CTF -->
+<section id="local" aria-labelledby="local-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="local.eyebrow">Local</p>
+      <h2 id="local-title" data-i18n="local.h2">Onde o CTF acontece</h2>
+      <p data-i18n="local.lead">O CTF é presencial, no campus da Praia Vermelha da UFF, em Niterói (RJ).
+        A competição fica no bloco dos prédios 13, o Instituto de Computação, marcado em vermelho no mapa abaixo.</p>
+    </div>
+
+    <figure class="mapfig reveal">
+      <a href="imgs/mapa_e_local_do_CTF_na_UFF.png" target="_blank" rel="noopener">
+        <img src="imgs/mapa_e_local_do_CTF_na_UFF.png" width="1672" height="941" loading="lazy" decoding="async"
+             data-i18n-attr="alt:local.mapAlt"
+             alt="Mapa do campus da Praia Vermelha da UFF com a legenda dos prédios, entradas, estacionamentos e pontos de alimentação. O CTF está destacado no bloco dos prédios 13, o Instituto de Computação." />
+      </a>
+      <figcaption data-i18n-html="local.mapCaption">Mapa do campus da Praia Vermelha da UFF. O <b>CTF acontece no bloco dos prédios 13</b>, o Instituto de Computação.
+        Clique na imagem para abrir em tamanho cheio.</figcaption>
+    </figure>
+
+    <div class="briefing reveal">
+      <div class="briefing__bar"><span class="tick" aria-hidden="true"></span> <span data-i18n="local.bar">como_chegar.txt · do aeroporto até a mesa do seu time</span></div>
+      <dl class="dl">
+        <div><dt data-i18n="local.addr.dt">Endereço</dt><dd data-i18n-html="local.addr.dd">Instituto de Computação da UFF<small>Av. Gal. Milton Tavares de Souza, s/nº · São Domingos, Niterói – RJ · CEP 24210-346 · <a href="https://www.google.com/maps/search/?api=1&amp;query=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener">abrir no mapa</a></small></dd></div>
+        <div><dt data-i18n="local.build.dt">Prédio</dt><dd data-i18n-html="local.build.dd">Bloco dos prédios 13<small>o Instituto de Computação, na parte baixa do campus, junto à orla · haverá sinalização no dia</small></dd></div>
+        <div><dt data-i18n="local.gates.dt">Entradas</dt><dd data-i18n-html="local.gates.dd">E1, E2 e E3<small>a E2 é a mais próxima do bloco 13; a E1 e a E3 dão acesso às demais áreas do campus</small></dd></div>
+        <div><dt data-i18n="local.park.dt">Estacionamento</dt><dd data-i18n-html="local.park.dd">Dentro do campus<small>há áreas de estacionamento sinalizadas no mapa; a oferta é limitada, considere táxi ou aplicativo</small></dd></div>
+        <div><dt data-i18n="local.air.dt">Vindo de avião</dt><dd data-i18n-html="local.air.dd">Aeroportos do Rio de Janeiro<small>Tom Jobim/Galeão (GIG) e Santos Dumont (SDU) · de lá até Niterói de táxi, aplicativo ou ônibus</small></dd></div>
+        <div><dt data-i18n="local.boat.dt">Do Rio para Niterói</dt><dd data-i18n-html="local.boat.dd">Barca ou ponte<small>a barca liga a Praça XV, no Rio, à estação Arariboia, em Niterói, em cerca de 20 minutos · do terminal ao campus são poucos minutos de táxi ou aplicativo</small></dd></div>
+      </dl>
+    </div>
+
+    <p class="note reveal" data-i18n="local.food">No próprio campus há restaurante universitário e cantinas, marcados na legenda do mapa. Traga também água e um lanche: o dia de competição é longo.</p>
+  </div>
+</section>
+
+<!-- HOSPEDAGEM -->
+<section id="hospedagem" class="alt" aria-labelledby="hosp-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="hosp.eyebrow">Hospedagem</p>
+      <h2 id="hosp-title" data-i18n="hosp.h2">Vem de fora? Organize a viagem</h2>
+      <p data-i18n="hosp.lead">Sugestões de hotéis próximos ao campus da Praia Vermelha, em Niterói, para quem chega de outra cidade.
+        Nenhum deles tem convênio com o CTF: são apenas indicações de apoio, com o endereço, o site oficial e a rota até o local da competição.
+        Tarifas e disponibilidade mudam, então confirme sempre direto com o estabelecimento e reserve cedo.</p>
+    </div>
+
+    <h3 class="stay__sub reveal" style="margin-top:0" data-i18n="hosp.near.h3">Mais perto do campus</h3>
+    <div class="grid grid--3">
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.saodomingos">São Domingos</span>
+        <h3>Hotel Cantareira</h3>
+        <p class="stay__addr">Rua General Osório, 62 · São Domingos, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://hotelcantareiraniteroi.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Cantareira%2C%20Rua%20General%20Os%C3%B3rio%2C%2062%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.gragoata">Gragoatá</span>
+        <h3>Hotel Orizzonte Niterói</h3>
+        <p class="stay__addr">Rua Engenheiro Roberto Velasco Cardoso, 321 · Gragoatá, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://www.reserveatlantica.com.br/hotel/hotel-niteroi-by-atlantica" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Rua%20Engenheiro%20Roberto%20Velasco%20Cardoso%2C%20321%2C%20Gragoat%C3%A1%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.centro">Centro</span>
+        <h3>Niterói Palace Hotel</h3>
+        <p class="stay__addr">Rua General Andrade Neves, 134 · Centro, Niterói – RJ · CEP 24210-001</p>
+        <p class="stay__links">
+          <a href="https://www.niteroipalacehotel.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="mailto:reserva@niteroipalacehotel.com.br">reserva@niteroipalacehotel.com.br</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Niter%C3%B3i%20Palace%20Hotel%2C%20Rua%20General%20Andrade%20Neves%2C%20134%2C%20Centro%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+    </div>
+
+    <h3 class="stay__sub reveal" data-i18n="hosp.beach.h3">Icaraí e Ingá, junto à praia</h3>
+    <div class="grid grid--3">
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.inga">Ingá</span>
+        <h3>H Niterói Hotel</h3>
+        <p class="stay__addr">Rua Dr. Paulo Alves, 14 · Ingá, Niterói – RJ · CEP 24210-445</p>
+        <p class="stay__links">
+          <a href="https://hniteroi.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=H%20Niter%C3%B3i%20Hotel%2C%20Rua%20Dr.%20Paulo%20Alves%2C%2014%2C%20Ing%C3%A1%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.icarai">Icaraí</span>
+        <h3>Icaraí Praia Hotel</h3>
+        <p class="stay__addr">Rua Belisário Augusto, 21 · Icaraí, Niterói – RJ · CEP 24230-200</p>
+        <p class="stay__links">
+          <a href="http://www.icaraipraiahotel.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Icara%C3%AD%20Praia%20Hotel%2C%20Rua%20Belis%C3%A1rio%20Augusto%2C%2021%2C%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.icarai">Icaraí</span>
+        <h3>Tower Icaraí Hotel</h3>
+        <p class="stay__addr">Av. Alm. Ary Parreiras, 12 · Icaraí, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://www.towerhotel.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Tower%20Icara%C3%AD%20Hotel%2C%20Av.%20Alm.%20Ary%20Parreiras%2C%2012%2C%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.icarai">Icaraí</span>
+        <h3>Hotel Village Icaraí</h3>
+        <p class="stay__addr" data-i18n="hosp.village.addr">Travessa Dr. João Francisco da Matta, 12 · entrada pela Rua Mariz e Barros, 97 · Icaraí, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://hotelvillageicarai.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Village%20Icara%C3%AD%2C%20Rua%20Mariz%20e%20Barros%2C%2097%2C%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.icarai">Icaraí</span>
+        <h3>Hotel Petit Village Icaraí</h3>
+        <p class="stay__addr">Rua Mariz e Barros, 109 · Icaraí, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://hotelpetitvillageicarai.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Petit%20Village%20Icara%C3%AD%2C%20Rua%20Mariz%20e%20Barros%2C%20109%2C%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+      <article class="stay reveal">
+        <span class="stay__tag" data-i18n="hosp.tag.icarai">Icaraí</span>
+        <h3>Icaraí Suites</h3>
+        <p class="stay__addr">Rua Mariz e Barros, 147 · Icaraí, Niterói – RJ</p>
+        <p class="stay__links">
+          <a href="https://www.icaraisuites.com.br/" target="_blank" rel="noopener" data-i18n="hosp.link.site">Site oficial</a>
+          <a href="https://wa.me/552135873331" target="_blank" rel="noopener">WhatsApp +55 21 3587-3331</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Icara%C3%AD%20Suites%2C%20Rua%20Mariz%20e%20Barros%2C%20147%2C%20Icara%C3%AD%2C%20Niter%C3%B3i%20-%20RJ&amp;destination=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ" target="_blank" rel="noopener" data-i18n="hosp.link.route">Rota até o CTF</a>
+        </p>
+      </article>
+    </div>
+
+    <p class="note reveal" data-i18n="hosp.tip">Dica para equipes de estudantes: dividir um quarto quádruplo costuma sair bem mais em conta, e Icaraí e o Ingá ficam a poucos minutos do campus de táxi ou aplicativo. Hospedar-se do lado de Niterói evita depender da barca ou da ponte logo cedo no dia da competição.</p>
+    <p class="note reveal" data-i18n-html="hosp.sbseg">Vai ficar para o SBSeg 2026 depois do CTF? O simpósio acontece em Armação dos Búzios (RJ), de 1 a 4 de setembro, com hospedagem oficial, tarifas negociadas e transfer saindo do Rio de Janeiro. Tudo está na página
+      <a href="https://www.sbseg2026.uff.br/informacoes/local-do-evento/" target="_blank" rel="noopener">Local do Evento</a> do SBSeg 2026.</p>
+    <p class="note reveal" data-i18n="hosp.source">Lista baseada nas sugestões de hospedagem próximas ao IC/UFF divulgadas para eventos anteriores no mesmo campus. Endereços e sites conferidos, mas sem convênio com o CTF: valores e disponibilidade devem ser confirmados diretamente com cada hotel.</p>
   </div>
 </section>
 
@@ -1261,6 +1472,8 @@
       <a href="#first" data-i18n="nav.first">FIRST</a>
       <a href="#formato" data-i18n="nav.formato">Formato</a>
       <a href="#porque" data-i18n="porque.eyebrow">Por que participar</a>
+      <a href="#local" data-i18n="nav.local">Local</a>
+      <a href="#hospedagem" data-i18n="nav.hospedagem">Hospedagem</a>
       <a href="#faq" data-i18n="faq.eyebrow">FAQ</a>
       <a href="#coordenacao" data-i18n="nav.coord">Coordenação</a>
       <a href="#contato" data-i18n="nav.contato">Contato</a>
@@ -1310,7 +1523,7 @@
         "og.description":"Incidente reportado. Analise as evidências. Capture a flag. Um CTF de defesa baseado no FIRST, para todos os níveis.",
         "skip":"Pular para o conteúdo",
         "brand.aria":"CTF SBSeg 2026: início",
-        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.demo":"Experimente","nav.formato":"Formato","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe","nav.video":"Vídeo",
+        "nav.desafio":"O desafio","nav.categorias":"Categorias","nav.first":"FIRST","nav.demo":"Experimente","nav.formato":"Formato","nav.local":"Local","nav.hospedagem":"Hospedagem","nav.coord":"Coordenação","nav.contato":"Contato","nav.inscreva":"Inscreva sua equipe","nav.video":"Vídeo",
         "nav.toggleOpen":"Abrir menu","nav.toggleClose":"Fechar menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edição FIRST",
         "hero.h1a":"Incidente reportado.","hero.h1b":"Analise as evidências.","hero.h1c":"Capture a flag",
@@ -1354,7 +1567,7 @@
         "formato.eyebrow":"Formato","formato.h2":"O briefing da operação","formato.lead":"O essencial para planejar sua equipe. Detalhes finais de data e local serão confirmados na divulgação oficial.",
         "briefing.bar":"briefing.txt · leitura obrigatória antes do dia 0",
         "dl.when.dt":"Quando","dl.when.dd":"Sábado, 29 de agosto de 2026<small>abertura e briefing às 09h · desafios ao longo do dia · encerramento e premiação às 17h</small>",
-        "dl.where.dt":"Onde","dl.where.dd":"Presencial<small>Local a confirmar</small>",
+        "dl.where.dt":"Onde","dl.where.dd":"Presencial · UFF, Niterói (RJ)<small>Instituto de Computação, bloco dos prédios 13, no campus da Praia Vermelha · veja o <a href=\"#local\">mapa do campus</a></small>",
         "dl.teams.dt":"Equipes","dl.teams.dd":"De 1 a 4 participantes, ideal 4<small>monte com competências variadas</small>",
         "dl.level.dt":"Nível","dl.level.dd":"Todos<small>do primeiro CTF ao veterano</small>",
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small>",
@@ -1388,6 +1601,27 @@
         "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.ctaContato":"Dúvidas e sugestões? Entre em contato","inscricao.note":"Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio",
         "partner.apoio":"<b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Realização:</b> SBSeg 2026 / SBC",
         "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.",
+        "local.eyebrow":"Local","local.h2":"Onde o CTF acontece",
+        "local.lead":"O CTF é presencial, no campus da Praia Vermelha da UFF, em Niterói (RJ). A competição fica no bloco dos prédios 13, o Instituto de Computação, marcado em vermelho no mapa abaixo.",
+        "local.mapAlt":"Mapa do campus da Praia Vermelha da UFF com a legenda dos prédios, entradas, estacionamentos e pontos de alimentação. O CTF está destacado no bloco dos prédios 13, o Instituto de Computação.",
+        "local.mapCaption":"Mapa do campus da Praia Vermelha da UFF. O <b>CTF acontece no bloco dos prédios 13</b>, o Instituto de Computação. Clique na imagem para abrir em tamanho cheio.",
+        "local.bar":"como_chegar.txt · do aeroporto até a mesa do seu time",
+        "local.addr.dt":"Endereço","local.addr.dd":"Instituto de Computação da UFF<small>Av. Gal. Milton Tavares de Souza, s/nº · São Domingos, Niterói – RJ · CEP 24210-346 · <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ\" target=\"_blank\" rel=\"noopener\">abrir no mapa</a></small>",
+        "local.build.dt":"Prédio","local.build.dd":"Bloco dos prédios 13<small>o Instituto de Computação, na parte baixa do campus, junto à orla · haverá sinalização no dia</small>",
+        "local.gates.dt":"Entradas","local.gates.dd":"E1, E2 e E3<small>a E2 é a mais próxima do bloco 13; a E1 e a E3 dão acesso às demais áreas do campus</small>",
+        "local.park.dt":"Estacionamento","local.park.dd":"Dentro do campus<small>há áreas de estacionamento sinalizadas no mapa; a oferta é limitada, considere táxi ou aplicativo</small>",
+        "local.air.dt":"Vindo de avião","local.air.dd":"Aeroportos do Rio de Janeiro<small>Tom Jobim/Galeão (GIG) e Santos Dumont (SDU) · de lá até Niterói de táxi, aplicativo ou ônibus</small>",
+        "local.boat.dt":"Do Rio para Niterói","local.boat.dd":"Barca ou ponte<small>a barca liga a Praça XV, no Rio, à estação Arariboia, em Niterói, em cerca de 20 minutos · do terminal ao campus são poucos minutos de táxi ou aplicativo</small>",
+        "local.food":"No próprio campus há restaurante universitário e cantinas, marcados na legenda do mapa. Traga também água e um lanche: o dia de competição é longo.",
+        "hosp.eyebrow":"Hospedagem","hosp.h2":"Vem de fora? Organize a viagem",
+        "hosp.lead":"Sugestões de hotéis próximos ao campus da Praia Vermelha, em Niterói, para quem chega de outra cidade. Nenhum deles tem convênio com o CTF: são apenas indicações de apoio, com o endereço, o site oficial e a rota até o local da competição. Tarifas e disponibilidade mudam, então confirme sempre direto com o estabelecimento e reserve cedo.",
+        "hosp.near.h3":"Mais perto do campus","hosp.beach.h3":"Icaraí e Ingá, junto à praia",
+        "hosp.tag.saodomingos":"São Domingos","hosp.tag.gragoata":"Gragoatá","hosp.tag.centro":"Centro","hosp.tag.inga":"Ingá","hosp.tag.icarai":"Icaraí",
+        "hosp.village.addr":"Travessa Dr. João Francisco da Matta, 12 · entrada pela Rua Mariz e Barros, 97 · Icaraí, Niterói – RJ",
+        "hosp.link.site":"Site oficial","hosp.link.route":"Rota até o CTF",
+        "hosp.tip":"Dica para equipes de estudantes: dividir um quarto quádruplo costuma sair bem mais em conta, e Icaraí e o Ingá ficam a poucos minutos do campus de táxi ou aplicativo. Hospedar-se do lado de Niterói evita depender da barca ou da ponte logo cedo no dia da competição.",
+        "hosp.sbseg":"Vai ficar para o SBSeg 2026 depois do CTF? O simpósio acontece em Armação dos Búzios (RJ), de 1 a 4 de setembro, com hospedagem oficial, tarifas negociadas e transfer saindo do Rio de Janeiro. Tudo está na página <a href=\"https://www.sbseg2026.uff.br/informacoes/local-do-evento/\" target=\"_blank\" rel=\"noopener\">Local do Evento</a> do SBSeg 2026.",
+        "hosp.source":"Lista baseada nas sugestões de hospedagem próximas ao IC/UFF divulgadas para eventos anteriores no mesmo campus. Endereços e sites conferidos, mas sem convênio com o CTF: valores e disponibilidade devem ser confirmados diretamente com cada hotel.",
         "coord.eyebrow":"Coordenação","coord.h2":"Quem coordena o CTF","coord.lead":"A organização do CTF do SBSeg 2026 reúne a academia e o CERT.br, alinhada à coordenação oficial do evento.","coord.role":"Coordenação",
         "coord.mgmtLabel":"Gerentes da plataforma de replay do FIRST",
         "coord.analystsLabel":"Analistas que vão rodar o CTF",
@@ -1403,7 +1637,7 @@
         "og.description":"Incidente reportado. Analiza las evidencias. Captura la flag. Un CTF de defensa basado en el FIRST, para todos los niveles.",
         "skip":"Saltar al contenido",
         "brand.aria":"CTF SBSeg 2026: inicio",
-        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.demo":"Pruébalo","nav.formato":"Formato","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo","nav.video":"Video",
+        "nav.desafio":"El desafío","nav.categorias":"Categorías","nav.first":"FIRST","nav.demo":"Pruébalo","nav.formato":"Formato","nav.local":"Lugar","nav.hospedagem":"Alojamiento","nav.coord":"Coordinación","nav.contato":"Contacto","nav.inscreva":"Inscribe tu equipo","nav.video":"Video",
         "nav.toggleOpen":"Abrir menú","nav.toggleClose":"Cerrar menú",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · Edición FIRST",
         "hero.h1a":"Incidente reportado.","hero.h1b":"Analiza las evidencias.","hero.h1c":"Captura la flag",
@@ -1447,7 +1681,7 @@
         "formato.eyebrow":"Formato","formato.h2":"El briefing de la operación","formato.lead":"Lo esencial para planificar tu equipo. Los detalles finales de fecha y lugar se confirmarán en la divulgación oficial.",
         "briefing.bar":"briefing.txt · lectura obligatoria antes del día 0",
         "dl.when.dt":"Cuándo","dl.when.dd":"Sábado, 29 de agosto de 2026<small>apertura y briefing a las 09h · desafíos durante todo el día · cierre y premiación a las 17h</small>",
-        "dl.where.dt":"Dónde","dl.where.dd":"Presencial<small>Lugar por confirmar</small>",
+        "dl.where.dt":"Dónde","dl.where.dd":"Presencial · UFF, Niterói (RJ)<small>Instituto de Computación, bloque de los edificios 13, en el campus de Praia Vermelha · mira el <a href=\"#local\">mapa del campus</a></small>",
         "dl.teams.dt":"Equipos","dl.teams.dd":"De 1 a 4 participantes, ideal 4<small>ármalo con competencias variadas</small>",
         "dl.level.dt":"Nivel","dl.level.dd":"Todos<small>del primer CTF al veterano</small>",
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglés técnico<small>todos los desafíos de la plataforma están en inglés técnico</small>",
@@ -1481,6 +1715,27 @@
         "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.ctaContato":"¿Dudas y sugerencias? Contáctanos","inscricao.note":"Operación del CTF conducida por el CERT.br · infraestructura y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo",
         "partner.apoio":"<b>Apoyo:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Realización:</b> SBSeg 2026 / SBC",
         "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura, la plataforma de envío y el leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> confirmó su apoyo en la premiación del CTF.",
+        "local.eyebrow":"Lugar","local.h2":"Dónde ocurre el CTF",
+        "local.lead":"El CTF es presencial, en el campus de Praia Vermelha de la UFF, en Niterói (RJ). La competencia ocurre en el bloque de los edificios 13, el Instituto de Computación, marcado en rojo en el mapa de abajo.",
+        "local.mapAlt":"Mapa del campus de Praia Vermelha de la UFF con la leyenda de los edificios, entradas, estacionamientos y puntos de comida. El CTF está destacado en el bloque de los edificios 13, el Instituto de Computación.",
+        "local.mapCaption":"Mapa del campus de Praia Vermelha de la UFF. El <b>CTF ocurre en el bloque de los edificios 13</b>, el Instituto de Computación. Haz clic en la imagen para abrirla en tamaño completo.",
+        "local.bar":"como_llegar.txt · del aeropuerto a la mesa de tu equipo",
+        "local.addr.dt":"Dirección","local.addr.dd":"Instituto de Computación de la UFF<small>Av. Gal. Milton Tavares de Souza, s/nº · São Domingos, Niterói – RJ · CEP 24210-346 · <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ\" target=\"_blank\" rel=\"noopener\">abrir en el mapa</a></small>",
+        "local.build.dt":"Edificio","local.build.dd":"Bloque de los edificios 13<small>el Instituto de Computación, en la parte baja del campus, junto a la costa · habrá señalización el día del evento</small>",
+        "local.gates.dt":"Entradas","local.gates.dd":"E1, E2 y E3<small>la E2 es la más cercana al bloque 13; la E1 y la E3 dan acceso a las demás áreas del campus</small>",
+        "local.park.dt":"Estacionamiento","local.park.dd":"Dentro del campus<small>hay áreas de estacionamiento señalizadas en el mapa; la oferta es limitada, considera taxi o aplicación</small>",
+        "local.air.dt":"Si llegas en avión","local.air.dd":"Aeropuertos de Río de Janeiro<small>Tom Jobim/Galeão (GIG) y Santos Dumont (SDU) · desde allí hasta Niterói en taxi, aplicación o autobús</small>",
+        "local.boat.dt":"De Río a Niterói","local.boat.dd":"Barco o puente<small>el barco conecta la Praça XV, en Río, con la estación Arariboia, en Niterói, en unos 20 minutos · de la terminal al campus son pocos minutos en taxi o aplicación</small>",
+        "local.food":"En el propio campus hay restaurante universitario y cantinas, marcados en la leyenda del mapa. Lleva también agua y algo para comer: el día de competencia es largo.",
+        "hosp.eyebrow":"Alojamiento","hosp.h2":"¿Vienes de fuera? Organiza el viaje",
+        "hosp.lead":"Sugerencias de hoteles cercanos al campus de Praia Vermelha, en Niterói, para quien llega de otra ciudad. Ninguno tiene convenio con el CTF: son solo indicaciones de apoyo, con la dirección, el sitio oficial y la ruta hasta el lugar de la competencia. Las tarifas y la disponibilidad cambian, así que confirma siempre directamente con el establecimiento y reserva temprano.",
+        "hosp.near.h3":"Más cerca del campus","hosp.beach.h3":"Icaraí e Ingá, junto a la playa",
+        "hosp.tag.saodomingos":"São Domingos","hosp.tag.gragoata":"Gragoatá","hosp.tag.centro":"Centro","hosp.tag.inga":"Ingá","hosp.tag.icarai":"Icaraí",
+        "hosp.village.addr":"Travessa Dr. João Francisco da Matta, 12 · entrada por la Rua Mariz e Barros, 97 · Icaraí, Niterói – RJ",
+        "hosp.link.site":"Sitio oficial","hosp.link.route":"Ruta hasta el CTF",
+        "hosp.tip":"Consejo para equipos de estudiantes: dividir una habitación cuádruple suele salir mucho más barato, e Icaraí e Ingá quedan a pocos minutos del campus en taxi o aplicación. Alojarse del lado de Niterói evita depender del barco o del puente temprano el día de la competencia.",
+        "hosp.sbseg":"¿Te quedas para el SBSeg 2026 después del CTF? El simposio se realiza en Armação dos Búzios (RJ), del 1 al 4 de septiembre, con alojamiento oficial, tarifas negociadas y traslado desde Río de Janeiro. Todo está en la página <a href=\"https://www.sbseg2026.uff.br/informacoes/local-do-evento/\" target=\"_blank\" rel=\"noopener\">Local do Evento</a> del SBSeg 2026.",
+        "hosp.source":"Lista basada en las sugerencias de alojamiento cercanas al IC/UFF divulgadas para eventos anteriores en el mismo campus. Direcciones y sitios verificados, pero sin convenio con el CTF: los valores y la disponibilidad deben confirmarse directamente con cada hotel.",
         "coord.eyebrow":"Coordinación","coord.h2":"Quién coordina el CTF","coord.lead":"La organización del CTF del SBSeg 2026 reúne a la academia y al CERT.br, alineada con la coordinación oficial del evento.","coord.role":"Coordinación",
         "coord.mgmtLabel":"Gerentes de la plataforma de replay del FIRST",
         "coord.analystsLabel":"Analistas que van a operar el CTF",
@@ -1496,7 +1751,7 @@
         "og.description":"Incident reported. Analyze the evidence. Capture the flag. A defense CTF based on FIRST, for all levels.",
         "skip":"Skip to content",
         "brand.aria":"CTF SBSeg 2026: home",
-        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.demo":"Try it","nav.formato":"Format","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team","nav.video":"Video",
+        "nav.desafio":"The challenge","nav.categorias":"Categories","nav.first":"FIRST","nav.demo":"Try it","nav.formato":"Format","nav.local":"Venue","nav.hospedagem":"Accommodation","nav.coord":"Coordination","nav.contato":"Contact","nav.inscreva":"Register your team","nav.video":"Video",
         "nav.toggleOpen":"Open menu","nav.toggleClose":"Close menu",
         "hero.eyebrow":"Capture The Flag · SBSeg 2026 · FIRST Edition",
         "hero.h1a":"Incident reported.","hero.h1b":"Analyze the evidence.","hero.h1c":"Capture the flag",
@@ -1540,7 +1795,7 @@
         "formato.eyebrow":"Format","formato.h2":"The operation briefing","formato.lead":"The essentials to plan your team. Final details of date and venue will be confirmed in the official announcement.",
         "briefing.bar":"briefing.txt · required reading before day 0",
         "dl.when.dt":"When","dl.when.dd":"Saturday, August 29, 2026<small>opening and briefing at 9am · challenges throughout the day · closing and awards at 5pm</small>",
-        "dl.where.dt":"Where","dl.where.dd":"In person<small>Venue to be confirmed</small>",
+        "dl.where.dt":"Where","dl.where.dd":"In person · UFF, Niterói (RJ), Brazil<small>Institute of Computing, building block 13, on the Praia Vermelha campus · see the <a href=\"#local\">campus map</a></small>",
         "dl.teams.dt":"Teams","dl.teams.dd":"From 1 to 4 participants, ideally 4<small>build it with varied skills</small>",
         "dl.level.dt":"Level","dl.level.dd":"All<small>from your first CTF to veteran</small>",
         "dl.platform.dt":"Language","dl.platform.dd":"Technical English<small>all platform challenges are in technical English</small>",
@@ -1574,6 +1829,27 @@
         "inscricao.cta":"Follow SBSeg 2026 →","inscricao.ctaContato":"Questions or suggestions? Get in touch","inscricao.note":"CTF operation run by CERT.br · infrastructure and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support",
         "partner.apoio":"<b>Support:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Hosted by:</b> SBSeg 2026 / SBC",
         "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure, the submission platform and the live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> has confirmed its support for the CTF prizes.",
+        "local.eyebrow":"Venue","local.h2":"Where the CTF takes place",
+        "local.lead":"The CTF is an in-person event on UFF's Praia Vermelha campus, in Niterói (RJ), Brazil. The competition runs in building block 13, the Institute of Computing, highlighted in red on the map below.",
+        "local.mapAlt":"Map of UFF's Praia Vermelha campus with a legend of buildings, gates, parking areas and food spots. The CTF is highlighted in building block 13, the Institute of Computing.",
+        "local.mapCaption":"Map of UFF's Praia Vermelha campus. The <b>CTF takes place in building block 13</b>, the Institute of Computing. Click the image to open it full size.",
+        "local.bar":"getting_there.txt · from the airport to your team's table",
+        "local.addr.dt":"Address","local.addr.dd":"UFF Institute of Computing<small>Av. Gal. Milton Tavares de Souza, s/nº · São Domingos, Niterói – RJ, Brazil · ZIP 24210-346 · <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Instituto%20de%20Computa%C3%A7%C3%A3o%20UFF%2C%20Av.%20Gal.%20Milton%20Tavares%20de%20Souza%2C%20S%C3%A3o%20Domingos%2C%20Niter%C3%B3i%20-%20RJ\" target=\"_blank\" rel=\"noopener\">open in maps</a></small>",
+        "local.build.dt":"Building","local.build.dd":"Building block 13<small>the Institute of Computing, on the lower part of the campus by the waterfront · there will be signage on the day</small>",
+        "local.gates.dt":"Gates","local.gates.dd":"E1, E2 and E3<small>E2 is the closest to block 13; E1 and E3 lead to the other areas of the campus</small>",
+        "local.park.dt":"Parking","local.park.dd":"On campus<small>parking areas are marked on the map, but space is limited, so consider a taxi or ride-hailing app</small>",
+        "local.air.dt":"Flying in","local.air.dd":"Rio de Janeiro airports<small>Tom Jobim/Galeão (GIG) and Santos Dumont (SDU) · from there to Niterói by taxi, ride-hailing app or bus</small>",
+        "local.boat.dt":"Rio to Niterói","local.boat.dd":"Ferry or bridge<small>the ferry links Praça XV, in Rio, to Arariboia station, in Niterói, in about 20 minutes · from the terminal to campus is a short taxi or ride-hailing trip</small>",
+        "local.food":"The campus has a university restaurant and canteens, marked in the map legend. Bring water and a snack too: competition day is a long one.",
+        "hosp.eyebrow":"Accommodation","hosp.h2":"Travelling in? Plan your stay",
+        "hosp.lead":"Hotel suggestions near UFF's Praia Vermelha campus, in Niterói, for anyone coming from another city. None of them has an agreement with the CTF: these are convenience listings only, with the address, the official site and the route to the competition venue. Rates and availability change, so always confirm directly with the property and book early.",
+        "hosp.near.h3":"Closest to campus","hosp.beach.h3":"Icaraí and Ingá, by the beach",
+        "hosp.tag.saodomingos":"São Domingos","hosp.tag.gragoata":"Gragoatá","hosp.tag.centro":"Downtown","hosp.tag.inga":"Ingá","hosp.tag.icarai":"Icaraí",
+        "hosp.village.addr":"Travessa Dr. João Francisco da Matta, 12 · entrance via Rua Mariz e Barros, 97 · Icaraí, Niterói – RJ",
+        "hosp.link.site":"Official site","hosp.link.route":"Route to the CTF",
+        "hosp.tip":"Tip for student teams: splitting a quad room is usually far cheaper, and Icaraí and Ingá are just a few minutes from campus by taxi or ride-hailing app. Staying on the Niterói side means you do not depend on the ferry or the bridge early on competition day.",
+        "hosp.sbseg":"Staying on for SBSeg 2026 after the CTF? The symposium runs in Armação dos Búzios (RJ) on September 1-4, with official accommodation, negotiated rates and a transfer from Rio de Janeiro. It is all on the SBSeg 2026 <a href=\"https://www.sbseg2026.uff.br/informacoes/local-do-evento/\" target=\"_blank\" rel=\"noopener\">Local do Evento</a> page.",
+        "hosp.source":"List based on the accommodation suggestions near IC/UFF published for previous events on the same campus. Addresses and websites were checked, but there is no agreement with the CTF: prices and availability must be confirmed directly with each hotel.",
         "coord.eyebrow":"Coordination","coord.h2":"Who runs the CTF","coord.lead":"The SBSeg 2026 CTF is organized by academia together with CERT.br, aligned with the event's official coordination.","coord.role":"Coordination",
         "coord.mgmtLabel":"FIRST replay platform managers",
         "coord.analystsLabel":"Analysts running the CTF",
