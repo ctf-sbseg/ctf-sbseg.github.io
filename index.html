@@ -669,6 +669,7 @@
   .cert-logo{display:block;height:46px;width:auto;}
   .cert-logo--cais{height:34px;}
   .cert-logo--tempest{height:36px;}
+  .cert-logo--chg{height:42px;}
   .cert-logo--sbseg{height:64px;}
   .apoio__desc{margin:0;text-align:center;color:var(--slate);font-size:0.96rem;max-width:440px;}
   .apoio__desc b{color:var(--ink);}
@@ -1049,7 +1050,7 @@
         <div><dt data-i18n="dl.platform.dt">Idioma</dt><dd data-i18n-html="dl.platform.dd">Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small></dd></div>
         <div><dt data-i18n="dl.gear.dt">Equipamento</dt><dd data-i18n-html="dl.gear.dd">Notebook, de preferência com Linux e shell<small>host ou VM com Linux ajuda bastante na resolução; haverá internet no local</small></dd></div>
         <div><dt data-i18n="dl.reg.dt">Inscrição</dt><dd data-i18n-html="dl.reg.dd">Valor simbólico<small>inscrições abertas pelo <a href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener">formulário oficial</a></small></dd></div>
-        <div><dt data-i18n="dl.prizes.dt">Prêmios</dt><dd data-i18n-html="dl.prizes.dd">Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest</small></dd></div>
+        <div><dt data-i18n="dl.prizes.dt">Prêmios</dt><dd data-i18n-html="dl.prizes.dd">Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest e do Cyber Horizon Group</small></dd></div>
       </dl>
     </div>
   </div>
@@ -1117,7 +1118,7 @@
       <article class="card reveal">
         <span class="card__n" data-i18n="why.05.n">05 / PREMIAÇÃO</span>
         <h3 data-i18n="why.05.h3">Prêmios e reconhecimento</h3>
-        <p data-i18n="why.05.p">Reconhecimento dos melhores times durante o SBSeg e premiação para os primeiros colocados, com apoio confirmado da Tempest. E tem brinde do CERT.br para todo participante que atingir a pontuação mínima.</p>
+        <p data-i18n="why.05.p">Reconhecimento dos melhores times durante o SBSeg e premiação para os primeiros colocados, com apoio confirmado da Tempest e do Cyber Horizon Group. E tem brinde do CERT.br para todo participante que atingir a pontuação mínima.</p>
       </article>
       <article class="card reveal">
         <span class="card__n" data-i18n="why.06.n">06 / DIVERSÃO</span>
@@ -1137,7 +1138,7 @@
       <p data-i18n="inscricao.lead">As inscrições estão abertas: preencha o formulário oficial e garanta a vaga da sua equipe, com valor simbólico.
         Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir.
         Vai ter premiação para os melhores colocados,
-        com apoio confirmado da Tempest: aguarde novidades!</p>
+        com apoio confirmado da Tempest e do Cyber Horizon Group: aguarde novidades!</p>
     </div>
     <div class="hero__cta reveal" style="justify-content:center">
       <a class="btn btn--primary" href="https://forms.gle/9jP4oXH9XWXaCv437" target="_blank" rel="noopener" data-i18n="inscricao.ctaForm">Preencher o formulário de inscrição →</a>
@@ -1158,15 +1159,18 @@
         <a class="apoio__logo" href="https://www.tempest.com.br" target="_blank" rel="noopener" aria-label="Tempest">
           <img class="cert-logo cert-logo--tempest" src="imgs/logo_tempest.png" width="215" height="56" alt="Tempest" />
         </a>
+        <a class="apoio__logo" href="https://cyberhorizongroup.io" target="_blank" rel="noopener" aria-label="Cyber Horizon Group">
+          <img class="cert-logo cert-logo--chg" src="imgs/cyberhorizongroup-2026.svg" width="247" height="99" alt="Cyber Horizon Group" />
+        </a>
       </div>
-      <p class="apoio__desc" data-i18n-html="apoio.desc">O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.</p>
+      <p class="apoio__desc" data-i18n-html="apoio.desc">O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> e o <b>Cyber Horizon Group</b> confirmaram apoio na premiação do CTF.</p>
       <span class="apoio__label" data-i18n="apoio.realizaLabel">Realização</span>
       <a class="apoio__logo" href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener" aria-label="SBSeg 2026">
         <img class="cert-logo cert-logo--sbseg" src="imgs/logo_sbseg2026.png" width="545" height="218" alt="XXVI SBSeg 2026" />
       </a>
     </div>
     <div class="partners reveal" data-i18n-attr="aria-label:inscricao.partnersLabel" aria-label="Apoio">
-      <span class="partner" data-i18n-html="partner.apoio"><b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg</span>
+      <span class="partner" data-i18n-html="partner.apoio"><b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Cyber Horizon Group · Comissão de Competições da CESeg</span>
       <span class="partner" data-i18n-html="partner.realiza"><b>Realização:</b> SBSeg 2026 / SBC</span>
     </div>
   </div>
@@ -1493,6 +1497,7 @@
       <a href="https://cert.br" target="_blank" rel="noopener">cert.br</a>
       <a href="https://www.rnp.br/cais/" target="_blank" rel="noopener">CAIS/RNP</a>
       <a href="https://www.tempest.com.br" target="_blank" rel="noopener">Tempest</a>
+      <a href="https://cyberhorizongroup.io" target="_blank" rel="noopener">Cyber Horizon Group</a>
       <a href="https://www.sbseg2026.uff.br" target="_blank" rel="noopener">SBSeg 2026</a>
       <a class="foot-cert" href="https://cert.br" target="_blank" rel="noopener" aria-label="CERT.br">
         <img class="cert-logo" src="imgs/logo_certbr.png" width="347" height="145" alt="CERT.br" />
@@ -1573,7 +1578,7 @@
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglês técnico<small>todos os desafios da plataforma estão em inglês técnico</small>",
         "dl.gear.dt":"Equipamento","dl.gear.dd":"Notebook, de preferência com Linux e shell<small>host ou VM com Linux ajuda bastante na resolução; haverá internet no local</small>",
         "dl.reg.dt":"Inscrição","dl.reg.dd":"Valor simbólico<small>inscrições abertas pelo <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulário oficial</a></small>",
-        "dl.prizes.dt":"Prêmios","dl.prizes.dd":"Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest</small>",
+        "dl.prizes.dt":"Prêmios","dl.prizes.dd":"Reconhecimento e premiação para os melhores<small>brinde do CERT.br para quem atingir a pontuação mínima; premiação com apoio da Tempest e do Cyber Horizon Group</small>",
         "niveis.eyebrow":"Para todos os níveis","niveis.h2":"Nunca jogou um CTF? Comece por aqui.","niveis.p":"Você não precisa ser especialista para participar: precisa ter vontade de investigar. Há desafios pensados para quem está começando e para quem já compete há anos. E, no fim, o melhor prêmio costuma ser quem você conhece tentando resolver os mesmos desafios.",
         "niveis.p2":"Nunca ouviu falar? Um CTF (Capture The Flag) é um jogo de quebra-cabeças computacionais: você analisa um artefato, descobre o que aconteceu e encontra a <b>flag</b>, um código que prova a solução. Você aprende jogando, e pode <a href='#demo'>experimentar um mini-desafio agora mesmo</a>.",
         "niveis.train":"Quer treinar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
@@ -1582,7 +1587,7 @@
         "why.02.n":"02 / CARREIRA","why.02.h3":"Habilidades que o mercado procura","why.02.p":"Análise de tráfego, malware, forense e criptografia estão entre as competências mais demandadas em segurança.",
         "why.03.n":"03 / NETWORKING","why.03.h3":"Conheça a comunidade","why.03.p":"Estudantes de todo o país, professores, o pessoal do CERT.br e empresas da área, todos no mesmo lugar.",
         "why.04.n":"04 / PORTFÓLIO","why.04.h3":"Vitrine para estágios e vagas","why.04.p":"Uma boa colocação no placar é um diferencial concreto para currículo, estágio e primeiras vagas na área.",
-        "why.05.n":"05 / PREMIAÇÃO","why.05.h3":"Prêmios e reconhecimento","why.05.p":"Reconhecimento dos melhores times durante o SBSeg e premiação para os primeiros colocados, com apoio confirmado da Tempest. E tem brinde do CERT.br para todo participante que atingir a pontuação mínima.",
+        "why.05.n":"05 / PREMIAÇÃO","why.05.h3":"Prêmios e reconhecimento","why.05.p":"Reconhecimento dos melhores times durante o SBSeg e premiação para os primeiros colocados, com apoio confirmado da Tempest e do Cyber Horizon Group. E tem brinde do CERT.br para todo participante que atingir a pontuação mínima.",
         "why.06.n":"06 / DIVERSÃO","why.06.h3":"É um jogo, no fim das contas","why.06.p":"Enigmas para resolver, códigos para quebrar e desafios para fechar junto com o seu time. Difícil não se divertir.",
         "faq.eyebrow":"FAQ","faq.h2":"Perguntas frequentes","faq.lead":"As dúvidas mais comuns de quem está pensando em participar. Não achou a sua? Pergunte pelo formulário de contato.",
         "faq.q1":"Preciso ter experiência com CTF ou com segurança?","faq.a1":"Não. Há desafios para todos os níveis, inclusive pensados para quem nunca jogou. Você aprende durante a competição, e o time se ajuda.",
@@ -1596,11 +1601,11 @@
         "faq.q8":"Como posso me preparar?","faq.a8":"Comece pelo <a href='#demo'>mini-desafio aqui do site</a> e treine em plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> e <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"Em que idioma estão os desafios?","faq.a9":"Todos os desafios da plataforma estão em inglês técnico: enunciados, descrições e materiais. Não é preciso fluência, mas ajuda estar à vontade com a terminologia técnica de segurança em inglês.",
         "meter.beginner":"Iniciante","meter.intermediate":"Intermediário","meter.advanced":"Avançado","meter.collab":"Colaboração",
-        "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"As inscrições estão abertas: preencha o formulário oficial e garanta a vaga da sua equipe, com valor simbólico. Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir. Vai ter premiação para os melhores colocados, com apoio confirmado da Tempest: aguarde novidades!",
+        "inscricao.eyebrow":"Inscrição","inscricao.h2":"Garanta a vaga da sua equipe","inscricao.lead":"As inscrições estão abertas: preencha o formulário oficial e garanta a vaga da sua equipe, com valor simbólico. Monte sua equipe: o tamanho ideal é 4, mas times menores, de 1 a 3, também podem competir. Vai ter premiação para os melhores colocados, com apoio confirmado da Tempest e do Cyber Horizon Group: aguarde novidades!",
         "inscricao.ctaForm":"Preencher o formulário de inscrição →","inscricao.formNote":"Formulário oficial de inscrição do CTF do SBSeg 2026. Uma equipe já inscrita pode ajustar os dados falando com a organização.",
         "inscricao.cta":"Acompanhar o SBSeg 2026 →","inscricao.ctaContato":"Dúvidas e sugestões? Entre em contato","inscricao.note":"Operação do CTF conduzida pelo CERT.br · infraestrutura e leaderboard ao vivo por conta da organização.","inscricao.partnersLabel":"Apoio",
-        "partner.apoio":"<b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Realização:</b> SBSeg 2026 / SBC",
-        "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> confirmou apoio na premiação do CTF.",
+        "partner.apoio":"<b>Apoio:</b> CERT.br · CAIS/RNP · Tempest · Cyber Horizon Group · Comissão de Competições da CESeg","partner.realiza":"<b>Realização:</b> SBSeg 2026 / SBC",
+        "apoio.label":"Apoio oficial","apoio.realizaLabel":"Realização","apoio.desc":"O <b>CERT.br</b> conduz toda a infraestrutura, a plataforma de submissão e o leaderboard ao vivo. O <b>CAIS/RNP</b> apoia com o time de testes e validação da plataforma. A <b>Tempest</b> e o <b>Cyber Horizon Group</b> confirmaram apoio na premiação do CTF.",
         "local.eyebrow":"Local","local.h2":"Onde o CTF acontece",
         "local.lead":"O CTF é presencial, no campus da Praia Vermelha da UFF, em Niterói (RJ). A competição fica no bloco dos prédios 13, o Instituto de Computação, marcado em vermelho no mapa abaixo.",
         "local.mapAlt":"Mapa do campus da Praia Vermelha da UFF com a legenda dos prédios, entradas, estacionamentos e pontos de alimentação. O CTF está destacado no bloco dos prédios 13, o Instituto de Computação.",
@@ -1687,7 +1692,7 @@
         "dl.platform.dt":"Idioma","dl.platform.dd":"Inglés técnico<small>todos los desafíos de la plataforma están en inglés técnico</small>",
         "dl.gear.dt":"Equipamiento","dl.gear.dd":"Portátil, de preferencia con Linux y shell<small>un host o VM con Linux ayuda bastante en la resolución; habrá internet en el lugar</small>",
         "dl.reg.dt":"Inscripción","dl.reg.dd":"Valor simbólico<small>inscripciones abiertas por el <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>formulario oficial</a></small>",
-        "dl.prizes.dt":"Premios","dl.prizes.dd":"Reconocimiento y premios para los mejores<small>obsequio del CERT.br para quien alcance la puntuación mínima; premios con apoyo de Tempest</small>",
+        "dl.prizes.dt":"Premios","dl.prizes.dd":"Reconocimiento y premios para los mejores<small>obsequio del CERT.br para quien alcance la puntuación mínima; premios con apoyo de Tempest y de Cyber Horizon Group</small>",
         "niveis.eyebrow":"Para todos los niveles","niveis.h2":"¿Nunca jugaste un CTF? Empieza por aquí.","niveis.p":"No necesitas ser experto para participar: necesitas ganas de investigar. Hay desafíos pensados para quien empieza y para quien ya compite hace años. Y, al final, el mejor premio suele ser la gente que conoces intentando resolver los mismos desafíos.",
         "niveis.p2":"¿Nunca escuchaste hablar de esto? Un CTF (Capture The Flag) es un juego de acertijos computacionales: analizas un artefacto, descubres qué pasó y encuentras la <b>flag</b>, un código que prueba la solución. Aprendes jugando, y puedes <a href='#demo'>probar un minidesafío ahora mismo</a>.",
         "niveis.train":"¿Quieres entrenar antes? Plataformas gratuitas: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
@@ -1696,7 +1701,7 @@
         "why.02.n":"02 / CARRERA","why.02.h3":"Habilidades que el mercado busca","why.02.p":"Análisis de tráfico, malware, forense y criptografía están entre las competencias más demandadas en seguridad.",
         "why.03.n":"03 / NETWORKING","why.03.h3":"Conoce a la comunidad","why.03.p":"Estudiantes de todo el país, profesores, la gente del CERT.br y empresas del área, todos en el mismo lugar.",
         "why.04.n":"04 / PORTAFOLIO","why.04.h3":"Vitrina para pasantías y empleos","why.04.p":"Una buena posición en el marcador es un diferencial concreto para el currículum, pasantías y primeros empleos en el área.",
-        "why.05.n":"05 / PREMIOS","why.05.h3":"Premios y reconocimiento","why.05.p":"Reconocimiento de los mejores equipos durante el SBSeg y premios para los primeros clasificados, con apoyo confirmado de Tempest. Y hay un obsequio del CERT.br para todo participante que alcance la puntuación mínima.",
+        "why.05.n":"05 / PREMIOS","why.05.h3":"Premios y reconocimiento","why.05.p":"Reconocimiento de los mejores equipos durante el SBSeg y premios para los primeros clasificados, con apoyo confirmado de Tempest y de Cyber Horizon Group. Y hay un obsequio del CERT.br para todo participante que alcance la puntuación mínima.",
         "why.06.n":"06 / DIVERSIÓN","why.06.h3":"Al final, es un juego","why.06.p":"Acertijos por resolver, códigos por romper y desafíos por cerrar junto a tu equipo. Difícil no divertirse.",
         "faq.eyebrow":"FAQ","faq.h2":"Preguntas frecuentes","faq.lead":"Las dudas más comunes de quien está pensando en participar. ¿No encontraste la tuya? Pregunta por el formulario de contacto.",
         "faq.q1":"¿Necesito experiencia con CTF o con seguridad?","faq.a1":"No. Hay desafíos para todos los niveles, incluso pensados para quien nunca jugó. Aprendes durante la competición, y el equipo se ayuda.",
@@ -1710,11 +1715,11 @@
         "faq.q8":"¿Cómo puedo prepararme?","faq.a8":"Empieza por el <a href='#demo'>minidesafío de este sitio</a> y entrena en plataformas gratuitas como <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> y <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"¿En qué idioma están los desafíos?","faq.a9":"Todos los desafíos de la plataforma están en inglés técnico: enunciados, descripciones y materiales. No hace falta fluidez, pero ayuda sentirse cómodo con la terminología técnica de seguridad en inglés.",
         "meter.beginner":"Principiante","meter.intermediate":"Intermedio","meter.advanced":"Avanzado","meter.collab":"Colaboración",
-        "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"Las inscripciones están abiertas: completa el formulario oficial y asegura el lugar de tu equipo, con valor simbólico. Arma tu equipo: el tamaño ideal es 4, pero equipos más pequeños, de 1 a 3, también pueden competir. ¡Habrá premios para los mejores clasificados, con apoyo confirmado de Tempest: espera novedades!",
+        "inscricao.eyebrow":"Inscripción","inscricao.h2":"Asegura el lugar de tu equipo","inscricao.lead":"Las inscripciones están abiertas: completa el formulario oficial y asegura el lugar de tu equipo, con valor simbólico. Arma tu equipo: el tamaño ideal es 4, pero equipos más pequeños, de 1 a 3, también pueden competir. ¡Habrá premios para los mejores clasificados, con apoyo confirmado de Tempest y de Cyber Horizon Group: espera novedades!",
         "inscricao.ctaForm":"Completar el formulario de inscripción →","inscricao.formNote":"Formulario oficial de inscripción del CTF del SBSeg 2026. Un equipo ya inscrito puede ajustar sus datos hablando con la organización.",
         "inscricao.cta":"Seguir el SBSeg 2026 →","inscricao.ctaContato":"¿Dudas y sugerencias? Contáctanos","inscricao.note":"Operación del CTF conducida por el CERT.br · infraestructura y leaderboard en vivo por cuenta de la organización.","inscricao.partnersLabel":"Apoyo",
-        "partner.apoio":"<b>Apoyo:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Realización:</b> SBSeg 2026 / SBC",
-        "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura, la plataforma de envío y el leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> confirmó su apoyo en la premiación del CTF.",
+        "partner.apoio":"<b>Apoyo:</b> CERT.br · CAIS/RNP · Tempest · Cyber Horizon Group · Comissão de Competições da CESeg","partner.realiza":"<b>Realización:</b> SBSeg 2026 / SBC",
+        "apoio.label":"Apoyo oficial","apoio.realizaLabel":"Realización","apoio.desc":"El <b>CERT.br</b> conduce toda la infraestructura, la plataforma de envío y el leaderboard en vivo. El <b>CAIS/RNP</b> apoya con el equipo de pruebas y validación de la plataforma. <b>Tempest</b> y <b>Cyber Horizon Group</b> confirmaron su apoyo en la premiación del CTF.",
         "local.eyebrow":"Lugar","local.h2":"Dónde ocurre el CTF",
         "local.lead":"El CTF es presencial, en el campus de Praia Vermelha de la UFF, en Niterói (RJ). La competencia ocurre en el bloque de los edificios 13, el Instituto de Computación, marcado en rojo en el mapa de abajo.",
         "local.mapAlt":"Mapa del campus de Praia Vermelha de la UFF con la leyenda de los edificios, entradas, estacionamientos y puntos de comida. El CTF está destacado en el bloque de los edificios 13, el Instituto de Computación.",
@@ -1801,7 +1806,7 @@
         "dl.platform.dt":"Language","dl.platform.dd":"Technical English<small>all platform challenges are in technical English</small>",
         "dl.gear.dt":"Gear","dl.gear.dd":"A laptop, preferably running Linux with a shell<small>a Linux host or VM helps a lot when solving; there will be internet on site</small>",
         "dl.reg.dt":"Registration","dl.reg.dd":"Symbolic fee<small>registration open through the <a href='https://forms.gle/9jP4oXH9XWXaCv437' target='_blank' rel='noopener'>official form</a></small>",
-        "dl.prizes.dt":"Prizes","dl.prizes.dd":"Recognition and prizes for the top teams<small>a CERT.br gift for anyone who reaches the minimum score; prizes supported by Tempest</small>",
+        "dl.prizes.dt":"Prizes","dl.prizes.dd":"Recognition and prizes for the top teams<small>a CERT.br gift for anyone who reaches the minimum score; prizes supported by Tempest and Cyber Horizon Group</small>",
         "niveis.eyebrow":"For every level","niveis.h2":"Never played a CTF? Start here.","niveis.p":"You do not need to be an expert to take part: you need the will to investigate. There are challenges designed for those just starting and for those who have competed for years. And in the end, the best prize is usually the people you meet while solving the same challenges.",
         "niveis.p2":"Never heard of it? A CTF (Capture The Flag) is a game of computational puzzles: you analyze an artifact, figure out what happened and find the <b>flag</b>, a code that proves the solution. You learn by playing, and you can <a href='#demo'>try a mini challenge right now</a>.",
         "niveis.train":"Want to practice first? Free platforms: <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a> · <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> · <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>",
@@ -1810,7 +1815,7 @@
         "why.02.n":"02 / CAREER","why.02.h3":"Skills the market wants","why.02.p":"Traffic analysis, malware, forensics and cryptography are among the most sought-after skills in security.",
         "why.03.n":"03 / NETWORKING","why.03.h3":"Meet the community","why.03.p":"Students from all over the country, professors, the CERT.br crew and companies in the field, all in one place.",
         "why.04.n":"04 / PORTFOLIO","why.04.h3":"A showcase for internships and jobs","why.04.p":"A good spot on the scoreboard is a concrete differentiator for your résumé, internships and first jobs in the field.",
-        "why.05.n":"05 / PRIZES","why.05.h3":"Prizes and recognition","why.05.p":"Recognition for the top teams during SBSeg and prizes for the top finishers, with support confirmed by Tempest. Plus a CERT.br gift for every participant who reaches the minimum score.",
+        "why.05.n":"05 / PRIZES","why.05.h3":"Prizes and recognition","why.05.p":"Recognition for the top teams during SBSeg and prizes for the top finishers, with support confirmed by Tempest and Cyber Horizon Group. Plus a CERT.br gift for every participant who reaches the minimum score.",
         "why.06.n":"06 / FUN","why.06.h3":"It is a game, after all","why.06.p":"Puzzles to solve, codes to break and challenges to close together with your team. Hard not to have fun.",
         "faq.eyebrow":"FAQ","faq.h2":"Frequently asked questions","faq.lead":"The most common questions from those thinking about taking part. Did not find yours? Ask through the contact form.",
         "faq.q1":"Do I need experience with CTFs or security?","faq.a1":"No. There are challenges for every level, including some designed for first-timers. You learn during the competition, and the team helps each other.",
@@ -1824,11 +1829,11 @@
         "faq.q8":"How can I prepare?","faq.a8":"Start with the <a href='#demo'>mini challenge on this site</a> and practice on free platforms like <a href='https://picoctf.org' target='_blank' rel='noopener'>picoCTF</a>, <a href='https://ctf101.org' target='_blank' rel='noopener'>CTF101</a> and <a href='https://cyberdefenders.org' target='_blank' rel='noopener'>CyberDefenders</a>.",
         "faq.q9":"What language are the challenges in?","faq.a9":"All platform challenges are in technical English: prompts, descriptions and materials. You do not need fluency, but being comfortable with security's technical terminology in English helps.",
         "meter.beginner":"Beginner","meter.intermediate":"Intermediate","meter.advanced":"Advanced","meter.collab":"Collaboration",
-        "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"Registration is open: fill in the official form and secure your team's spot, with a symbolic fee. Build your team: the ideal size is 4, but smaller teams, from 1 to 3, can also compete. There will be prizes for the top teams, with support confirmed by Tempest: stay tuned for news!",
+        "inscricao.eyebrow":"Registration","inscricao.h2":"Secure your team's spot","inscricao.lead":"Registration is open: fill in the official form and secure your team's spot, with a symbolic fee. Build your team: the ideal size is 4, but smaller teams, from 1 to 3, can also compete. There will be prizes for the top teams, with support confirmed by Tempest and Cyber Horizon Group: stay tuned for news!",
         "inscricao.ctaForm":"Fill in the registration form →","inscricao.formNote":"Official registration form for the SBSeg 2026 CTF. A team already registered can adjust its details by talking to the organization.",
         "inscricao.cta":"Follow SBSeg 2026 →","inscricao.ctaContato":"Questions or suggestions? Get in touch","inscricao.note":"CTF operation run by CERT.br · infrastructure and live leaderboard handled by the organization.","inscricao.partnersLabel":"Support",
-        "partner.apoio":"<b>Support:</b> CERT.br · CAIS/RNP · Tempest · Comissão de Competições da CESeg","partner.realiza":"<b>Hosted by:</b> SBSeg 2026 / SBC",
-        "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure, the submission platform and the live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> has confirmed its support for the CTF prizes.",
+        "partner.apoio":"<b>Support:</b> CERT.br · CAIS/RNP · Tempest · Cyber Horizon Group · Comissão de Competições da CESeg","partner.realiza":"<b>Hosted by:</b> SBSeg 2026 / SBC",
+        "apoio.label":"Official support","apoio.realizaLabel":"Hosted by","apoio.desc":"<b>CERT.br</b> runs the entire infrastructure, the submission platform and the live leaderboard. <b>CAIS/RNP</b> supports with the platform testing and validation team. <b>Tempest</b> and <b>Cyber Horizon Group</b> have confirmed their support for the CTF prizes.",
         "local.eyebrow":"Venue","local.h2":"Where the CTF takes place",
         "local.lead":"The CTF is an in-person event on UFF's Praia Vermelha campus, in Niterói (RJ), Brazil. The competition runs in building block 13, the Institute of Computing, highlighted in red on the map below.",
         "local.mapAlt":"Map of UFF's Praia Vermelha campus with a legend of buildings, gates, parking areas and food spots. The CTF is highlighted in building block 13, the Institute of Computing.",
